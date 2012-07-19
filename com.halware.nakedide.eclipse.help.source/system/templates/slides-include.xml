@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE slides PUBLIC "-//Norman Walsh//DTD Slides V3.4//EN"
+          "http://docbook.sourceforge.net/release/slides/3.4/schema/slides.dtd"
+
+  [
+    <!ENTITY % global.entities SYSTEM "../../../system/custom-xsl/global-entities.xml">
+    %global.entities;
+
+    <!ENTITY % entities SYSTEM "../custom-cfg/local-entities.xml">
+    %entities;
+  ]
+>
+
+<ximy:includelist xmlns:ximy="http://www.agynamix.de/XincludeExtension">
+
+  <foil>
+		<title>Included Foil</title>
+		<para>
+		  This is an included foil.
+    </para>
+	</foil>
+
+</ximy:includelist>

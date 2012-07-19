@@ -1,0 +1,19 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.1.6.&nbsp;The no?? Templates</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04s03s01.html" title="3.1.&nbsp;Domain Object Templates (within type definition)"><link rel="prev" href="ch04s03s01s05.html" title="3.1.5.&nbsp;The logger Template"><link rel="next" href="ch04s03s01s07.html" title="3.1.7.&nbsp;The val Template"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e2166"></a>3.1.6.&nbsp;The no?? Templates</h4></div></div></div><p>There are 9 of these templates, providing 3 variants of the
+          templates for each of properties, collections and actions. They
+          follow the format <code class="computeroutput">noXY</code>,
+          where:</p><div class="itemizedlist"><ul type="disc"><li><p>
+                        <code class="computeroutput">X</code> = a (action), c
+              (collection), p (property)</p></li><li><p>
+                        <code class="computeroutput">Y</code> = c (common), f (full),
+              s (supporting)</p></li></ul></div><p>Applying the common template (eg
+          <code class="computeroutput">nopc</code>) followed by the supporting
+          template (eg <code class="computeroutput">nops</code>) is equivalent to
+          applying the full template (eg
+          <code class="computeroutput">nopf</code>). The templates are split this
+          way because in practice most class members don't need the whole
+          gamut of supporting methods (or at least, they are only required
+          later on as additional business rules are uncovered; while initially
+          coming to grips with a domain object model they tend to get in the
+          way).</p></div></body></html>

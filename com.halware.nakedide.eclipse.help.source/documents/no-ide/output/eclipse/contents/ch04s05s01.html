@@ -1,0 +1,41 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>5.1.&nbsp;Problems Markers</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04s05.html" title="5.&nbsp;Project Builder"><link rel="prev" href="ch04s05.html" title="5.&nbsp;Project Builder"><link rel="next" href="ch04s05s02.html" title="5.2.&nbsp;Quick Fixes"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e2362"></a>5.1.&nbsp;Problems Markers</h3></div></div></div><p>Any problems located by the project builder are displayed in
+        Eclipse's <code class="computeroutput">Problems</code> view. The severity
+        is always Warning (not Error):</p><div class="mediaobject"><img src="resource/project-builder-orphaned-actions.gif"></div><p>The types of problems picked up by the project builder
+        are:</p><div class="itemizedlist"><ul type="disc"><li><p>Ambiguous method (could represent both a property/collection
+            and an action</p></li><li><p>Incorrect parameter type for method (differs from accessor
+            method return type)</p><p>Applies to: mutator method,
+            <code class="computeroutput">modify</code> method,
+            <code class="computeroutput">validate</code> method,</p></li><li><p>Incorrect parameter type for collection method (should be
+            parameterized type of the accessor method's return type)</p><p>Applies to: <code class="computeroutput">addTo</code> method,
+            <code class="computeroutput">removeFrom</code> method,
+            <code class="computeroutput">validate</code> method,
+            <code class="computeroutput">validateAddTo</code> method,
+            <code class="computeroutput">validateRemoveFrom</code> method,</p></li><li><p>Parameter types for actions are incorrect (should be same as
+            action method's)</p><p>Applies to: <code class="computeroutput">disable</code> method,
+            <code class="computeroutput">hide</code> method,
+            <code class="computeroutput">default</code> method,
+            <code class="computeroutput">choices</code> method</p></li><li><p>Method for property should have zero parameters</p><p>Applies to: <code class="computeroutput">clear</code> method,
+            <code class="computeroutput">disable</code> method,
+            <code class="computeroutput">hide</code> method,
+            <code class="computeroutput">default</code> method,
+            <code class="computeroutput">choices</code> method,</p></li><li><p>Method for collection should have zero parameters</p><p>Applies to: <code class="computeroutput">disable</code> method,
+            <code class="computeroutput">hide</code> method,</p></li><li><p>Orphaned method (no corresponding accessor or action
+            method)</p><p>Applies to: mutator method,
+            <code class="computeroutput">modify</code> method,
+            <code class="computeroutput">clear</code> method,
+            <code class="computeroutput">addTo</code> method,
+            <code class="computeroutput">removeFrom</code> method,
+            <code class="computeroutput">validate</code> method,
+            <code class="computeroutput">validateAddTo</code> method,
+            <code class="computeroutput">validateRemoveFrom</code> method,
+            <code class="computeroutput">disable</code> method,
+            <code class="computeroutput">hide</code> method,
+            <code class="computeroutput">default</code> method,
+            <code class="computeroutput">choices</code> method,</p></li><li><p>
+                     <code class="computeroutput">validate</code> prefix incorrect
+            for collections - use
+            <code class="computeroutput">validateAddTo</code> or
+            <code class="computeroutput">validateRemoveFrom</code>
+                  </p></li><li><p>title method must return a String</p></li><li><p>No title or overridden toString</p></li></ul></div></div></body></html>

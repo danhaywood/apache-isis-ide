@@ -1,0 +1,26 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>9.&nbsp;Update the Classpath</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s08.html" title="8.&nbsp;Add a new Fixture"><link rel="next" href="ch03s10.html" title="10.&nbsp;Format Code"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1826"></a>9.&nbsp;Update the Classpath</h2></div></div></div><p>Because the projects created by the <a href="ch04s01.html#ProjectWizards">project wizards</a> - and the Naked Objects
+      runtime itself - are OSGi projects, this means that updating the
+      classpath is performed by updating the project manifest
+      (<code class="computeroutput">META-INF/MANIFEST.MF</code>) rather than
+      modifying the Java Build Path (from
+      <code class="computeroutput">Project&gt;Properties</code>).</p><p>To make the changes, open up the Dependencies tab of the Manifest
+      editor:</p><div class="mediaobject"><img src="resource/osgi-manifest-dependencies.gif"></div><p>This corresponds to the
+      <code class="computeroutput">Require-Bundle</code>: entry in the
+      <code class="computeroutput">MANIFEST.MF</code>; alternatively you can
+      modify this directly:</p><div class="mediaobject"><img src="resource/osgi-manifest-dependencies-2.gif"></div><p>If you need to reference a 3rd party library - for example as part
+      of the implementation of technical <a href="ch02s06.html#Services">service</a> - then you will need it as an OSGi
+      bundle first. This may have been done for you, put if not it is not
+      difficult to do.</p><div class="itemizedlist"><ul type="disc"><li><p>There are a couple of OSGi bundle repositories to check.
+          First, under Eclipse the <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://www.eclipse.org/orbit/" target="_top">orbit</a> subproject has a
+          small selection. Alternatively the <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://osgibundles.sourceforge.net" target="_top">osgibundles</a> open
+          source project, hosted on sourceforge and managed by the NOF/NO IDE
+          developers (yours truly), has a reasonable collection. Contact us if
+          you would like any additional JAR files uploading.</p></li><li><p>Otherwise though you can convert the 3rd party library
+          yourself. Unless you want the capability to step into its source
+          code, the easiest approach is to use Eclipse's wizard:
+          <code class="computeroutput">File&gt;New&gt;Project...&gt;Plug-in
+          Development&gt;Plug-in from existing JAR archives</code>.
+          All of the bundles in <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://osgibundles.sourceforge.net" target="_top">osgibundles</a> have
+          been built this way.</p></li></ul></div></div></body></html>

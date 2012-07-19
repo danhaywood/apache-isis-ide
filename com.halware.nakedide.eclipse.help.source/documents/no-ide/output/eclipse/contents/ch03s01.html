@@ -1,0 +1,19 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>1.&nbsp;Code Folding</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03.html" title="Tasks"><link rel="next" href="ch03s02.html" title="2.&nbsp;Create a new Domain Object"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1363"></a>1.&nbsp;Code Folding</h2></div></div></div><p>The NO IDE bundles up a patched version of the Coffee Bytes code
+      folding plugin. The <a href="ch01s05.html#TutorialBrowsing">tutorial</a>
+      explains how to enable the code folding feature. With it enabled the
+      presentation of even quite large domain objects reduces quite
+      substantially:</p><div class="mediaobject"><img src="resource/Customer-folded.gif"></div><p>The folded regions can be expanded/collapsed in the usual way,
+      namely <code class="computeroutput">ctrl+NumPad_Add</code> and
+      <code class="computeroutput">ctrl+NumPad_Subtract</code>. It is also
+      possible to nest regions. For example, in the
+      <code class="computeroutput">Customer</code> class there are three members
+      relating to orders: the <code class="computeroutput">Orders</code>
+      collection, the <code class="computeroutput">LastOrder</code> property and
+      the <code class="computeroutput">PlaceOrder</code> action. We could nest
+      these into a single region as follows:</p><div class="mediaobject"><img src="resource/folding-nested-regions-1.gif"></div><p>When folded this collapses to the even more compact:</p><div class="mediaobject"><img src="resource/folding-nested-regions-2.gif"></div><p>One word of warning, however: the Coffee Bytes plugin is (as its
+      author admits) a llittle buggy: sometimes the opening <code class="computeroutput">//
+      {{</code> of a region is not recognised. The best advice we
+      can give is to open and close the editor and see if that works. (A fixed
+      and in-built code folder is on the IDE <a href="">backlog</a>).</p></div></body></html>

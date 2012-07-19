@@ -1,0 +1,32 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>5.&nbsp;Rename a Property, Collection or Action</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s04.html" title="4.&nbsp;Apply Annotations"><link rel="next" href="ch03s06.html" title="6.&nbsp;Change an Action Signature"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1616"></a>5.&nbsp;Rename a Property, Collection or Action</h2></div></div></div><p>The <a href="ch02s03.html#NO-Applib">Naked Objects programming
+      model</a> relies on a number of naming conventions to group together
+      methods as representing a single feature of a domain object. For
+      example, a property will always consist of an instance variable, an
+      accessor (<code class="computeroutput">getXxx</code>) and a mutator
+      (<code class="computeroutput">setXxx</code>), but may also consist of any
+      or all of <code class="computeroutput">modifyXxx</code>,
+      <code class="computeroutput">clearXxx</code>,
+      <code class="computeroutput">validateXxx</code>,
+      <code class="computeroutput">disableXxx</code>,
+      <code class="computeroutput">hideXxx</code>,
+      <code class="computeroutput">defaultXxx</code> and
+      <code class="computeroutput">choicesXxx</code> methods.</p><p>Eclipse's refactoring support automatically renames getters and
+      setters when renaming an instance variable, but (obviously) does not
+      know to rename these other NOA-specific methods. However the NO IDE does
+      add this capability. Modifying any of these methods or indeed the
+      instance variable using
+      <code class="computeroutput">Refactor&gt;Rename...</code> will
+      automatically cause the other methods to be renamed. For example, we can
+      rename the <code class="computeroutput">Customer#placeOrder</code> action
+      to <code class="computeroutput">Customer#createOrder</code>:</p><div class="mediaobject"><img src="resource/refactor-rename-placeOrder.gif"></div><p>Occasionally you may have a requirement to override this
+      functionality. In general the NO IDE does not veto refactorings but
+      instead warns about them. For example, renaming
+      <code class="computeroutput">Customer#getFirstName</code> to
+      <code class="computeroutput">Customer#obtainFirstName</code> (changing the
+      prefix) results in this warning:</p><div class="mediaobject"><img src="resource/refactoring-warnings.gif"></div><p>However, you can still continue with the refactoring if you
+      wish.</p><p>Alternatively (and more likely as a workaround if you have
+      discovered a bug in the NO IDE), then you can disable the Naked Objects
+      <a href="ch04s09s02.html#NO-Nature">nature</a>, perform the refactoring, and
+      the re-enable the nature afterwards.</p></div></body></html>

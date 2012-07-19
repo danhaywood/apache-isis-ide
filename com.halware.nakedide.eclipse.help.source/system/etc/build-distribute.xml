@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This file is part of Dopus                                              -->
+
+<!-- Dopus is free software; you can redistribute it and/or modify           -->
+<!-- it under the terms of the GNU General Public License as published by    -->
+<!-- the Free Software Foundation; either version 2 of the License, or       -->
+<!-- (at your option) any later version.                                     -->
+
+<!-- Dopus is distributed in the hope that it will be useful,                -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!-- GNU General Public License for more details.                            -->
+
+<!-- You should have received a copy of the GNU General Public License       -->
+<!-- along with Dopus; if not, write to the Free Software                    -->
+<!-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+
+<!-- (c) 2006 by AGYNAMIX                                                    -->
+<!-- You can download the latest version of this software at                 -->
+<!-- http://www.agynamix.de                                                  -->
+
+<project name="Dopus distribution targets" >
+
+  <target name="distribute-dopus-worker">
+    <delete>
+      <fileset dir="${dopus.dir}/manuals/dopus" >
+        <include name="**/*" />
+      </fileset>
+    </delete>
+    <ant antfile="system/etc/build-main.xml" inheritall="false" target="distribute-document">
+      <property name="project.input.document" value="dopus-manual"/>
+      <property name="project.input.file"     value="dopus-manual" />
+      <property name="project.output.mode"    value="distribute"/>
+    </ant>
+    <copy todir="${dopus.dir}/manuals/dopus">
+      <fileset dir="${dopus.dir}/documents/dopus-manual" >
+        <include name="**/*.zip" />
+      </fileset>
+    </copy>
+    <ant antfile="system/etc/build-main.xml" inheritall="false" target="pdf">
+      <property name="project.input.document" value="dopus-manual"/>
+      <property name="project.input.file"     value="dopus-manual" />
+      <property name="project.output.mode"    value="pdf"/>
+    </ant>
+    <copy todir="${dopus.dir}/manuals/dopus" file="${dopus.dir}/documents/dopus-manual/output/pdf/dopus-manual.pdf" />
+
+    <ant antfile="system/etc/build-main.xml" inheritall="false" target="singlehtml">
+      <property name="project.input.document" value="dopus-manual"/>
+      <property name="project.output.mode"    value="singlehtml"/>
+      <property name="project.input.file"     value="releasenotes" />
+      <property name="ENV_PARAM_3"            value="releasenotes"/>
+    </ant>
+    <copy todir="${dopus.dir}" file="${dopus.dir}/documents/dopus-manual/output/singlehtml/releasenotes.html" />
+
+    <delete file="${distribute.zip.name}" failonerror="false"/>   
+
+  	<zip destfile="${distribute.zip.name}" update="false" compress="true">
+      <zipfileset dir="${basedir}" prefix="dopus-${version}" excludes="${distribute.zip.excludes}">
+        <include name="**"/>
+        <exclude name="*.sh"/>
+      </zipfileset>
+      <zipfileset dir="${basedir}" prefix="dopus-${version}" filemode="755">
+        <include name="*.sh"/>
+      </zipfileset>
+    </zip> 
+  	
+  </target>
+
+  <target name="distribute-dopus-jre">
+    <antcall target="distribute-dopus-worker">
+      <param name="distribute.zip.excludes" value="**/documents/**,**/.svn,**/xfc/**,*.zip"/>
+      <param name="distribute.zip.name"     value="dopus-jre-${version}.zip"/>
+    </antcall>
+  </target>
+
+  <target name="distribute-dopus-nojre">
+    <antcall target="distribute-dopus-worker">
+      <param name="distribute.zip.excludes" value="**/documents/**,**/.svn,**/xfc/**,*.zip,**/jre/**"/>
+      <param name="distribute.zip.name"     value="dopus-nojre-${version}.zip"/>
+    </antcall>
+  </target>
+  
+  <target name="distribute-dopus">
+    <echo>Building a distributable ZIP file of DoPus. Excluding all documents.</echo>        
+    <switch value="${ENV_PARAM_3}">
+      <case value="all">
+        <antcall target="distribute-dopus-nojre" />
+        <antcall target="distribute-dopus-jre" />
+      </case>
+      <case value="nojre">
+        <antcall target="distribute-dopus-nojre" />
+      </case>
+      <case value="jre">
+        <antcall target="distribute-dopus-jre" />
+      </case>
+      <default>
+        <antcall target="distribute-dopus-nojre" />
+        <antcall target="distribute-dopus-jre" />
+      </default>
+    </switch>
+  </target>
+  
+  <target name="distribute-document">
+    <echo>Building a distributable ZIP archive of ${project.input.document}.</echo>
+    <property name="document.archive.file" value="${project.dir}/${project.input.document}-src-${document.version}.zip" />
+    <delete file="${document.archive.file}" failonerror="false"/>
+    <zip destfile="${document.archive.file}" basedir="${project.dir}/.."
+         includes="${project.input.document}/**" compress="true"
+         excludes="${project.input.document}/output/**,**/.svn,**/*.zip">
+    </zip>
+  </target>
+  
+  <target name="distribute" description="Distribute a part of Dopus">
+    <if><equals arg1="${project.input.document}" arg2="dopus" /><then>
+       <antcall target="distribute-dopus" />
+     </then><else>
+       <antcall target="distribute-document" />
+     </else>
+    </if>  
+  </target>
+
+</project>

@@ -1,0 +1,37 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>1.&nbsp;Create a new Application Project</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch01.html" title="Getting Started"><link rel="prev" href="ch01.html" title="Getting Started"><link rel="next" href="ch01s02.html" title="2.&nbsp;Create a new Fixture Project"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e23"></a>1.&nbsp;Create a new Application Project</h2></div></div></div><p>Naked Objects applications are typically broken into several
+      different projects, the most important of which is the applicaiton
+      project. This contains the domain objects and supporting services that
+      make up the application. The <a href="ch04s01s01.html#ApplicationProjectWizard">Application Project Wizard</a>
+      allows you to quickly create a simple 3-class sample application with
+      the classpath and other resources correctly set up.</p><p>Use <code class="computeroutput">File&gt;New&gt;Project...&gt;Naked
+      Objects</code> to list the NO IDE's project wizards. Select
+      the <code class="computeroutput">Application Project</code> wizard and
+      press <code class="computeroutput">Next</code>:</p><div class="mediaobject"><img src="resource/new-project-application-wizard-selected.gif"></div><p>This brings up the first page of the wizard. In the
+      <code class="computeroutput">Project name</code> field, enter a name for
+      the project, and change any other settings. Then press
+      <code class="computeroutput">Next</code>.</p><div class="mediaobject"><img src="resource/application-project-wizard-page-1.gif"></div><p>On the second page, adjust the
+      <code class="computeroutput">Version</code> and
+      <code class="computeroutput">Provider</code> if required, and then
+      <code class="computeroutput">Next</code>:</p><div class="mediaobject"><img src="resource/application-project-wizard-page-2.gif"></div><p>On the third and final page, ensure the <code class="computeroutput">Generate
+      sample code</code> checkbox is ticked, and press
+      <code class="computeroutput">Finish</code>:</p><div class="mediaobject"><img src="resource/application-project-wizard-page-3.gif"></div><p>The wizard copies example code and icons to create the new
+      project. When it is done the application workbench will be displayed,
+      showing the project:</p><div class="mediaobject"><img src="resource/application-project-in-workbench.gif"></div><p>There are a couple of things to note. First and most obviously is
+      the layout of the workbench itself, which is as defined by the new <a href="ch04s02.html#NO-Perspective">Naked Objects perspective</a>. This
+      perspective brings together all the most useful views provided by the NO
+      IDE. Second, the project has a <a href="ch04s09s02.html#NO-Nature">Naked Objects
+      nature</a> (note the small 'N' overlay on the project); various other
+      features of the NO IDE enable themselves based upon the presence of this
+      nature. Third, note that the project that has has been created is in
+      fact an OSGi (or plugin) project, hence the manifest in the editor
+      area.</p><p>Let's now look at the generated code in the
+      <code class="computeroutput">Package Explorer</code>:</p><div class="mediaobject"><img src="resource/application-project-project-explorer.gif"></div><p>The application project includes a very simple (3 class) domain
+      object model, along with 3 supporting <a href="ch02s06.html#Services">repositories</a>. These make a good starting point
+      for any new application - just refactor them and modify them as
+      required. Note also the provided images, with names matching the
+      classes.</p><p>Although the application project is the most important of the
+      projects to create, it isn't possible to run the client yet. For that we
+      need both a <a href="ch01s02.html#TutorialFixtureProject">fixture
+      project</a> and a client project.</p></div></body></html>

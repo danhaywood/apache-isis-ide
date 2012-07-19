@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point 
+   		id="applicationProjectListener" 
+   		name="Application Project Listener" schema="schema/applicationProjectListener.exsd"/>
+
+<!--
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Naked Objects IDE"
+            class="com.halware.nakedide.eclipse.core.logging.LogPreferencePage"
+            id="org.nakedobjects.ide.eclipse.logging.LogPreferencePage">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup class="com.halware.nakedide.eclipse.core.logging.Startup"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.jdt.ui.javaCompletionProposalComputer"
+         id="domain-object"
+         name="Naked Objects Domain Object Template Proposals"
+         >
+       <proposalCategory icon="icons/hal_logo.gif"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.jdt.ui.javaCompletionProposalComputer"
+         id="domain-object.proposalComputer"
+         >
+       <javaCompletionProposalComputer
+             activate="true"
+             class="com.halware.nakedide.eclipse.core.templates.propl.DomainObjectCompltnProplComputer">
+          <partition type="__dftl_partition_content_type"/>
+       </javaCompletionProposalComputer>
+   </extension>
+
+   <extension
+         id="org.nakedobjects.ide.eclipse.templates.context.domain-object"
+         name="Naked Objects Domain Object Templates"
+         point="org.eclipse.ui.editors.templates">
+      <contextType
+            name="%no.contextType.name"
+            class="com.halware.nakedide.eclipse.core.templates.propl.DomainObjectTemplCntxtType"
+            id="org.nakedobjects.ide.eclipse.templates.context.domain-object">
+      </contextType>
+     
+      <include
+      		file="templates/applib.xml"
+	      	translations="$nl$/templates/applib.properties"/>
+      <include
+      		file="templates/entity.xml"
+	      	translations="$nl$/templates/entity.properties"/>
+      <include
+      		file="templates/value.xml"
+	      	translations="$nl$/templates/value.properties"/>
+      <include
+      		file="templates/ident.xml"
+	      	translations="$nl$/templates/ident.properties"/>
+      <include
+      		file="templates/lcaw.xml"
+	      	translations="$nl$/templates/lcaw.properties"/>
+      <include
+      		file="templates/nocc.xml"
+	      	translations="$nl$/templates/nocc.properties"/>
+      <include
+      		file="templates/nocf.xml"
+	      	translations="$nl$/templates/nocf.properties"/>
+      <include
+      		file="templates/nocs.xml"
+	      	translations="$nl$/templates/nocs.properties"/>
+      <include
+      		file="templates/noac.xml"
+	      	translations="$nl$/templates/noac.properties"/>
+      <include
+      		file="templates/noaf.xml"
+	      	translations="$nl$/templates/noaf.properties"/>
+      <include
+      		file="templates/noas.xml"
+	      	translations="$nl$/templates/noas.properties"/>
+      <include
+      		file="templates/nopc.xml"
+	      	translations="$nl$/templates/nopc.properties"/>
+      <include
+      		file="templates/nopf.xml"
+	      	translations="$nl$/templates/nopf.properties"/>
+      <include
+      		file="templates/nops.xml"
+	      	translations="$nl$/templates/nops.properties"/>
+      <include
+      		file="templates/val.xml"
+	      	translations="$nl$/templates/val.properties"/>
+      <include
+      		file="templates/logger.xml"
+	      	translations="$nl$/templates/logger.properties"/>
+      <include
+      		file="templates/injr.xml"
+	      	translations="$nl$/templates/injr.properties"/>
+      <include
+      		file="templates/injs.xml"
+	      	translations="$nl$/templates/injs.properties"/>
+      <include
+      		file="templates/injc.xml"
+	      	translations="$nl$/templates/injc.properties"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.jdt.ui.javaCompletionProposalComputer"
+         id="service"
+         name="Naked Objects Service Template Proposals"
+         >
+       <proposalCategory icon="icons/hal_logo.gif"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.jdt.ui.javaCompletionProposalComputer"
+         id="service.proposalComputer"
+         >
+       <javaCompletionProposalComputer
+             activate="true"
+             class="com.halware.nakedide.eclipse.core.templates.propl.ServiceCompltnProplComputer">
+          <partition type="__dftl_partition_content_type"/>
+       </javaCompletionProposalComputer>
+   </extension>
+
+   <extension
+         id="org.nakedobjects.ide.eclipse.templates.context.service"
+         name="Naked Objects Services Templates"
+         point="org.eclipse.ui.editors.templates">
+
+      <contextType
+            name="%no.contextType.name"
+            class="com.halware.nakedide.eclipse.core.templates.propl.ServiceTemplCntxtType"
+            id="org.nakedobjects.ide.eclipse.templates.context.service">
+      </contextType>
+     
+      <include
+      		file="templates/findm.xml"
+	      	translations="$nl$/templates/findm.properties"/>
+      <include
+      		file="templates/finds.xml"
+	      	translations="$nl$/templates/finds.properties"/>
+
+   </extension>
+   
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="com.halware.nakedide.eclipse.core.launches.LaunchConfigurationDelegate"
+            id="org.nakedobjects.ide.core.launches.LaunchConfigurationType"
+            modes="run, debug"
+            name="Naked Objects Framework"/>
+   </extension>
+   
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/hal_logo.gif"
+	        configTypeID="org.nakedobjects.ide.core.launches.LaunchConfigurationType"
+	        id="org.nakedobjects.ide.eclipse.core.launches.launchConfigurationTypeImage">
+	    </launchConfigurationTypeImage>
+	</extension>
+	
+	 <extension
+	       point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	          class="com.halware.nakedide.eclipse.core.launches.LaunchConfigurationTabGroup"
+	          id="org.nakedobjects.ide.eclipse.core.launchConfigurationTabGroup"
+	          type="org.nakedobjects.ide.core.launches.LaunchConfigurationType"/>
+	 </extension>
+	 
+-->
+	 
+	 
+	 
+</plugin>

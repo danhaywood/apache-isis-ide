@@ -1,0 +1,32 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>8.&nbsp;Add a new Fixture</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s07.html" title="7.&nbsp;Add a new Repository, Factory or Service"><link rel="next" href="ch03s09.html" title="9.&nbsp;Update the Classpath"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1762"></a>8.&nbsp;Add a new Fixture</h2></div></div></div><p>As described in <a href="ch02s07.html#Fixtures">concepts</a> section,
+      fixtures are used to setup test data for demos and for tests. Typically
+      the easiest approach is way to write these fixtures is to re-use
+      functionality in already-defined <a href="ch02s06.html#Services">repositories
+      and factories</a> (or indeed use the fixtures as way for driving out
+      these requirements); these are injected in by the container in the usual
+      way.</p><p>The NO IDE does not provide any specific functionality to create
+      fixture classes. However, under the NOF all fixtures must subclass
+      <code class="computeroutput">org.nakedobjects.nof.reflect.java.fixture.JavaFixture</code>.
+      This ensures that any declared repositories and factories etc are
+      injected:</p><div class="mediaobject"><img src="resource/new-fixture-wizard.gif"></div><p>In addition, the Naked Objects Framework requires that all
+      fixtures must be specified in the
+      <code class="computeroutput">nakedobjects.properties</code> file (in the
+      client project).</p><p>Some hints and tips:</p><div class="itemizedlist"><ul type="disc"><li><p>Clock Fixtures.</p><p>A particular category of fixtures are those that set the time.
+          Any fixture class will inherit the
+          <code class="computeroutput">setDate()</code> and
+          <code class="computeroutput">setTime()</code> methods from
+          <code class="computeroutput">JavaFixture</code>; these in turn delegate
+          to a singleton <code class="computeroutput">Clock</code> instance that
+          is setup with a special
+          <code class="computeroutput">FixtureClock</code> implementation. Thus,
+          any domain objects that use
+          <code class="computeroutput">Clock.getTime()</code> will access the
+          time set in the fixtures.</p></li><li><p>Composite Fixtures</p><p>
+                  <code class="computeroutput">JavaFixture</code> is an
+          implementation of the <code class="computeroutput">Fixture</code>
+          interface. It is relatively easy to create a
+          <code class="computeroutput">CompositeFixture</code> implementation and
+          thus allow fixtures to be reused by combining them into different
+          scenarios.</p></li></ul></div></div></body></html>

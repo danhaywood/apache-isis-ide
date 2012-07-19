@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<project>
+
+  <!--
+  <target name="local-pre-init" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-init" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-singlehtml" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-singlehtml" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-javahelp" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-javahelp" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-eclipse" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-eclipse" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-html" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-html" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-htmlhelp" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-htmlhelp" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-pdf" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-pdf" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-rtf" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-rtf" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-fo" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-fo" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-pre-resolve-xinclude" >
+  </target>
+  -->
+
+  <!--
+  <target name="local-post-resolve-xinclude" >
+  </target>
+  -->
+
+</project>

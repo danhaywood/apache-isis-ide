@@ -1,0 +1,31 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>1.1.&nbsp;Application Project Wizard</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04s01.html" title="1.&nbsp;Project Wizards"><link rel="prev" href="ch04s01.html" title="1.&nbsp;Project Wizards"><link rel="next" href="ch04s01s02.html" title="1.2.&nbsp;Fixture Project Wizard"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1931"></a>1.1.&nbsp;Application Project
+        Wizard</h3></div></div></div><p>The application project wizard is used to create new application
+        projects containing domain objects and supporting <a href="ch02s06.html#Services">repositories, factories and other
+        services</a>.</p><p>To invoke the wizard, use:
+        <code class="computeroutput">File&gt;New...&gt;Project...&gt;Naked
+        Objects&gt;Application Project</code>
+            </p><div class="mediaobject"><img src="resource/application-project-wizard-page-1.gif"></div><p>The wizard is based in large part on Eclipse's own plug-in
+        project wizard; all projects created by the NO IDE are <a href="ch02s08.html#OsgiProjects">OSGi projects</a>. A slight refinement is
+        that on the second page the Id field is greyed out, defaulting to the
+        project name. This ensures that the bundle Id in the manifest
+        (<code class="computeroutput">META-INF/MANIFEST.MF</code>) is the same as
+        the project name in the <code class="computeroutput">.project</code>
+        file.</p><p>When the wizard completes, the workbench is placed into the
+        <a href="ch04s02.html#NO-Perspective">Naked Objects perspective</a>. The
+        <a href="ch04s09s02.html#NO-Nature">Naked Objects nature</a> is also attached
+        on the project, which enables the <a href="ch04s05.html#ProjectBuilder">project builder</a> and the <a href="ch04s07.html#Refactorings">refactoring</a> support.</p><p>The classpath of the application project (as defined in the
+        manifest) is minimally dependent on the <a href="ch02s03.html#NO-Applib">Naked Objects application library</a> and a
+        very small subset of 3rd party libraries (namely
+        <code class="computeroutput">javax.persistence</code> for the
+        <code class="computeroutput">@Entity</code> annotation, JUnit and Apache
+        log4j).</p><p>As well as setting up the skeleton of the project, the wizard
+        also creates some domain classes and services for an example project.
+        As the <a href="ch01.html#Tutorial">tutorial</a> shows, the 3 project
+        wizards work together to build up a complete (albeit very small) and
+        launchable domain application.</p><p>Finally, note that as well as the icons needed for the example
+        project, a set of additional icons are also copied (under
+        <code class="computeroutput">src/main/resources/images</code>).
+        Developers are free to deploy these icons into production, but only
+        for when running on an NOA-compliant framework.</p></div></body></html>

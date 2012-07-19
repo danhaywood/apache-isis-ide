@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Isis IDE Branding Plug-in
+Bundle-SymbolicName: com.halware.nakedide.eclipse.branding
+Bundle-Version: 1.0.0.ide-20070928-0055
+Bundle-Vendor: Haywood Associates Ltd.
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

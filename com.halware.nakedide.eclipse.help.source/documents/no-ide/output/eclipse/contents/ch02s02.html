@@ -1,0 +1,95 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>2.&nbsp;Naked Objects Programming Model</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch02.html" title="Concepts"><link rel="prev" href="ch02s01.html" title="1.&nbsp;Naked Objects Architectural Pattern"><link rel="next" href="ch02s03.html" title="3.&nbsp;Naked Objects Application Library"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e687"></a>2.&nbsp;Naked Objects Programming Model</h2></div></div></div><p>The Naked Objects Programming Model defines a set of programming
+      conventions and supporting <a href="ch02s03.html#NO-Applib">annotations</a>
+      for writing Java-based domain object models. These conventions are
+      required so that an <a href="ch02s01.html#NO-ArchitecturalPattern">NOA</a>
+      framework can interact with the domain objects in a well-defined
+      manner.</p><p>These programming conventions build upon <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://en.wikipedia.org/wiki/Plain_Old_Java_Object" target="_top">POJO /
+      JavaBean</a> naming conventions; in particular they do not require
+      the domain objects to subclass from any framework-specific superclass.
+      Moreover these conventions are compatible with those of Hibernate/EJB3,
+      meaning that NOA implementations (such as the Naked Objects Framework)
+      can use Hibernate for persistence.</p><p>The key programming conventions are as follows:</p><div class="itemizedlist"><ul type="disc"><li><p>properties are represented by accessors
+          (<code class="computeroutput">getXxx</code>) and mutator
+          (<code class="computeroutput">setXxx</code>) methods, just as for
+          JavaBeans. These may be called either via the UI or via an object
+          store implementation when it is resolving an object.</p><p>The accessors and mutators may be supplemented by a
+          <code class="computeroutput">modifyXxx</code> and
+          <code class="computeroutput">clearXxx</code> methods which the NOA
+          implementation will invoke instead of the mutator if present. These
+          allow additional functionality to be performed (for example
+          maintaining derived object state).</p><p>Optionally a <code class="computeroutput">validateXxx</code>
+          method can be used to validate and if necessary veto any proposed
+          new values for a property. If a property should be read-only (for
+          example, because of the state that the object is in) then it can be
+          disabled using a <code class="computeroutput">disableXxx</code> method,
+          or it can be hidden completely from the UI using a
+          <code class="computeroutput">hideXxx</code> method.</p><p>Finally a default value (for a newly created object) can be
+          specified using a <code class="computeroutput">defaultXxx</code>
+          method, and if there is a enumeration of valid values (eg as might
+          be rendered through a drop-down list) then a
+          <code class="computeroutput">choicesXxx</code> method can specify these
+          values.</p></li><li><p>collections are likewise represented by accessors
+          (<code class="computeroutput">getXxx</code>) and mutator
+          (<code class="computeroutput">
+                     <code class="computeroutput">setXxx</code>
+                  </code>)
+          methods, though the return type here is a collection (ie
+          <code class="computeroutput">java.util.List</code> or
+          <code class="computeroutput">java.util.Set</code>).</p><p>As for properties the accessors and mutators may be
+          supplemented by <code class="computeroutput">addToXxx</code> and
+          <code class="computeroutput">removeFromXxx</code> methods. The NOA
+          implementation will invoke these if present rather than act directly
+          on the collection provided by the getter.</p><p>The <code class="computeroutput">validateAddToXxx</code> and
+          <code class="computeroutput">validateRemoveFromXxx</code> methods can
+          be used to validate and if necessary veto any proposed changed to
+          the contents of a collection. And again as for properties, a
+          <code class="computeroutput">disableXxx</code> and hideXxx method can
+          be used to respectively make a collection read-only or to hide it
+          from the UI completely.</p></li><li><p>actions of a method are any other
+          <code class="computeroutput">public</code> methods. Again these can be
+          supplemented by a number of supporting methods.</p><p>The <code class="computeroutput">validateXxx</code> method is
+          used to validate the parameter values of an action prior to invoking
+          it. The <code class="computeroutput">disableXxx</code> method can
+          prevent the action from being invoked in the first place while the
+          <code class="computeroutput">hideXxx</code> method removes it from the
+          GUI.</p><p>Any default values for the parameters of an action can be
+          specified using a <code class="computeroutput">defaultXxx</code>
+          method, while any enumeration of valid values for those parameters
+          can be specified using a <code class="computeroutput">choiceXxx</code>
+          method.</p></li><li><p>a no-arg constuctor is required.</p></li></ul></div><p>The <a href="ch04s04.html#Templates">template</a> functionality
+      provided by the NO IDE greatly assists in ensuring that the supporting
+      methods are correctly named and so forth.</p><p>These key naming conventions are backed up by a number of Java 5
+      annotations that can be used on properties, collections and actions. For
+      example, the <code class="computeroutput">@Named</code> annotation can be
+      applied to a parameter of an action method so that it is rendered
+      appropriately, whereas the
+      <code class="computeroutput">@Immutable(When.ONCE_PERSISTED)</code> allows
+      an object to be edited until it has been initially saved, but not
+      thereafter. These Java 5 annotations reside in the <a href="ch02s03.html#NO-Applib">Naked Objects application library</a>. One reason
+      that the <a href="ch04s01.html#ProjectWizards">project wizards</a> separate
+      out the application project from the client project is to minimize the
+      dependencies of the domain objects to just the Naked Objects application
+      library, and not the remainder of the Naked Objects Framework (or
+      indeed, any other NOA-compliant implementation).</p><p>In addition, there are a number of optional methods. The first two
+      are used to identify the object in the UI, and the last relates to
+      validation:</p><div class="itemizedlist"><ul type="disc"><li><p>the <code class="computeroutput">title()</code> method returns a
+          string which the UI is expected to use as a label for the object. If
+          not present then <code class="computeroutput">toString()</code> is
+          used.</p></li><li><p>the <code class="computeroutput">iconName()</code> method returns
+          a string which represents the icon to show for the label. This is
+          much less commonly used than title() because normally NOA
+          implementations allow an icon to be associated with the class rather
+          than an instance of a class. For example, the NOF uses an image file
+          whose name matches that of the domain class (eg
+          <code class="computeroutput">Customer.gif</code>). Nevertheless, the
+          <code class="computeroutput">iconName()</code> method allows the icon
+          to change on a per-instance basis, eg according to the state of the
+          object.</p></li><li><p>the <code class="computeroutput">validate()</code> method can be
+          used to veto any changes to the object. This is useful when there
+          are two properties whose values must be consistent with each other,
+          eg FromDate &lt; ToDate.</p></li></ul></div><p>There are a number of other methods that are defined which relate
+      to managing the lifecycle of the object in respect to its environment.
+      See <a href="">Domain Object Container</a> for further
+      discussion.</p></div></body></html>

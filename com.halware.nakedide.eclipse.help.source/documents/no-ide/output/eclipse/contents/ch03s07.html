@@ -1,0 +1,19 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>7.&nbsp;Add a new Repository, Factory or Service</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s06.html" title="6.&nbsp;Change an Action Signature"><link rel="next" href="ch03s08.html" title="8.&nbsp;Add a new Fixture"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1716"></a>7.&nbsp;Add a new Repository, Factory or Service</h2></div></div></div><p>As described in <a href="ch02s06.html#Services">concepts</a> section,
+      repositories and factories are used to retrieve and persist objects from
+      an object store (either in-memory or otherwise), while services can
+      provide more generalized (usually technical) services. The NO IDE does
+      not provide any specific functionality to create such classes, though
+      the <code class="computeroutput">AbstractFactoryAndRepository</code> in the
+      <a href="ch02s03.html#NO-Applib">Naked Objects application library</a> is a
+      convenient superclass for repositories and factories (whether combined
+      into a single class or not):</p><div class="mediaobject"><img src="resource/new-repository-wizard.gif"></div><p>If the object should not appear as an icon in the UI desktop, use
+      the <code class="computeroutput">@Hidden</code> annotation.</p><p>The NOF also requires that a 32x32 pixel icon, as for <a href="ch03s02.html#NewDomainObject">domain objects</a>.</p><p>If writing a naive implementation (that is, one that accesses an
+      in-memory object store), then the <code class="computeroutput">findm</code>
+      and <code class="computeroutput">finds</code> 
+            <a href="ch04s04.html#Templates">templates</a> are useful to return multiple
+      instances or a single instance respectively:</p><div class="mediaobject"><img src="resource/templates-findm-finds.gif"></div><p>In addition, the Naked Objects Framework requires all services
+      must be specified in the
+      <code class="computeroutput">nakedobjects.properties</code> file (in the
+      client project).</p></div></body></html>

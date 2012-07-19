@@ -1,0 +1,39 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>1.&nbsp;Naked Objects Architectural Pattern</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch02.html" title="Concepts"><link rel="prev" href="ch02.html" title="Concepts"><link rel="next" href="ch02s02.html" title="2.&nbsp;Naked Objects Programming Model"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e653"></a>1.&nbsp;Naked Objects Architectural
+      Pattern</h2></div></div></div><p>The Naked Objects Architectural Pattern is defined by the
+      following principles (adapted from <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://www.nakedobjects.org" target="_top">http://www.nakedobjects.org</a>):</p><div class="itemizedlist"><ul type="disc"><li><p>A business system should be designed using behaviourally
+          complete domain objects.</p><p>The domain objects represent the nouns or entities in the
+          business domain (such as Customer, Product and Order). Behavioural
+          completeness means that all of the behaviours or functionality
+          associated with a Customer should be implemented as methods on that
+          object.</p></li><li><p>The business system should have an object-oriented user
+          interface where the objects that the users view and interact with
+          correspond directly to the underlying domain entity objects, and
+          such that all functionality is initiated by explicitly invoking
+          methods on a domain object.</p><p>An OOUI adopts what has been called the &#8216;noun-verb&#8217; style of
+          interaction - because all user actions are initiated by selecting an
+          object and then selecting a behaviour that is a property of that
+          object. This is in contrast to the more widely-used &#8216;verb-noun&#8217;
+          style, where the user selects a task from a menu and then specifies
+          the data on which that task is to operate.</p></li><li><p>Each domain object should constitute a single point of
+          definition.</p><p>In a conventional multi-tiered architecture, making a change
+          to the definition of a domain object class would typically also
+          entail changes within multiple tiers: potentially to the user
+          interface, the process layer, the data access layer and the database
+          itself. The principle of 'single point of definition' is that all
+          representations of a domain object (whether representations on the
+          user interface or representations on the database) should be
+          derived, automatically, from the domain object class itself. A
+          change to the definition of any domain object class should not then
+          require any other changes to code in the system.</p><p>The concept of automated 'Object Relational Mapping' (ORM) -
+          as applied in the Hibernate tool, for example - applies this
+          principle between the domain classes and the database. The Naked
+          Objects Pattern takes this same principle further and applies it to
+          the user interface also.</p></li></ul></div><p>The majority of the functionality provided by the NO IDE can be
+      applies to any Java-based framework that implements the Naked Objects
+      architectural pattern, with a minority specific to the Naked Objects
+      Framework itself. In this context the Naked Objects Framework can be
+      thought of as a <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://en.wikipedia.org/wiki/Reference_implementation" target="_top">Reference
+      Implementation</a>. Its specification is defined through the <a href="ch02s02.html#NO-ProgrammingModel">Naked Objects Programming Model</a>,
+      described next.</p></div></body></html>

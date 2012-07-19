@@ -1,0 +1,14 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>4.&nbsp;Project Types</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch02.html" title="Concepts"><link rel="prev" href="ch02s03.html" title="3.&nbsp;Naked Objects Application Library"><link rel="next" href="ch02s05.html" title="5.&nbsp;Domain Object Container"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e925"></a>4.&nbsp;Project Types</h2></div></div></div><p>The NO IDE has three main different <a href="">project wizards</a>, to set up:</p><div class="itemizedlist"><ul type="disc"><li><p>Application projects</p><p>These contain the domain object model and supporting
+          services.</p></li><li><p>Fixture projects</p><p>These contain fixtures for building test data, either for
+          tests or for prototyping/exploration/demos.</p></li><li><p>Client project</p><p>These contain launch configuration definitions to run up an
+          application using a set of fixtures. They also contain any
+          configuration files (eg password files).</p></li></ul></div><p>The principle reason for separating out the projects is to
+      minimize coupling. The application project depends only on the Naked
+      Objects application library. Thus, the <span class="emphasis"><em>classes in this project
+      are trivially portable</em></span> between any framework that is
+      NOA-compliant.</p><p>The fixture project is separated from the client project so that
+      they may be reused by tests. (A test project wizard is on the <a href="ch05.html#Backlog">Backlog</a>).</p><p>There is also one other project type, namely the icon project.
+      This simply contains a stock set of icons for use in Naked Objects
+      applications (please check license terms).</p></div></body></html>

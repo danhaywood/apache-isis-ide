@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%nocc.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.nocc" 
+	name="%nocc.name">
+    // {{ ${CollectionName}
+    private List&lt;${ReferencedType}&gt; ${collectionName} = new ArrayList&lt;${ReferencedType}&gt;();
+    public List&lt;${ReferencedType}&gt; get${CollectionName}() {
+        resolve();
+        ${cursor}return this.${collectionName};
+    }
+    @SuppressWarnings("unused")
+    private void set${CollectionName}(final List&lt;${ReferencedType}&gt; ${collectionName}) {
+        this.${collectionName} = ${collectionName};
+    }
+    public void addTo${CollectionName}(final ${ReferencedType} ${collectionNameSingularForm}) {
+        if (${collectionNameSingularForm} == null) {
+            return;
+        }
+        get${CollectionName}().add(${collectionNameSingularForm});
+        objectChanged();
+    }
+    public void removeFrom${CollectionName}(final ${ReferencedType} ${collectionNameSingularForm}) {
+        if (!get${CollectionName}().contains(${collectionNameSingularForm})) {
+            return;
+        }
+        get${CollectionName}().remove(${collectionNameSingularForm});
+        objectChanged();
+    }
+    // }}
+	</template>
+
+</templates>

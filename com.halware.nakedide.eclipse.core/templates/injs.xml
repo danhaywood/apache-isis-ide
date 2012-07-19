@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%injs.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.injs" 
+	name="%injs.name">
+    // {{ Injected: ${ServiceType}
+    private ${ServiceType} ${serviceType};
+    /**
+     * This property is not persisted, nor displayed to the user.
+     */
+    protected ${ServiceType} get${ServiceType}() {
+        return this.${serviceType};
+    }
+    /**
+     * Injected by the application container.
+     */
+    public void set${ServiceType}(final ${ServiceType} ${serviceType}) {
+        this.${serviceType} = ${serviceType};${cursor}
+    }
+    // }}
+	</template>
+</templates>

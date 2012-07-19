@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%nocs.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.nocs" 
+	name="%nocs.name">
+    public String validateAddTo${CollectionName}(final ${ReferencedType} ${collectionNameSingularForm}) {
+        ${cursor}return null;
+    }
+    public String validateRemoveFrom${CollectionName}(final ${ReferencedType} ${collectionNameSingularForm}) {
+        return null;
+    }
+    public String disable${CollectionName}() {
+        return null;
+    }
+    public boolean hide${CollectionName}() {
+        return false;
+    }
+	</template>
+
+</templates>

@@ -1,0 +1,12 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>7.2.&nbsp;Rename Method</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04s07.html" title="7.&nbsp;Refactorings"><link rel="prev" href="ch04s07s01.html" title="7.1.&nbsp;Rename Field"><link rel="next" href="ch04s08.html" title="8.&nbsp;Launch Configurations"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e3206"></a>7.2.&nbsp;Rename Method</h3></div></div></div><p>The rename method refactoring renames all methods for an
+        property, collection or action, plus the instance variable if
+        appropriate (for property or collection).</p><p>Select the method, and use
+        <code class="computeroutput">Refactor&gt;Rename...</code>:</p><div class="mediaobject"><img src="resource/refactor-rename-method-property.gif"></div><p>Any of the methods - supporting or otherwise - can be renamed;
+        the prefix should remain the same. For example, here the
+        <code class="computeroutput">Customer#validateCustomerNumber</code> is
+        being renamed to
+        <code class="computeroutput">validateCustomerId</code>:</p><div class="mediaobject"><img src="resource/refactor-rename-supporting-method.gif"></div><p>This will have the effect or renaming the
+        <code class="computeroutput">customerNumber</code> property.</p><p>The refactoring works equally on actions (though here there is
+        no underlying instance variable to rename):</p><div class="mediaobject"><img src="resource/refactor-rename-placeOrder.gif"></div></div></body></html>

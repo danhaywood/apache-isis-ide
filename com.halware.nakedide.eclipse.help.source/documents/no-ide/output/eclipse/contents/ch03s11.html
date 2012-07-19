@@ -1,0 +1,14 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>11.&nbsp;Running the Naked Objects Clients</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s10.html" title="10.&nbsp;Format Code"><link rel="next" href="ch04.html" title="Reference"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1896"></a>11.&nbsp;Running the Naked Objects Clients</h2></div></div></div><p>The tutorial describes running the NOF <span class="emphasis"><em>Dnd
+      client</em></span> launch configuration and the <span class="emphasis"><em>Web local
+      server</em></span> launch configuration, but only against the in-memory
+      persistor. However, for demos it can sometimes be useful to run as a
+      <code class="computeroutput">standalone</code> client and use the
+      <code class="computeroutput">xml</code> persistor instead:</p><div class="mediaobject"><img src="resource/launch-standalone-xml.gif"></div><p>This stores the objects in a series of XML files; the bottom line
+      is that the objects are persisted from one run to the next.</p><p>The Naked Objects Framework also supports a Hibernate-based
+      persistor for storing objects to RDBMS. This is not supported directly
+      by the NO IDE, but can be used in conjunction with the
+      <code class="computeroutput">client</code> type (client/server mode) where
+      the server is set up to use Hibernate. Consult the NOF documentation for
+      further details.</p></div></body></html>

@@ -1,0 +1,15 @@
+DoPus ToDo:
+
+Priority 1:
+   - Plain Text Target (in a first step maybe only for windows)
+
+Priority 2:
+   - support for multiple Docbook XSL versions
+   - automatically detect and download / install new versions of DTD / stylesheets
+
+
+Priority 3:
+   - Swing-Client-Konsole
+   - more examples (large book document with appendices, other toc's etc.
+   - Proxy directory: in the document directory have a file that redirects to the real location
+     of that specific document

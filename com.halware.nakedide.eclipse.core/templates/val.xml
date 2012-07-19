@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%val.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.val" 
+	name="%val.name">
+    // {{ Validate
+    public String validate() {
+        return ${cursor}null;
+    }
+    // }}
+	</template>
+</templates>

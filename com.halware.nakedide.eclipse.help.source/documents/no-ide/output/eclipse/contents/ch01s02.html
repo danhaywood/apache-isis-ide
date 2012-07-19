@@ -1,0 +1,28 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>2.&nbsp;Create a new Fixture Project</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch01.html" title="Getting Started"><link rel="prev" href="ch01s01.html" title="1.&nbsp;Create a new Application Project"><link rel="next" href="ch01s03.html" title="3.&nbsp;Create a new Client Project"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e112"></a>2.&nbsp;Create a new Fixture Project</h2></div></div></div><p>The role of a Fixture project is to hold <a href="ch02s07.html#Fixtures">fixtures</a> that define a set of example objects.
+      With these defined the client application can then be run. The <a href="ch04s01s02.html#FixtureProjectWizard">Fixture Project Wizard</a> sets up the
+      structure of such a project, along with example fixtures for the
+      <code class="computeroutput">Customer</code>,
+      <code class="computeroutput">Product</code> and
+      <code class="computeroutput">Order</code> as created by the <a href="ch04s01s01.html#ApplicationProjectWizard">Application Project
+      Wizard</a>.</p><p>As before use <code class="computeroutput">File&gt;New&gt;Project...&gt;Naked
+      Objects</code> to list the NO IDE's project wizards, but this
+      time select the <code class="computeroutput">Fixture Project</code> wizard
+      and then press <code class="computeroutput">Next</code>:</p><div class="mediaobject"><img src="resource/new-project-fixture-project-selected.gif"></div><p>On the first page of the wizard, select the
+      <code class="computeroutput">Application project</code> that these are the
+      fixtures for. This is used primarily to set up the classpath. Press
+      <code class="computeroutput">Next</code>:</p><div class="mediaobject"><img src="resource/fixture-project-wizard-page-1.gif"></div><p>On the second page of the wizard, enter the fixture project's
+      <code class="computeroutput">Project name</code>. This should have been
+      derived from application project name given on the previous page. Then
+      press <code class="computeroutput">Next</code>:</p><div class="mediaobject"><img src="resource/fixture-project-wizard-page-2.gif"></div><p>On the third page, adjust the
+      <code class="computeroutput">Version</code> and
+      <code class="computeroutput">Provider</code> if required, and then
+      <code class="computeroutput">Next</code>:</p><div class="mediaobject"><img src="resource/fixture-project-wizard-page-3.gif"></div><p>On the last page again ensure that the <code class="computeroutput">Generate
+      Sample Code</code> checkbox is selected, and press
+      <code class="computeroutput">Finish</code>.</p><p>In the workbench the new project should have been created. Open up
+      the <code class="computeroutput">Package Explorer</code> to view its
+      contents:</p><div class="mediaobject"><img src="resource/fixture-project-project-explorer.gif"></div><p>Each of these <code class="computeroutput">*Fixture</code> classes
+      uses the services of the <code class="computeroutput">*Repository</code>
+      classes in the application project to instantiate and persist new
+      objects.</p><p>We now need to create a <a href="ch01s03.html#TutorialClientProject">client project</a>.</p></div></body></html>

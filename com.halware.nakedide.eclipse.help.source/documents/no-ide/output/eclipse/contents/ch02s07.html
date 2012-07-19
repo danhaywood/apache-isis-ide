@@ -1,0 +1,15 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>7.&nbsp;Fixtures</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch02.html" title="Concepts"><link rel="prev" href="ch02s06.html" title="6.&nbsp;Repositories, Factories and Services"><link rel="next" href="ch02s08.html" title="8.&nbsp;OSGi (Plugin) Projects"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1254"></a>7.&nbsp;Fixtures</h2></div></div></div><p>The role of fixtures is to create example objects, either to run
+      up a client prototype for development or a demo, or to act as the
+      fixture for a unit test. The <a href="">fixture project
+      wizard</a> can be used to create a project set up to create such
+      fixtures, with the fixture project itself referencing the application
+      project on its classpath (to define the objects to be instantiated) as
+      well as the NOA implementation to provide an implementation of an object
+      store to store the objects.</p><p>In the NOF the fixtures to install can be specified either using
+      the <code class="computeroutput">--fixture</code> flag or as a backup
+      configured in <code class="computeroutput">nakedobjects.properties</code>
+      in the client project. In tests the fixtures are specified in the
+      <code class="computeroutput">AbstractXat2TestCase#setUpFixtures()</code>
+      method.</p></div></body></html>

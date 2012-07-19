@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%injc.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.injc" 
+	name="%injc.name">
+    // {{ Injected: Container
+    private DomainObjectContainer container;
+    /**
+     * This field is not persisted, nor displayed to the user.
+     */
+    protected DomainObjectContainer getContainer() {
+        return this.container;
+    }
+    /**
+     * Injected by the application container itself.
+     */
+    public final void setContainer(final DomainObjectContainer container) {
+        ${cursor}
+        this.container = container;
+    }
+    // }}
+
+    // {{ Object Persistence Methods
+    /*
+     * This region contains methods that interact with the container
+     * for ensuring that object's references are fully resolved 
+     * before interacting with the object,
+     * and that changes to the object's state are updated.
+     */
+
+    /**
+     * Notifies the container that this object has changed, so that it
+     * can be persisted.
+     */
+    protected void objectChanged() {
+        getContainer().objectChanged(this);
+    }
+
+    /**
+     * Resolve this object, populating references to other objects.
+     */
+    protected void resolve() {
+        getContainer().resolve(this);
+    }
+
+    /**
+     * Resolve this object if the referenced object is still unknown.
+     */
+    protected void resolve(final Object object) {
+        getContainer().resolve(this, object);
+    }
+    
+    /**
+     * Whether this object is persistent.
+     */
+    protected boolean isPersistent() {
+        return getContainer().isPersistent(this);
+    }
+    
+    /**
+     * Save this object to the persistent object store.
+     * 
+     * &lt;p>
+     * This method is &lt;tt>public&lt;/tt> as a convenience for fixtures.
+     */
+    @Hidden
+    public void makePersistent() {
+        getContainer().makePersistent(this);
+    }
+    
+    /**
+     * Delete this object from the persistent object store.
+     */
+    protected void disposeInstance() {
+        getContainer().disposeInstance(this);
+    }
+    // }}
+    
+    // {{ Error/Warning Methods
+    /*
+     * This region contains methods to allow the domain object to 
+     * display messages to the user.
+     */
+     
+    /**
+     * Display the specified message to the user, in a non-intrusive fashion.
+     */
+    protected void informUser(final String message) {
+        getContainer().informUser(message);
+    }
+
+    /**
+     * Display the specified message as a warning to the user, in a
+     * more visible fashion, but without requiring explicit acknowledgement.
+     */
+    protected void warnUser(final String message) {
+        getContainer().warnUser(message);
+    }
+    
+    /**
+     * Display the specified message as an error to the user,
+     * ensuring that it is acknowledged.
+     */
+    protected void raiseError(final String message) {
+        getContainer().raiseError(message);
+    }
+    // }}
+    
+    // {{ Security Methods
+    protected UserMemento getUser() {
+        return container.getUser();
+    }
+    // }}
+    
+	</template>
+</templates>

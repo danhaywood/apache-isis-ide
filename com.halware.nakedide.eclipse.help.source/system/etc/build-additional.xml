@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This file is part of Dopus                                              -->
+
+<!-- Dopus is free software; you can redistribute it and/or modify           -->
+<!-- it under the terms of the GNU General Public License as published by    -->
+<!-- the Free Software Foundation; either version 2 of the License, or       -->
+<!-- (at your option) any later version.                                     -->
+
+<!-- Dopus is distributed in the hope that it will be useful,                -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!-- GNU General Public License for more details.                            -->
+
+<!-- You should have received a copy of the GNU General Public License       -->
+<!-- along with Dopus; if not, write to the Free Software                    -->
+<!-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+
+<!-- (c) 2006 by AGYNAMIX                                                    -->
+<!-- You can download the latest version of this software at                 -->
+<!-- http://www.agynamix.de                                                  -->
+
+<project name="Dopus additional targets" >
+
+  <!-- Generate a new Titlepage specification -->
+  <target name="titlespec" >
+
+    <xslt-runner dir="${system.titlespec.dir}"
+                 inputfile="${project.input.file}.xml"
+                 outputfile="-o &quot;${system.titlespec.dir}/${project.input.file}.xsl&quot;"
+                 stylesheet="${system.docbook-xsl.dir}/template/titlepage.xsl" />
+        
+  </target>
+  
+  <target name="validate" depends="resolve-xinclude" description="Check a document if it is valid">
+    <xmlvalidate file="${project.dir.output}/${project.output.mode}/${project.input.file}.docbook" warn="yes"
+      lenient="no" classname="org.apache.xerces.parsers.SAXParser" classpathref="saxon.classpath" >
+      <xmlcatalog refid="system.xmlcatalog" />
+    </xmlvalidate>
+  </target>
+  
+  <target name="create" description="Create a new [book, article, slides] document">
+    <echo>Create a new project ${project.input.document}</echo>
+    <mkdir dir="${project.dir}"/>
+    <copy todir="${project.custom-cfg.dir}" failonerror="true">
+      <fileset dir="${system.template.dir}/${ENV_PARAM_3}-cfg" />
+    </copy>
+    <copy tofile="${project.dir.input}/${project.input.document}.xml" file="${system.template.dir}/${ENV_PARAM_3}.xml" />
+    <copy tofile="${project.dir.input}/${ENV_PARAM_3}-include.xml" file="${system.template.dir}/${ENV_PARAM_3}-include.xml" />
+  </target>
+
+  <target name="clean" description="Clean up a document's output directory">
+    <echo>Clean up ${project.input.document}</echo>
+    <delete includeemptydirs="true">
+      <fileset dir="${project.dir.output}" >
+        <include name="**/*" />
+      </fileset>
+    </delete>
+  </target>
+
+</project>

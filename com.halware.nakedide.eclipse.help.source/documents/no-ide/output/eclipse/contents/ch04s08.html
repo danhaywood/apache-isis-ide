@@ -1,0 +1,51 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>8.&nbsp;Launch Configurations</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04.html" title="Reference"><link rel="prev" href="ch04s07s02.html" title="7.2.&nbsp;Rename Method"><link rel="next" href="ch04s09.html" title="9.&nbsp;Other Functionality"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e3240"></a>8.&nbsp;Launch Configurations</h2></div></div></div><p>The majority of the functionality in the NO IDE is generic for
+      NOA-style applications, in particular against the <a href="ch02s03.html#NO-Applib">Naked Objects application library</a>. The launch
+      configurations functionality however is specific to the Naked Objects
+      Framework.</p><p>Use Run&gt;Run...&gt; or Debug&gt;Debug... to bring up the launch
+      configuration dialog:</p><div class="mediaobject"><img src="resource/launch-configurations.gif"></div><p>The <a href="ch04s01s03.html#ClientProjectWizard">client project
+      wizard</a> automatically creates two launch configurations for the
+      example project, one for DnD client and one for the Web Local Server (to
+      access via a web browser). Either modify these or create new
+      configurations as required.</p><p>On the <code class="computeroutput">Main</code> tab, the main class
+      is automatically specified (and cannot be modified). Since this class is
+      in the NOF itself, the <code class="computeroutput">Include libraries when searching
+      for a main class</code> button is selected (and cannot be
+      modified):</p><div class="mediaobject"><img src="resource/launch-configuration-main-tab-new_config.gif"></div><p>The most important tab however for Naked Objects Framework
+      applications is the <code class="computeroutput">Arguments</code>
+      tab:</p><div class="mediaobject"><img src="resource/launch-configuration-args-tab-new_config.gif"></div><p>On this dialog:</p><div class="itemizedlist"><ul type="disc"><li><p>the <code class="computeroutput">Viewer</code> block corresponds
+          to <code class="computeroutput">--viewer</code>
+               </p></li><li><p>the <code class="computeroutput">Type</code> block corresponds to
+          --type</p></li><li><p>the <code class="computeroutput">Authentication</code> block
+          corresponds to <code class="computeroutput">--user</code> and
+          <code class="computeroutput">--password</code>
+               </p></li><li><p>the <code class="computeroutput">Persistor</code> block
+          corresponds to <code class="computeroutput">--persistor</code>
+               </p></li><li><p>the <code class="computeroutput">Fixture</code> block corresponds
+          to <code class="computeroutput">--fixture</code>
+               </p></li><li><p>the <code class="computeroutput">Resource base</code> block
+          corresponds to
+          <code class="computeroutput">--resourceBase</code>.</p></li><li><p>the <code class="computeroutput">Program arguments</code> block
+          allows additional arguments to be specified</p></li></ul></div><p>The options here enable and disable as required by the NOF
+      runtime:</p><div class="itemizedlist"><ul type="disc"><li><p>authentication details can be entered only for the
+          <code class="computeroutput">dnd</code> viewer, provided type is not
+          <code class="computeroutput">exploration</code>
+               </p></li><li><p>the persistor cannot be entered for
+          <code class="computeroutput">exploration</code> or
+          <code class="computeroutput">prototype</code> (NOF uses an in-memory
+          object store for these types)</p></li><li><p>the persistor is restricted to
+          <code class="computeroutput">in-memory</code> and
+          <code class="computeroutput">xml</code> when the type is
+          <code class="computeroutput">standalone</code>
+               </p></li><li><p>the persistor is restricted to
+          <code class="computeroutput">serialize</code> and
+          <code class="computeroutput">xstream</code> when the type is
+          <code class="computeroutput">client</code>
+               </p></li><li><p>the resource base can only be entered if the viewer is
+          <code class="computeroutput">web</code>.</p></li></ul></div><p>One additional note about the resource base block (for the
+      <code class="computeroutput">web</code> viewer); this must refer to the
+      base location for the images, usually held in the application project.
+      The dialog attempts to guess this location based on the assumption that
+      the launch configuration is being created in a client project whose name
+      has a <code class="computeroutput">.client</code> suffix.</p></div></body></html>

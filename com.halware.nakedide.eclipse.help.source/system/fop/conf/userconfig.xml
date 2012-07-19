@@ -1,0 +1,66 @@
+<configuration>
+  <!-- These Paths are relative to the document output directory which is
+       DOPUS_HOME/document/<doc_name>/output/pdf -->
+  <fonts>
+    <font  metrics-file="../../../../system/fop/fonts/georgia.xml" kerning="yes" embed-file="../../../../system/fop/fonts/georgia.ttf">
+      <font-triplet name="Georgia" style="normal" weight="normal"/>
+      <font-triplet name="GeorgiaMT" style="normal" weight="normal"/>
+    </font>
+    <font  metrics-file="../../../../system/fop/fonts/georgiab.xml" kerning="yes" embed-file="../../../../system/fop/fonts/georgiab.ttf">
+      <font-triplet name="Georgia" style="normal" weight="bold"/>
+      <font-triplet name="GeorgiaMT" style="normal" weight="bold"/>
+    </font>
+    <font  metrics-file="../../../../system/fop/fonts/georgiai.xml" kerning="yes" embed-file="../../../../system/fop/fonts/georgiai.ttf">
+      <font-triplet name="Georgia" style="italic" weight="normal"/>
+      <font-triplet name="GeorgiaMT" style="italic" weight="normal"/>
+    </font>
+    <font  metrics-file="../../../../system/fop/fonts/georgiaz.xml" kerning="yes" embed-file="../../../../system/fop/fonts/georgiaz.ttf">
+      <font-triplet name="Georgia" style="italic" weight="bold"/>
+      <font-triplet name="GeorgiaMT" style="italic" weight="bold"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/arial.xml" kerning="yes" embed-file="../../../../system/fop/fonts/arial.ttf">
+      <font-triplet name="Arial" style="normal" weight="normal"/>
+      <font-triplet name="ArialMT" style="normal" weight="normal"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/arialb.xml" kerning="yes" embed-file="../../../../system/fop/fonts/arialb.ttf">
+      <font-triplet name="Arial" style="normal" weight="bold"/>
+      <font-triplet name="ArialMT" style="normal" weight="bold"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/ariali.xml" kerning="yes" embed-file="../../../../system/fop/fonts/ariali.ttf">
+      <font-triplet name="Arial" style="italic" weight="normal"/>
+      <font-triplet name="ArialMT" style="italic" weight="normal"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/arialbi.xml" kerning="yes" embed-file="../../../../system/fop/fonts/arialbi.ttf">
+      <font-triplet name="Arial" style="italic" weight="bold"/>
+      <font-triplet name="ArialMT" style="italic" weight="bold"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/times.xml" kerning="yes" embed-file="../../../../system/fop/fonts/times.ttf">
+      <font-triplet name="Times" style="normal" weight="normal"/>
+      <font-triplet name="TimesMT" style="normal" weight="normal"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/timesb.xml" kerning="yes" embed-file="../../../../system/fop/fonts/timesb.ttf">
+      <font-triplet name="Times" style="normal" weight="bold"/>
+      <font-triplet name="TimesMT" style="normal" weight="bold"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/timesi.xml" kerning="yes" embed-file="../../../../system/fop/fonts/timesi.ttf">
+      <font-triplet name="Times" style="italic" weight="normal"/>
+      <font-triplet name="TimesMT" style="italic" weight="normal"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/timesbi.xml" kerning="yes" embed-file="../../../../system/fop/fonts/timesbi.ttf">
+      <font-triplet name="Times" style="italic" weight="bold"/>
+      <font-triplet name="TimesMT" style="italic" weight="bold"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/verdana.xml" kerning="yes" embed-file="../../../../system/fop/fonts/verdana.ttf">
+      <font-triplet name="Verdana" style="normal" weight="normal"/>
+      <font-triplet name="VerdanaMT" style="normal" weight="normal"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/verdanab.xml" kerning="yes" embed-file="../../../../system/fop/fonts/verdanab.ttf">
+      <font-triplet name="Verdana" style="normal" weight="bold"/>
+      <font-triplet name="VerdanaMT" style="normal" weight="bold"/>
+    </font>
+    <font metrics-file="../../../../system/fop/fonts/verdanai.xml" kerning="yes" embed-file="../../../../system/fop/fonts/verdanai.ttf">
+      <font-triplet name="Verdana" style="italic" weight="normal"/>
+      <font-triplet name="VerdanaMT" style="italic" weight="normal"/>
+    </font>
+  </fonts>
+</configuration>

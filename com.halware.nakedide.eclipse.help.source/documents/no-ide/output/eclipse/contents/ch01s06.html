@@ -1,0 +1,25 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>6.&nbsp;Add a New Property</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch01.html" title="Getting Started"><link rel="prev" href="ch01s05.html" title="5.&nbsp;Browsing the Code"><link rel="next" href="ch01s07.html" title="7.&nbsp;Next Steps"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e555"></a>6.&nbsp;Add a New Property</h2></div></div></div><p>The NO IDE comes with a set of <a href="ch04s04.html#Templates">templates</a> that make it easy to add new
+      properties, collections and actions to existing objects. Let's use these
+      now to add a new <code class="computeroutput">middleInitial</code> property
+      to the <code class="computeroutput">Customer</code> class.</p><p>First, then, open up this class in the editor, and position the
+      cursor within the type definition, after the
+      <code class="computeroutput">FirstName</code> folded region. Then press
+      ctrl+space 3 times to bring up the Domain Object templates. Then scroll
+      down to the <code class="computeroutput">nopc</code> template and hit
+      enter:</p><div class="mediaobject"><img src="resource/templates-nopc.gif"></div><p>In the Customer class will be the skeleton for a new property. As
+      the template's tooltip indicates, the most commonly used methods are
+      provided. Enter the following values for the placeholders:</p><div class="itemizedlist"><ul type="disc"><li><p>
+                  <code class="computeroutput">PropertyName</code> =
+          <code class="computeroutput">MiddleInitial</code>
+               </p></li><li><p>
+                  <code class="computeroutput">propertyName</code> =
+          <code class="computeroutput">middleInitial</code>
+               </p></li><li><p>
+                  <code class="computeroutput">PropertyType</code> =
+          <code class="computeroutput">String</code>
+               </p></li></ul></div><p>When done, hit escape; the following should have been added to
+      your class:</p><div class="mediaobject"><img src="resource/templates-nopc-Customer-middleInitial.gif"></div><p>If everything is correct then the code should compile - check
+      Eclipse's Problems view to make sure.</p><p>Now run up either the DnD or web clients and look for the new
+      property. For example:</p><div class="mediaobject"><img src="resource/templates-nopc-dnd.gif"></div></div></body></html>

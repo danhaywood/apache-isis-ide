@@ -1,0 +1,27 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>6.5.&nbsp;Naked Object View</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04s06.html" title="6.&nbsp;Annotation Views"><link rel="prev" href="ch04s06s04.html" title="6.4.&nbsp;Actions View"><link rel="next" href="ch04s07.html" title="7.&nbsp;Refactorings"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e3096"></a>6.5.&nbsp;Naked Object View</h3></div></div></div><p>The properties view allow annotations to be specified against
+        the domain object itself.</p><p>This view takes the same form as the rest of the annotation
+        views even though there will only ever be a single row in it. This is
+        by design; we feel it more clearly suggests to the casual user that
+        the type of information presented in this view (ie annotations) is the
+        same as that of the other views.</p><p>The default shortcut for the view is
+        <code class="computeroutput">alt+shift+Q,1</code>:</p><div class="mediaobject"><img src="resource/annotations-object-view.gif"></div><p>The annotations that can be created by the view are:</p><div class="itemizedlist"><ul type="disc"><li><p>
+                     <code class="computeroutput">@Named(value:String)</code>
+                  </p><p>Corresponds to the <code class="computeroutput">Named</code>
+            column</p></li><li><p>
+                     <code class="computeroutput">@Plural(value:String)</code>
+                  </p><p>Corresponds to the <code class="computeroutput">Plural</code>
+            column</p></li><li><p>
+                     <code class="computeroutput">@Immutable(value:When)</code>
+                  </p><p>Corresponds to the
+            <code class="computeroutput">Immutable</code> column</p></li><li><p>
+                     <code class="computeroutput">@Bounded</code>
+                  </p><p>Corresponds to the <code class="computeroutput">Bounded</code>
+            column.</p></li><li><p>
+                     <code class="computeroutput">@NotPersisted</code>
+                  </p><p>Corresponds to the
+            <code class="computeroutput">NotPersisted</code> column</p></li><li><p>
+                     <code class="computeroutput">@DescribedAs(value:String)</code>
+                  </p><p>Corresponds to the
+            <code class="computeroutput">DescribedAs</code> column</p></li></ul></div></div></body></html>

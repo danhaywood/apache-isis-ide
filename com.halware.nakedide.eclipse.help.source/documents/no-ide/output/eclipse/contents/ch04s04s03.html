@@ -1,0 +1,15 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>4.3.&nbsp;Service Templates</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04s04.html" title="4.&nbsp;Templates"><link rel="prev" href="ch04s04s02s03.html" title="4.2.3.&nbsp;The value Template"><link rel="next" href="ch04s05.html" title="5.&nbsp;Project Builder"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e2326"></a>4.3.&nbsp;Service Templates</h3></div></div></div><p>The service templates consist of two templates both relevant to
+        repositories:</p><div class="mediaobject"><img src="resource/templates-services.gif"></div><p>The <code class="computeroutput">findm</code> template is used to
+        return multiple instances from the object store, while the
+        <code class="computeroutput">finds</code> template returns the first
+        instance. Each of these calls methods that exist in
+        <code class="computeroutput">AbstractFactoryAndRepository</code>, and so
+        should only be used for repository implementations that subclass from
+        this superclass. Both the templates also define an in-line
+        implementation of the <code class="computeroutput">Filter</code>
+        interface, part of the <a href="ch02s03.html#NO-Applib">Naked Objects
+        application library</a>. If the methods are performing the same
+        filtering then it makes sense to pull this filter class definition out
+        into a separate member (or even top-level) class.</p></div></body></html>

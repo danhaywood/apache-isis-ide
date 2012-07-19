@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%lcaw.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.lcaw" 
+	name="%lcaw.name">
+    // {{ Lifecycle methods
+    /**
+     * Indicates that the (still-transient) object has just been created.
+     *
+     * &lt;p>
+     * Only ever called once when initially created, immediately after
+     * any &lt;tt>defaultXxx&lt;/tt> methods for properties.  Once the object has
+     * been persisted, only the {@link #loaded()} method is called to
+     * indicate that the object has been re-instantiated.
+     */
+    public void created() {
+    }
+    
+    /**
+     * Indicates that this persistent object is about to be loaded from
+     * the object store.
+     */
+    public void loading() {
+    }
+    
+    /**
+     * Indicates that this persistent object has been loaded from
+     * the object store.
+     */
+    public void loaded() {
+    }
+
+    /**
+     * Indicates that this still-transient object is about to be persisted
+     * for the first time (inserted) into the object store.
+     */
+    public void saving() {
+    }
+    
+    /**
+     * Indicates that this object has just been persisted for the first time 
+     * (inserted) into the object store.
+     */
+    public void saved() {
+    }
+
+    /**
+     * Indicates that this persistent object is about to be updated in
+     * the object store.
+     */
+    public void updating() {
+    }
+    
+    /**
+     * Indicates that this persistent object has just been updated to
+     * the object store.
+     */
+    public void updated() {
+    }
+    
+    /**
+     * Indicates that this persistent object is about to be deleted from
+     * the object store.
+     */
+    public void deleting() {
+    }
+
+    /**
+     * Indicates that this persistent object has just been deleted from
+     * the object store.
+     */
+    public void deleted() {
+    }
+    // }}
+	</template>
+</templates>

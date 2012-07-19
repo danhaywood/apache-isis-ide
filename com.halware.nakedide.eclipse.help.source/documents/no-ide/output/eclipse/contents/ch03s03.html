@@ -1,0 +1,24 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.&nbsp;Create a new Property, Collection or Action</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s02.html" title="2.&nbsp;Create a new Domain Object"><link rel="next" href="ch03s04.html" title="4.&nbsp;Apply Annotations"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1505"></a>3.&nbsp;Create a new Property, Collection or Action</h2></div></div></div><p>The NO IDE provides a collection of <a href="ch04s04.html#Templates">templates</a> to create properties, collections
+      and actions. Navigate within the class definition (but outside a method
+      definition) and press <code class="computeroutput">ctrl+space</code>: this
+      will list all templates available. If you press
+      <code class="computeroutput">ctrl+space</code> 2 times further you will see
+      just the templates applicable to Naked Objects Domain Objects (hence
+      it's easiest to hit ctrl+space 3 times and go straight to this
+      list):</p><div class="mediaobject"><img src="resource/templates-nopc.gif"></div><p>There are 3 variants of the templates for each of properties,
+      collections and actions, following the format
+      <code class="computeroutput">noXY</code>, where:</p><div class="itemizedlist"><ul type="disc"><li><p>
+                  <code class="computeroutput">X</code> = a (action), c
+          (collection), p (property)</p></li><li><p>
+                  <code class="computeroutput">Y</code> = c (common), f (full), s
+          (supporting)</p></li></ul></div><p>Applying the common template (eg
+      <code class="computeroutput">nopc</code>) followed by the supporting
+      template (eg <code class="computeroutput">nops</code>) is equivalent to
+      applying the full template (eg <code class="computeroutput">nopf</code>).
+      The templates are split this way because in practice most class members
+      don't need the whole gamut of supporting methods (or at least, they are
+      only required later on as additional business rules are uncovered; while
+      initially coming to grips with a domain object model they tend to get in
+      the way).</p></div></body></html>

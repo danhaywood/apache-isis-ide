@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Common Eclipse Utilities and Libraries
+Bundle-SymbolicName: com.halware.eclipseutil
+Bundle-Version: 1.0.0.eclipseutil-20070924-1600
+Bundle-Activator: com.halware.eclipseutil.Activator
+Bundle-Vendor: Haywood Associates Ltd.
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.apache.log4j,
+ org.eclipse.ui.forms;visibility:=reexport,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.jface.text
+Bundle-ActivationPolicy: lazy
+Export-Package: com.halware.eclipseutil,
+ com.halware.eclipseutil.extpt,
+ com.halware.eclipseutil.forms,
+ com.halware.eclipseutil.jobs,
+ com.halware.eclipseutil.parts,
+ com.halware.eclipseutil.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

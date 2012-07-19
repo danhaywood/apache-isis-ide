@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This file is part of Dopus                                              -->
+
+<!-- Dopus is free software; you can redistribute it and/or modify           -->
+<!-- it under the terms of the GNU General Public License as published by    -->
+<!-- the Free Software Foundation; either version 2 of the License, or       -->
+<!-- (at your option) any later version.                                     -->
+
+<!-- Dopus is distributed in the hope that it will be useful,                -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!-- GNU General Public License for more details.                            -->
+
+<!-- You should have received a copy of the GNU General Public License       -->
+<!-- along with Dopus; if not, write to the Free Software                    -->
+<!-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+
+<!-- (c) 2006 by AGYNAMIX                                                    -->
+<!-- You can download the latest version of this software at                 -->
+<!-- http://www.agynamix.de                                                  -->
+
+<project name="Dopus output formats" >
+
+  <target name="javahelp" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                          description="Create an JavaHelp JAR file from your document">
+    <trycatch><try><antcall target="local-pre-javahelp" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/javahelp.xsl" />
+
+    <!-- index the help file -->
+    <java fork="true" dir="${project.dir.output}/${project.output.mode}" failonerror="true" classname="com.sun.java.help.search.Indexer">
+      <classpath>
+        <fileset dir="${system.javahelp.dir}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+      <arg line="." />
+    </java>
+    
+    <jar destfile="${project.dir.output}/${project.output.mode}/${project.input.file}.jar"
+           basedir="${project.dir.output}/${project.output.mode}"
+           excludes="**/*.docbook">
+      <manifest id="MANIFEST.MF">
+        <attribute name="Built-By"   value="${user.name}"/>
+        <attribute name="Class-Path" value="jh.jar hsviewer.jar"/>
+        <attribute name="Arguments"  value="-helpset jhelpset.hs"/>
+        <attribute name="Run-Class"  value="sunw.demo.jhdemo.JHLauncher"/>
+        <attribute name="Main-Class" value="sunw.demo.jhdemo.Runner"/>
+      </manifest>
+    </jar>
+    
+    <antcall target="cleanup-tmp-files" />
+    <antcall target="cleanup-style-files" />
+    <delete  quiet="yes" failonerror="no" includeemptydirs="yes">
+      <fileset dir="${project.dir.output}/${project.output.mode}" excludes="**/*.jar"/>
+    </delete>
+
+    <copy todir="${project.dir.output}/${project.output.mode}" file="${system.javahelp.dir}/jh.jar" />
+    <copy todir="${project.dir.output}/${project.output.mode}" file="${system.javahelp.dir}/hsviewer.jar" />
+    <trycatch><try><antcall target="local-post-javahelp" /></try><catch></catch></trycatch>
+  </target>
+  
+  <target name="eclipse" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                         description="Create an Eclipse help plugin from your document">
+    <trycatch><try><antcall target="local-pre-eclipse" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/eclipse.xsl">
+      <xslt-argset>
+        <arg value="eclipse.plugin.id=${eclipse.plugin.id}" />
+        <arg value="eclipse.plugin.name=${eclipse.plugin.name}" />
+        <arg value="eclipse.plugin.provider=${eclipse.plugin.provider}" />
+        <arg value="eclipse.plugin.version=${eclipse.plugin.version}" />
+      </xslt-argset>
+    </xslt-runner>
+
+    <jar destfile="${project.dir.output}/${project.output.mode}/${eclipse.plugin.id}_${eclipse.plugin.version}.jar"
+           basedir="${project.dir.output}/${project.output.mode}"
+           excludes="**/*.docbook">
+      <manifest id="MANIFEST.MF">
+        <attribute name="Built-By"   value="${user.name}"/>
+      </manifest>
+    </jar>
+    
+    <antcall target="cleanup-tmp-files" />
+
+    <trycatch><try><antcall target="local-post-eclipse" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="singlehtml" depends="init, copy-resources, copy-common-files, resolve-xinclude" 
+                            description="Create a single HTML file from your document">
+    <trycatch><try><antcall target="local-pre-singlehtml" /></try><catch></catch></trycatch>
+
+    <xslt-runner outputfile="-o &quot;${project.dir.output}/${project.output.mode}/${project.input.file}.html&quot;"
+                 stylesheet="${project.custom-cfg.dir}/singlehtml.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+
+    <trycatch><try><antcall target="local-post-singlehtml" /></try><catch></catch></trycatch>
+  </target>
+    
+	<!-- , resolve-xinclude -->
+  <target name="html" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                      description="Create a chunked HTML representation of your document">
+    <trycatch><try><antcall target="local-pre-html" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/html.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+    <trycatch><try><antcall target="local-post-html" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="tablehtml" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                      description="Create a chunked Table-HTML representation of your SLIDES document">
+    <trycatch><try><antcall target="local-pre-tablehtml" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/tablehtml.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+    <trycatch><try><antcall target="local-post-tablehtml" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="framehtml" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                      description="Create a chunked Frames-HTML representation of your SLIDES document">
+    <trycatch><try><antcall target="local-pre-framehtml" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/framehtml.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+    <trycatch><try><antcall target="local-post-framehtml" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="singlexhtml" depends="init, copy-resources, copy-common-files, resolve-xinclude" 
+                            description="Create a single XHTML file from your document">
+    <trycatch><try><antcall target="local-pre-singlexhtml" /></try><catch></catch></trycatch>
+
+    <xslt-runner outputfile="-o &quot;${project.dir.output}/${project.output.mode}/${project.input.file}.html&quot;"
+                 stylesheet="${project.custom-cfg.dir}/singlexhtml.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+
+    <trycatch><try><antcall target="local-post-singlexhtml" /></try><catch></catch></trycatch>
+  </target>
+    
+  <target name="xhtml" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                      description="Create a chunked XHTML representation of your document">
+    <trycatch><try><antcall target="local-pre-xhtml" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/xhtml.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+    <trycatch><try><antcall target="local-post-xhtml" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="tablexhtml" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                      description="Create a chunked Table-XHTML representation of your SLIDES document">
+    <trycatch><try><antcall target="local-pre-tablexhtml" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/tablexhtml.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+    <trycatch><try><antcall target="local-post-tablexhtml" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="framexhtml" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                      description="Create a chunked Frames-XHTML representation of your SLIDES document">
+    <trycatch><try><antcall target="local-pre-framexhtml" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/framexhtml.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+    <trycatch><try><antcall target="local-post-framexhtml" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="htmlhelp" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                          description="Create an Windows HTML representation of your document">
+    <trycatch><try><antcall target="local-pre-htmlhelp" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/htmlhelp.xsl" />
+    <!-- run the html files through the Windows Help Compiler -->
+    <exec executable="${system.dir}/htmlhelp/hhc" dir="${project.dir.output}/${project.output.mode}">
+      <arg line="htmlhelp.hhp"/>
+    </exec>
+    <move   file="${project.dir.output}/${project.output.mode}/htmlhelp.chm"
+          tofile="${project.dir.output}/${project.output.mode}/${project.input.file}.chm"/>
+
+    <antcall target="cleanup-tmp-files" />
+    <delete>
+      <fileset dir="${project.dir.output}/${project.output.mode}">
+        <include name="**/*.html"/>
+        <include name="**/*.hhp"/>
+        <include name="**/*.hhc"/>
+        <include name="**/*.css"/>
+        <include name="images/" />
+      </fileset>
+    </delete>
+
+    <trycatch><try><antcall target="local-post-htmlhelp" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="pdf" description="Create an PDF representation of your document">
+    <trycatch><try><antcall target="local-pre-pdf" /></try><catch></catch></trycatch>
+    <antcall target="pdf-fop" />
+    <antcall target="cleanup-tmp-files" />
+    <antcall target="cleanup-style-files" />
+    <trycatch><try><antcall target="local-post-pdf" /></try><catch></catch></trycatch>
+  </target>
+
+  <target name="pdf-fop" depends="fo" >
+    <fop-runner  inputfile="${project.dir.output}/${project.output.mode}/${project.input.file}.fo"
+                 outputfile="${project.dir.output}/${project.output.mode}/${project.input.file}.pdf"
+                 maxmemory="${fop.pdf.maxmemory}" />
+  </target>
+
+  <target name="rtf" depends="fo" description="Create an RTF representation of your document">
+    <trycatch><try><antcall target="local-pre-rtf" /></try><catch></catch></trycatch>
+
+    <java fork="true" dir="${project.dir.output}/${project.output.mode}" failonerror="true" classname="com.xmlmind.fo.converter.Driver">
+      <classpath refid="xfc.classpath" />
+      <arg line="${project.input.file}.fo" />
+      <arg line="${project.input.file}.rtf" />
+    </java>
+    <antcall target="cleanup-tmp-files" />
+    <antcall target="cleanup-style-files" />
+    <trycatch><try><antcall target="local-post-rtf" /></try><catch></catch></trycatch>
+  </target>
+
+  <!-- Generate a .fo file, prerequisite to pdf or rtf -->
+  <target name="fo" depends="init, copy-resources, copy-common-files, resolve-xinclude">
+    <trycatch><try><antcall target="local-pre-fo" /></try><catch></catch></trycatch>
+
+    <xslt-runner inputfile="${project.dir.output}/${project.output.mode}/${project.input.file}.docbook"
+                 outputfile="-o &quot;${project.dir.output}/${project.output.mode}/${project.input.file}.fo&quot;"
+                 stylesheet="${project.custom-cfg.dir}/fo.xsl" />
+
+    <trycatch><try><antcall target="local-post-fo" /></try><catch></catch></trycatch>
+  </target>
+  
+  <target name="wordml" depends="init, copy-resources, copy-common-files, resolve-xinclude" 
+                        description="Create a single WordML file from your document">
+    <trycatch><try><antcall target="local-pre-wordml" /></try><catch></catch></trycatch>
+
+    <xslt-runner outputfile="-o &quot;${project.dir.output}/${project.output.mode}/${project.input.file}.xml&quot;"
+                 stylesheet="${project.custom-cfg.dir}/wordml.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+
+    <trycatch><try><antcall target="local-post-wordml" /></try><catch></catch></trycatch>
+  </target>
+  
+  <target name="manpages" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                       description="Create manpages from your document">
+    <trycatch><try><antcall target="local-pre-manpages" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/manpages.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+    <trycatch><try><antcall target="local-post-manpages" /></try><catch></catch></trycatch>
+  </target>
+
+	<!-- Only for slides -->
+  <target name="svg" depends="init, copy-resources, copy-common-files, resolve-xinclude"
+                      description="Create a SVG representation of your SLIDES document">
+    <trycatch><try><antcall target="local-pre-svg" /></try><catch></catch></trycatch>
+
+    <xslt-runner stylesheet="${project.custom-cfg.dir}/svg.xsl" />
+    
+    <antcall target="cleanup-tmp-files" />
+    <trycatch><try><antcall target="local-post-svg" /></try><catch></catch></trycatch>
+  </target>
+  
+</project>

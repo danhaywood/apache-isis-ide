@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%injr.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.injr" 
+	name="%injr.name">
+    // {{ Injected Services
+    /*
+     * This region contains references to the services (Repositories, 
+     * Factories or other Services) used by this domain object.  The 
+     * references are injected by the application container.
+     */
+     
+    ${cursor}
+    // }}
+	</template>
+</templates>

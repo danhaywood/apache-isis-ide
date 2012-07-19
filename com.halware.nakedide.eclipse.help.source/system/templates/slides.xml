@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of Dopus                                              -->
+
+<!-- Dopus is free software; you can redistribute it and/or modify           -->
+<!-- it under the terms of the GNU General Public License as published by    -->
+<!-- the Free Software Foundation; either version 2 of the License, or       -->
+<!-- (at your option) any later version.                                     -->
+
+<!-- Dopus is distributed in the hope that it will be useful,                -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!-- GNU General Public License for more details.                            -->
+
+<!-- You should have received a copy of the GNU General Public License       -->
+<!-- along with Dopus; if not, write to the Free Software                    -->
+<!-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+
+<!DOCTYPE slides PUBLIC "-//Norman Walsh//DTD Slides V3.4//EN"
+          "http://docbook.sourceforge.net/release/slides/3.4/schema/slides.dtd"
+
+  [
+    <!ENTITY % global.entities SYSTEM "../../../system/custom-xsl/global-entities.xml">
+    %global.entities;
+
+    <!ENTITY % entities SYSTEM "../custom-cfg/local-entities.xml">
+    %entities;
+  ]
+>
+
+<slides>
+ <slidesinfo>
+		<title>Slides Example</title>
+	</slidesinfo>
+	<speakernotes>
+		<para>
+		  You can include speaker's notes.
+		</para>
+	</speakernotes>
+	<foil>
+		<title>Those are supported output formats:</title>
+		<itemizedlist>
+			<listitem>
+				<para>HTML</para>
+			</listitem>
+			<listitem>
+				<para>PDF</para>
+			</listitem>
+			<listitem>
+				<para>PS</para>
+			</listitem>
+			<listitem>
+				<para>HTML Help</para>
+			</listitem>
+			<listitem>
+				<para>RTF</para>
+			</listitem>
+		</itemizedlist>
+	</foil>
+
+<!-- Via XInclude we can include document parts
+     You can use Xalan's xpointer features to select parts of your included document
+     or include all of it.
+  -->
+<xi:include href="slides-include.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+</slides>

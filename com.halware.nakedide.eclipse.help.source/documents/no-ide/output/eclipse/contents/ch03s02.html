@@ -1,0 +1,35 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>2.&nbsp;Create a new Domain Object</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s01.html" title="1.&nbsp;Code Folding"><link rel="next" href="ch03s03.html" title="3.&nbsp;Create a new Property, Collection or Action"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1410"></a>2.&nbsp;Create a new Domain Object</h2></div></div></div><p>Since NOA domain objects are very little more than POJOs, to
+      create a new domain object simply use Eclipse's Java wizard:
+      <code class="computeroutput">File&gt;New&gt;Class...</code>. When done,
+      though, use the following Domain Object templates:</p><div class="itemizedlist"><ul type="disc"><li><p>the <code class="computeroutput">applib</code> template (before
+          the class definition) will quickly add the import statement for the
+          <a href="ch02s03.html#NO-Applib">Naked Objects application
+          library</a>
+               </p></li><li><p>the <code class="computeroutput">entity</code> template (again,
+          before the class definition) will set up an
+          <code class="computeroutput">@Entity</code> declaration along with a
+          comment.</p></li><li><p>the <code class="computeroutput">ident</code> template can be
+          used to create a <code class="computeroutput">title()</code>
+          method.</p></li></ul></div><p>The screenshot below shows these templates having been
+      applied:</p><div class="mediaobject"><img src="resource/new-class-using-ident-template.gif"></div><p>An icon is also required for the new class. The icon should be
+      32x32 pixels, can be a GIF, PNG or JPG, for example
+      <code class="computeroutput">OrderItem.gif</code>. For the NOF this icon
+      file should reside in the application project under
+      <code class="computeroutput">src/main/resources/images</code>:</p><div class="itemizedlist"><ul type="disc"><li><p>For the NOF DnD viewer this directory corresponds to a
+          subpackage <code class="computeroutput">images</code> on the
+          classpath</p></li><li><p>For the NOF Web viewer this directory is referenced directly
+          in the <code class="computeroutput">--resourceBase</code> command line
+          option (without the <code class="computeroutput">images</code>
+          suffix).</p></li></ul></div><p>In addition, if the class is in a new package, then it will also
+      be necessary to update the project manifest
+      (<code class="computeroutput">META-INF/MANIFEST.MF</code>) to export this
+      package:</p><div class="mediaobject"><img src="resource/export-packages.gif"></div><p>Navigate to the <code class="computeroutput">Runtime</code> tab and
+      click on the <code class="computeroutput">Add</code> button under
+      <code class="computeroutput">Exported Packages</code> section.
+      Alternatively, you can edit the
+      <code class="computeroutput">Exported-Packages</code> entry in the
+      <code class="computeroutput">MANIFEST.MF</code> itself:</p><div class="mediaobject"><img src="resource/export-packages-2.gif"></div><p>This can sometimes be quicker than using the PDE manifest editor,
+      but make sure that there is a carriage return after the last line, and
+      the last line contains no characters.</p></div></body></html>

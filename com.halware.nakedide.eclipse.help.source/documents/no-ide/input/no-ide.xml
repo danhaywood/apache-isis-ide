@@ -1,0 +1,3523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % global.entities SYSTEM "../../../system/custom-xsl/global-entities.xml">
+%global.entities;
+<!ENTITY % entities SYSTEM "../custom-cfg/local-entities.xml">
+%entities;
+]>
+<book lang="en">
+  <bookinfo>
+    <title>Naked Objects IDE</title>
+
+    <pubdate>2007</pubdate>
+
+    <copyright>
+      <year>2007</year>
+
+      <holder>Haywood Associates Ltd.</holder>
+    </copyright>
+
+    <author>
+      <surname>Dan Haywood</surname>
+    </author>
+  </bookinfo>
+
+  <chapter>
+    <title id="Tutorial">Getting Started</title>
+
+    <para>This chapter contains a basic tutorial to create sample projects and
+    launch the application. To get here you should already have installed the
+    Naked Objects IDE. You will also need to have installed the Naked Objects
+    Framework and the Naked Objects Prerequisites feature. These are both
+    available from the NOF update site, see <ulink
+    url="http://www.nakedobjects.org">http://www.nakedobjects.org</ulink> for
+    details.</para>
+
+    <section>
+      <title>Create a new Application Project</title>
+
+      <para>Naked Objects applications are typically broken into several
+      different projects, the most important of which is the applicaiton
+      project. This contains the domain objects and supporting services that
+      make up the application. The <link
+      linkend="ApplicationProjectWizard">Application Project Wizard</link>
+      allows you to quickly create a simple 3-class sample application with
+      the classpath and other resources correctly set up.</para>
+
+      <para>Use <computeroutput>File&gt;New&gt;Project...&gt;Naked
+      Objects</computeroutput> to list the NO IDE's project wizards. Select
+      the <computeroutput>Application Project</computeroutput> wizard and
+      press <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/new-project-application-wizard-selected.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>This brings up the first page of the wizard. In the
+      <computeroutput>Project name</computeroutput> field, enter a name for
+      the project, and change any other settings. Then press
+      <computeroutput>Next</computeroutput>.</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/application-project-wizard-page-1.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the second page, adjust the
+      <computeroutput>Version</computeroutput> and
+      <computeroutput>Provider</computeroutput> if required, and then
+      <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/application-project-wizard-page-2.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the third and final page, ensure the <computeroutput>Generate
+      sample code</computeroutput> checkbox is ticked, and press
+      <computeroutput>Finish</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/application-project-wizard-page-3.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>The wizard copies example code and icons to create the new
+      project. When it is done the application workbench will be displayed,
+      showing the project:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/application-project-in-workbench.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>There are a couple of things to note. First and most obviously is
+      the layout of the workbench itself, which is as defined by the new <link
+      linkend="NO-Perspective">Naked Objects perspective</link>. This
+      perspective brings together all the most useful views provided by the NO
+      IDE. Second, the project has a <link linkend="NO-Nature">Naked Objects
+      nature</link> (note the small 'N' overlay on the project); various other
+      features of the NO IDE enable themselves based upon the presence of this
+      nature. Third, note that the project that has has been created is in
+      fact an OSGi (or plugin) project, hence the manifest in the editor
+      area.</para>
+
+      <para>Let's now look at the generated code in the
+      <computeroutput>Package Explorer</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/application-project-project-explorer.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>The application project includes a very simple (3 class) domain
+      object model, along with 3 supporting <link
+      linkend="Services">repositories</link>. These make a good starting point
+      for any new application - just refactor them and modify them as
+      required. Note also the provided images, with names matching the
+      classes.</para>
+
+      <para>Although the application project is the most important of the
+      projects to create, it isn't possible to run the client yet. For that we
+      need both a <link linkend="TutorialFixtureProject">fixture
+      project</link> and a client project.</para>
+    </section>
+
+    <section>
+      <title id="TutorialFixtureProject">Create a new Fixture Project</title>
+
+      <para>The role of a Fixture project is to hold <link
+      linkend="Fixtures">fixtures</link> that define a set of example objects.
+      With these defined the client application can then be run. The <link
+      linkend="FixtureProjectWizard">Fixture Project Wizard</link> sets up the
+      structure of such a project, along with example fixtures for the
+      <computeroutput>Customer</computeroutput>,
+      <computeroutput>Product</computeroutput> and
+      <computeroutput>Order</computeroutput> as created by the <link
+      linkend="ApplicationProjectWizard">Application Project
+      Wizard</link>.</para>
+
+      <para>As before use <computeroutput>File&gt;New&gt;Project...&gt;Naked
+      Objects</computeroutput> to list the NO IDE's project wizards, but this
+      time select the <computeroutput>Fixture Project</computeroutput> wizard
+      and then press <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/new-project-fixture-project-selected.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the first page of the wizard, select the
+      <computeroutput>Application project</computeroutput> that these are the
+      fixtures for. This is used primarily to set up the classpath. Press
+      <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/fixture-project-wizard-page-1.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the second page of the wizard, enter the fixture project's
+      <computeroutput>Project name</computeroutput>. This should have been
+      derived from application project name given on the previous page. Then
+      press <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/fixture-project-wizard-page-2.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the third page, adjust the
+      <computeroutput>Version</computeroutput> and
+      <computeroutput>Provider</computeroutput> if required, and then
+      <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/fixture-project-wizard-page-3.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the last page again ensure that the <computeroutput>Generate
+      Sample Code</computeroutput> checkbox is selected, and press
+      <computeroutput>Finish</computeroutput>.</para>
+
+      <para>In the workbench the new project should have been created. Open up
+      the <computeroutput>Package Explorer</computeroutput> to view its
+      contents:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/fixture-project-project-explorer.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Each of these <computeroutput>*Fixture</computeroutput> classes
+      uses the services of the <computeroutput>*Repository</computeroutput>
+      classes in the application project to instantiate and persist new
+      objects.</para>
+
+      <para>We now need to create a <link
+      linkend="TutorialClientProject">client project</link>.</para>
+    </section>
+
+    <section>
+      <title id="TutorialClientProject">Create a new Client Project</title>
+
+      <para>The role of a client project is to both hold the tests and to run
+      a Naked Objects application (as a set of locally-held launch
+      configuration definitions). In both cases a fixture set is used; it is
+      often helpful to share the fixture set between the application and the
+      tests. The <link linkend="ClientProjectWizard">Client Project
+      Wizard</link> creates a sample test and launch configurations for the
+      same 3-class domain example of the <link
+      linkend="ApplicationProjectWizard">Application Project Wizard</link> and
+      the <link linkend="FixtureProjectWizard">Fixture Project
+      Wizard</link>.</para>
+
+      <para>As before use <computeroutput>File&gt;New&gt;Project...&gt;Naked
+      Objects</computeroutput> to list the NO IDE's project wizards, but this
+      time select the <computeroutput>Client Project</computeroutput> wizard
+      and then press <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/new-project-clientwizard-selected.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>The first page of the wizard is similar to that of the <link
+      linkend="FixtureProjectWizard">Fixture Project Wizard</link>, in that it
+      requires the <computeroutput>Application project</computeroutput> to be
+      specified. In addition, the <computeroutput>Fixture
+      project</computeroutput> must also be specified (both will be referenced
+      in the classpath). Press <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/client-project-wizard-page-1.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the second page of the wizard, enter the client project's
+      <computeroutput>Project name</computeroutput>. This should have been
+      derived from application project name given on the previous page. Then
+      press <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/client-project-wizard-page-2.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the third page, adjust the
+      <computeroutput>Version</computeroutput> and
+      <computeroutput>Provider</computeroutput> if required, and then
+      <computeroutput>Next</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/client-project-wizard-page-3.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the last page once again ensure that the
+      <computeroutput>Generate Sample Code</computeroutput> checkbox is
+      selected, and press <computeroutput>Finish</computeroutput>. </para>
+
+      <para>In the workbench the new project should have been created. Open up
+      the <computeroutput>Package Explorer</computeroutput> to view its
+      contents:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/client-project-project-explorer.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>As you can see the project consists primarily of a single test,
+      <computeroutput>CustomerTest</computeroutput>, and a set of
+      configuration files. In the <computeroutput>exec</computeroutput> folder
+      are three local launch configuration definitions to launch the
+      application in one of two modes, or to run the tests. Let's look at
+      those <link linkend="TutorialLaunch">next</link>.</para>
+    </section>
+
+    <section>
+      <title id="TutorialLaunch">Launch the Application</title>
+
+      <para>The most important items provided by the <link
+      linkend="ClientProjectWizard">Client Project Wizard</link> sets up are
+      the launch configuration definitions. Use
+      <computeroutput>Run&gt;Run...</computeroutput> (or
+      <computeroutput>Run&gt;Debug...</computeroutput>) to view these:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/launch-configurations.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Two launch configurations are set up, under a
+      <computeroutput>Naked Objects Application</computeroutput> launch
+      configuration type. The <emphasis>DnD Client</emphasis> launch will run
+      the Naked Objects Framework configured to launch the Drag-n-Drop viewer
+      while the <emphasis>Web Local Server </emphasis>launch runs up a local
+      web server; the client is invoked via a web browser.</para>
+
+      <para>The settings on the <computeroutput>Main</computeroutput> tab for
+      each of the launches is identical:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/launch-configuration-main-tab.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On the second <computeroutput>Arguments</computeroutput> tab you
+      can indicate the <computeroutput>Viewer</computeroutput>
+      (<computeroutput>dnd</computeroutput> or
+      <computeroutput>web</computeroutput>), and other options supported by
+      the Naked Objects Framework. For example the <emphasis>DnD
+      Client</emphasis> launch has the following initial setings:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/launch-configuration-dnd-args-tab.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Let's now <link linkend="TutorialLaunchDnD">launch the DnD
+      client</link>.</para>
+
+      <section>
+        <title id="TutorialLaunchDnD">Launch the Drag-n-Drop Client</title>
+
+        <para>Open up the DnD Client launch, and then press
+        <computeroutput>Run</computeroutput>. The DnD client should be
+        shown:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/dnd-client.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>Each of the icons corresponds to the services in the application
+        project, with the menu shown corresponding to the actions of
+        <computeroutput>com.mycompany.myapp.services.CustomerRepository</computeroutput>
+        . In the <computeroutput>nakedobjects.properties</computeroutput> file
+        these are registered as services and so are added to the
+        desktop.</para>
+
+        <para>The screenshot below shows the same application with a number of
+        opened objects:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/dnd-client-showing-fixtures.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>These objects were created by the fixtures in the fixture
+        project.</para>
+
+        <para>Have a go at using the application. However note that both
+        exploration and prototype use an in-mem ory object store and so any
+        changes will not be persisted between runs.</para>
+
+        <para>Now let's have a look at <link
+        linkend="TutorialLaunchWeb">launching the web client</link>.</para>
+      </section>
+
+      <section>
+        <title id="TutorialLaunchWeb">Launch the Web Client</title>
+
+        <para>Because the underlying domain objects (in the application
+        project) are the same, the functionality exposed by the web client is
+        the same as that of DnD client. However, it is rendered somewhat
+        differently.</para>
+
+        <para>Open up the Web client launch, change type if required, and
+        again press <computeroutput>Run</computeroutput>. You can tell the
+        client is starting from logging messages in the console. When these
+        finish appearing, look for an information message near the end:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/web-client-console.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The message indicates the URL to access the local web server by,
+        namely:
+        <computeroutput>http://localhost:8080/logon.html</computeroutput>.
+        Choose your favorite web browser and enter that URL. At the resultant
+        page enter the username and password (see
+        <computeroutput>password</computeroutput> file for details), and
+        <computeroutput>Log in</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/web-client-desktop.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>This desktop shows the same 3 repositories as the DnD viewer.
+        Click on these to access their methods. The screenshot below shows the
+        client having navigated to a number of the fixture objects:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/web-client-showing-fixtures.gif" />
+          </imageobject>
+        </mediaobject>
+      </section>
+
+      <section>
+        <title>Run the tests</title>
+
+        <para>On the launch configuration dialog and under the JUnit type is a
+        launch configuration for
+        <computeroutput>CustomerTest</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/launch-configuration-junit-tab.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>Select this and <computeroutput>Run</computeroutput> it. In
+        Eclipse the <computeroutput>JUnit</computeroutput> view should open
+        up, with the tests having passed:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/junit-view.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>If you refresh the <computeroutput>Package
+        Explorer</computeroutput> view (<computeroutput>File &gt;
+        Refresh</computeroutput>) a new 'tmp' directory should have been
+        created. This contains a transcript of the tests.</para>
+
+        <para>You have now created the sample application, launched it as
+        either the DnD or web clients, and run the sample tests. Let's now
+        have a closer look at the code.</para>
+      </section>
+    </section>
+
+    <section>
+      <title id="TutorialBrowsing">Browsing the Code</title>
+
+      <para>Most coding conventions tend to specify that either instance
+      variables should (lexically) appear before methods in the class
+      definition. Or maybe they state that methods come first, and then
+      methods. For domain objects written against the <link
+      linkend="NO-ProgrammingModel">Naked Objects programming model</link>,
+      however, we've found that it makes more sense to group class members by
+      responsibility. For example, each of the various methods and the
+      instance variable that represent a
+      <computeroutput>Customer</computeroutput>'s
+      <computeroutput>orders</computeroutput> collection reside
+      together:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/Customer-orders.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>The <computeroutput>// {{ Orders</computeroutput> and
+      <computeroutput>// }}</computeroutput> comments delimit this feature.
+      The <link linkend="Folding">Coffee Bytes code folding</link> feature
+      bundled with the NO IDE can use these comments to fold the features. To
+      install this, open up
+      <computeroutput>Windows&gt;Preferences&gt;Java&gt;Editor&gt;Folding</computeroutput>
+      and select <computeroutput>Coffee Bytes Java
+      Folding</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/coffee-bytes-folding.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>In the table on the <computeroutput>General</computeroutput> tab,
+      also enable <computeroutput>User Defined Regions</computeroutput> (last
+      row).</para>
+
+      <para>Then, on the <computeroutput>User Defined Regions</computeroutput>
+      tab, specify <computeroutput>{{</computeroutput> and
+      <computeroutput>}}</computeroutput> and the <computeroutput>Start
+      Identifier</computeroutput> and <computeroutput>End
+      Identifier</computeroutput> respectively:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/coffee-bytes-folding-2.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>You should now be able to browse all of the features of the
+      <computeroutput>Customer</computeroutput> class in very little
+      space:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/Customer-folded.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Dependent on whether the class responsibility is a property, a
+      collection or an action, each will consist of a number of methods
+      following well-defined conventions. These are summarised in the
+      <computeroutput>Outline View</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/outline-view.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Have a look at the other domain classes and services in the
+      application code, and get a feel for the functionality that they expose.
+      When you are done, let's move on and have a go at <link
+      linkend="TutorialAddNewProperty">modifying the code</link>.</para>
+    </section>
+
+    <section>
+      <title id="TutorialAddNewProperty">Add a New Property</title>
+
+      <para>The NO IDE comes with a set of <link
+      linkend="Templates">templates</link> that make it easy to add new
+      properties, collections and actions to existing objects. Let's use these
+      now to add a new <computeroutput>middleInitial</computeroutput> property
+      to the <computeroutput>Customer</computeroutput> class.</para>
+
+      <para>First, then, open up this class in the editor, and position the
+      cursor within the type definition, after the
+      <computeroutput>FirstName</computeroutput> folded region. Then press
+      ctrl+space 3 times to bring up the Domain Object templates. Then scroll
+      down to the <computeroutput>nopc</computeroutput> template and hit
+      enter:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/templates-nopc.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>In the Customer class will be the skeleton for a new property. As
+      the template's tooltip indicates, the most commonly used methods are
+      provided. Enter the following values for the placeholders:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><computeroutput>PropertyName</computeroutput> =
+          <computeroutput>MiddleInitial</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>propertyName</computeroutput> =
+          <computeroutput>middleInitial</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>PropertyType</computeroutput> =
+          <computeroutput>String</computeroutput></para>
+        </listitem>
+      </itemizedlist>
+
+      <para>When done, hit escape; the following should have been added to
+      your class:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/templates-nopc-Customer-middleInitial.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>If everything is correct then the code should compile - check
+      Eclipse's Problems view to make sure.</para>
+
+      <para>Now run up either the DnD or web clients and look for the new
+      property. For example:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/templates-nopc-dnd.gif" />
+        </imageobject>
+      </mediaobject>
+    </section>
+
+    <section>
+      <title>Next Steps</title>
+
+      <para>If you want to ...</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>understand more about the main ideas underpinning Naked
+          Objects and the IDE, read <link
+          linkend="Concepts">Concepts</link>.</para>
+        </listitem>
+
+        <listitem>
+          <para>perform more standard coding activities, read <link
+          linkend="Tasks">Tasks</link>.</para>
+        </listitem>
+
+        <listitem>
+          <para>consult the full set of functionality exposed by the NO IDE,
+          read the <link linkend="Reference">rReference</link>.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Or, just explore on your own!</para>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title id="Concepts">Concepts</title>
+
+    <para>This chapter describes key concepts to understanding Naked Objects
+    applications and the NO IDE.</para>
+
+    <section>
+      <title id="NO-ArchitecturalPattern">Naked Objects Architectural
+      Pattern</title>
+
+      <para>The Naked Objects Architectural Pattern is defined by the
+      following principles (adapted from <ulink
+      url="http://www.nakedobjects.org">http://www.nakedobjects.org</ulink>):</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>A business system should be designed using behaviourally
+          complete domain objects.</para>
+
+          <para>The domain objects represent the nouns or entities in the
+          business domain (such as Customer, Product and Order). Behavioural
+          completeness means that all of the behaviours or functionality
+          associated with a Customer should be implemented as methods on that
+          object.</para>
+        </listitem>
+
+        <listitem>
+          <para>The business system should have an object-oriented user
+          interface where the objects that the users view and interact with
+          correspond directly to the underlying domain entity objects, and
+          such that all functionality is initiated by explicitly invoking
+          methods on a domain object.</para>
+
+          <para>An OOUI adopts what has been called the ‘noun-verb’ style of
+          interaction - because all user actions are initiated by selecting an
+          object and then selecting a behaviour that is a property of that
+          object. This is in contrast to the more widely-used ‘verb-noun’
+          style, where the user selects a task from a menu and then specifies
+          the data on which that task is to operate.</para>
+        </listitem>
+
+        <listitem>
+          <para>Each domain object should constitute a single point of
+          definition.</para>
+
+          <para>In a conventional multi-tiered architecture, making a change
+          to the definition of a domain object class would typically also
+          entail changes within multiple tiers: potentially to the user
+          interface, the process layer, the data access layer and the database
+          itself. The principle of 'single point of definition' is that all
+          representations of a domain object (whether representations on the
+          user interface or representations on the database) should be
+          derived, automatically, from the domain object class itself. A
+          change to the definition of any domain object class should not then
+          require any other changes to code in the system.</para>
+
+          <para>The concept of automated 'Object Relational Mapping' (ORM) -
+          as applied in the Hibernate tool, for example - applies this
+          principle between the domain classes and the database. The Naked
+          Objects Pattern takes this same principle further and applies it to
+          the user interface also.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The majority of the functionality provided by the NO IDE can be
+      applies to any Java-based framework that implements the Naked Objects
+      architectural pattern, with a minority specific to the Naked Objects
+      Framework itself. In this context the Naked Objects Framework can be
+      thought of as a <ulink
+      url="http://en.wikipedia.org/wiki/Reference_implementation">Reference
+      Implementation</ulink>. Its specification is defined through the <link
+      linkend="NO-ProgrammingModel">Naked Objects Programming Model</link>,
+      described next.</para>
+    </section>
+
+    <section>
+      <title id="NO-ProgrammingModel">Naked Objects Programming Model</title>
+
+      <para>The Naked Objects Programming Model defines a set of programming
+      conventions and supporting <link linkend="NO-Applib">annotations</link>
+      for writing Java-based domain object models. These conventions are
+      required so that an <link linkend="NO-ArchitecturalPattern">NOA</link>
+      framework can interact with the domain objects in a well-defined
+      manner.</para>
+
+      <para>These programming conventions build upon <ulink
+      url="http://en.wikipedia.org/wiki/Plain_Old_Java_Object">POJO /
+      JavaBean</ulink> naming conventions; in particular they do not require
+      the domain objects to subclass from any framework-specific superclass.
+      Moreover these conventions are compatible with those of Hibernate/EJB3,
+      meaning that NOA implementations (such as the Naked Objects Framework)
+      can use Hibernate for persistence.</para>
+
+      <para>The key programming conventions are as follows:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>properties are represented by accessors
+          (<computeroutput>getXxx</computeroutput>) and mutator
+          (<computeroutput>setXxx</computeroutput>) methods, just as for
+          JavaBeans. These may be called either via the UI or via an object
+          store implementation when it is resolving an object.</para>
+
+          <para>The accessors and mutators may be supplemented by a
+          <computeroutput>modifyXxx</computeroutput> and
+          <computeroutput>clearXxx</computeroutput> methods which the NOA
+          implementation will invoke instead of the mutator if present. These
+          allow additional functionality to be performed (for example
+          maintaining derived object state).</para>
+
+          <para>Optionally a <computeroutput>validateXxx</computeroutput>
+          method can be used to validate and if necessary veto any proposed
+          new values for a property. If a property should be read-only (for
+          example, because of the state that the object is in) then it can be
+          disabled using a <computeroutput>disableXxx</computeroutput> method,
+          or it can be hidden completely from the UI using a
+          <computeroutput>hideXxx</computeroutput> method.</para>
+
+          <para>Finally a default value (for a newly created object) can be
+          specified using a <computeroutput>defaultXxx</computeroutput>
+          method, and if there is a enumeration of valid values (eg as might
+          be rendered through a drop-down list) then a
+          <computeroutput>choicesXxx</computeroutput> method can specify these
+          values.</para>
+        </listitem>
+
+        <listitem>
+          <para>collections are likewise represented by accessors
+          (<computeroutput>getXxx</computeroutput>) and mutator
+          (<computeroutput><computeroutput>setXxx</computeroutput></computeroutput>)
+          methods, though the return type here is a collection (ie
+          <computeroutput>java.util.List</computeroutput> or
+          <computeroutput>java.util.Set</computeroutput>).</para>
+
+          <para>As for properties the accessors and mutators may be
+          supplemented by <computeroutput>addToXxx</computeroutput> and
+          <computeroutput>removeFromXxx</computeroutput> methods. The NOA
+          implementation will invoke these if present rather than act directly
+          on the collection provided by the getter.</para>
+
+          <para>The <computeroutput>validateAddToXxx</computeroutput> and
+          <computeroutput>validateRemoveFromXxx</computeroutput> methods can
+          be used to validate and if necessary veto any proposed changed to
+          the contents of a collection. And again as for properties, a
+          <computeroutput>disableXxx</computeroutput> and hideXxx method can
+          be used to respectively make a collection read-only or to hide it
+          from the UI completely.</para>
+        </listitem>
+
+        <listitem>
+          <para>actions of a method are any other
+          <computeroutput>public</computeroutput> methods. Again these can be
+          supplemented by a number of supporting methods.</para>
+
+          <para>The <computeroutput>validateXxx</computeroutput> method is
+          used to validate the parameter values of an action prior to invoking
+          it. The <computeroutput>disableXxx</computeroutput> method can
+          prevent the action from being invoked in the first place while the
+          <computeroutput>hideXxx</computeroutput> method removes it from the
+          GUI.</para>
+
+          <para>Any default values for the parameters of an action can be
+          specified using a <computeroutput>defaultXxx</computeroutput>
+          method, while any enumeration of valid values for those parameters
+          can be specified using a <computeroutput>choiceXxx</computeroutput>
+          method.</para>
+        </listitem>
+
+        <listitem>
+          <para>a no-arg constuctor is required.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The <link linkend="Templates">template</link> functionality
+      provided by the NO IDE greatly assists in ensuring that the supporting
+      methods are correctly named and so forth.</para>
+
+      <para>These key naming conventions are backed up by a number of Java 5
+      annotations that can be used on properties, collections and actions. For
+      example, the <computeroutput>@Named</computeroutput> annotation can be
+      applied to a parameter of an action method so that it is rendered
+      appropriately, whereas the
+      <computeroutput>@Immutable(When.ONCE_PERSISTED)</computeroutput> allows
+      an object to be edited until it has been initially saved, but not
+      thereafter. These Java 5 annotations reside in the <link
+      linkend="NO-Applib">Naked Objects application library</link>. One reason
+      that the <link linkend="ProjectWizards">project wizards</link> separate
+      out the application project from the client project is to minimize the
+      dependencies of the domain objects to just the Naked Objects application
+      library, and not the remainder of the Naked Objects Framework (or
+      indeed, any other NOA-compliant implementation).</para>
+
+      <para>In addition, there are a number of optional methods. The first two
+      are used to identify the object in the UI, and the last relates to
+      validation:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>the <computeroutput>title()</computeroutput> method returns a
+          string which the UI is expected to use as a label for the object. If
+          not present then <computeroutput>toString()</computeroutput> is
+          used.</para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>iconName()</computeroutput> method returns
+          a string which represents the icon to show for the label. This is
+          much less commonly used than title() because normally NOA
+          implementations allow an icon to be associated with the class rather
+          than an instance of a class. For example, the NOF uses an image file
+          whose name matches that of the domain class (eg
+          <computeroutput>Customer.gif</computeroutput>). Nevertheless, the
+          <computeroutput>iconName()</computeroutput> method allows the icon
+          to change on a per-instance basis, eg according to the state of the
+          object.</para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>validate()</computeroutput> method can be
+          used to veto any changes to the object. This is useful when there
+          are two properties whose values must be consistent with each other,
+          eg FromDate &lt; ToDate.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>There are a number of other methods that are defined which relate
+      to managing the lifecycle of the object in respect to its environment.
+      See <link linkend="Do">Domain Object Container</link> for further
+      discussion.</para>
+    </section>
+
+    <section>
+      <title id="NO-Applib">Naked Objects Application Library</title>
+
+      <para>As described in the <link
+      linkend="NO-ProgrammingModel">programming model</link>, the application
+      library primarily consists of a number of annotations that refine the
+      semantics of the domain object model. These reside in the
+      <computeroutput>org.nakedobjects.applib.annotation</computeroutput>
+      package. These are supplemented by
+      <computeroutput>javax.persistence.Entity</computeroutput> to represent a
+      domain (entity) object.</para>
+
+      <para>The application library has a number of other packages:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>The <computeroutput>org.nakedobjects.applib</computeroutput>
+          package consists primarily of two abstract classes
+          <computeroutput>AbstractDomainObject</computeroutput> and
+          <computeroutput>AbstractFactoryAndRepository</computeroutput>. These
+          are convenience (non-mandatory!) superclasses for domain classes and
+          services respectively. In addition it defines the
+          DomainObjectContainer interface, discussed <link
+          linkend="DomainObjectContainer">later</link>.</para>
+        </listitem>
+
+        <listitem>
+          <para>The
+          <computeroutput>org.nakedobjects.applib.security</computeroutput>
+          package contains classes that represent the logged-on user's
+          identity. These can be returned by the <link
+          linkend="DomainObjectContainer">Domain Object
+          Container</link>.</para>
+        </listitem>
+
+        <listitem>
+          <para>The
+          <computeroutput>org.nakedobjects.applib.util</computeroutput>
+          package has a couple of helper classes useful for constructing
+          return values for the <computeroutput>title()</computeroutput>
+          method or the <computeroutput>validateXxx</computeroutput> and
+          <computeroutput>disableXxx</computeroutput> methods.</para>
+        </listitem>
+
+        <listitem>
+          <para>The
+          <computeroutput>org.nakedobjects.applib.value</computeroutput>
+          package contains a number of classes that can be used instead of
+          Java's own primitives and wrapper classes for properties. The prime
+          benefit for using these value classes is (in some cases) more
+          sophisticated rendering in the NOF UI, at the cost of arguably
+          greater coupling to the NOA.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Over time we expect the application library to be extended as more
+      sophisticated semantics are defined and supported by NOA
+      implementations. At the same time some annotations may be deprecated if
+      they can be replaced by JEE or other de-facto annotations if they
+      represent the same semantics as required by NOA.</para>
+    </section>
+
+    <section>
+      <title>Project Types</title>
+
+      <para>The NO IDE has three main different <link
+      linkend="ProjectW">project wizards</link>, to set up:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Application projects</para>
+
+          <para>These contain the domain object model and supporting
+          services.</para>
+        </listitem>
+
+        <listitem>
+          <para>Fixture projects</para>
+
+          <para>These contain fixtures for building test data, either for
+          tests or for prototyping/exploration/demos.</para>
+        </listitem>
+
+        <listitem>
+          <para>Client project</para>
+
+          <para>These contain launch configuration definitions to run up an
+          application using a set of fixtures. They also contain any
+          configuration files (eg password files).</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The principle reason for separating out the projects is to
+      minimize coupling. The application project depends only on the Naked
+      Objects application library. Thus, the <emphasis>classes in this project
+      are trivially portable</emphasis> between any framework that is
+      NOA-compliant.</para>
+
+      <para>The fixture project is separated from the client project so that
+      they may be reused by tests. (A test project wizard is on the <link
+      linkend="Backlog">Backlog</link>).</para>
+
+      <para>There is also one other project type, namely the icon project.
+      This simply contains a stock set of icons for use in Naked Objects
+      applications (please check license terms).</para>
+    </section>
+
+    <section>
+      <title id="DomainObjectContainer">Domain Object Container</title>
+
+      <para>The <link linkend="???">Naked Objects application library</link>
+      defines a <computeroutput>DomainObjectContainer</computeroutput>
+      interface that allows domain objects to interact with their environment.
+      Every NOA-compliant implementation is required to provide an
+      implementation of this interface; from the point of view of the domain
+      objects the container <emphasis>is</emphasis> the NOA framework.</para>
+
+      <para>In an ideal world there would be no requirement for domain objects
+      to know about their container. While this is not enforced
+      programmatically (there is no mandatory superclass to inherit from, for
+      example), it <emphasis>is</emphasis> required for domain objects
+      to:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>notify the container when traversing a reference to another
+          object (either property or collection)</para>
+
+          <para>This enables the container to lazily fetch the next object if
+          required</para>
+        </listitem>
+
+        <listitem>
+          <para>notify the container whenever the object has been
+          modified</para>
+
+          <para>This enables the container to persist any changes in the
+          object back to its persistent object store.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The <computeroutput>DomainObjectContainer</computeroutput>'s
+      <computeroutput>resolve()</computeroutput> and
+      <computeroutput>objectChanged()</computeroutput> methods allow the
+      domain object to do this. Under the Naked Objects Framework these do
+      need to be called, and are incorporated into the <link
+      linkend="Templates">templates</link> shipped with the NO IDE. However,
+      other NOA implementations might implement this requirement another way,
+      for example by using CG-Lib to proxy references (similar to Hibernate),
+      or precompiling using AspectJ.</para>
+
+      <para>One of the key responsibilities of the container is to perform
+      <ulink
+      url="http://en.wikipedia.org/wiki/Dependency_injection">dependency
+      injection</ulink> on all domain objects. That is, a domain object can
+      declare - via a setter method - that it requires a certain service (be
+      it <link linkend="Service">a factory, a repository or some other
+      service</link>). The container will then inject this service into the
+      domain object.</para>
+
+      <para>In order to do this the container needs to be involved in the
+      creation of all objects. For objects which were previously persisted and
+      are being resolved the container gets this opportunity through the
+      <computeroutput>resolve()</computeroutput> method call. For
+      newly-created objects though the creating object should invoke
+      <computeroutput>newTransientInstance()</computeroutput> (or more rarely
+      <computeroutput>newPersistentInstance()</computeroutput>) on the
+      container, indicating the class of object to be instantiated. Again,
+      other NOA implementations might use CG-Lib or AspectJ to meet this
+      requirement.</para>
+
+      <para>Another method that many domain objects will need to invoke on the
+      container is <computeroutput>makePersistent()</computeroutput>. This is
+      used to persist the object for the first time. An object can also
+      determine if it has been persisted using
+      <computeroutput>isPersistent()</computeroutput>.</para>
+
+      <para>A small subset of domain objects are interested in tracking their
+      lifecycle. For these the domain object may provide any or all of the
+      following:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><computeroutput>created()</computeroutput></para>
+
+          <para>Indicates that the (still-transient) object has just been
+          created.</para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>loading()</computeroutput> and
+          <computeroutput>loaded()</computeroutput></para>
+
+          <para>Indicates that this persistent object is about to be, or has
+          been loaded from the object store.</para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>saving()</computeroutput> and
+          <computeroutput>saved()</computeroutput></para>
+
+          <para>Indicates that this still-transient object is about to be, or
+          has been persisted for the first time into the object store</para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>updating()</computeroutput> and
+          <computeroutput>updated()</computeroutput></para>
+
+          <para>Indicates that this persistent object is about to be, or has
+          been updated in the object store.</para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>deleting()</computeroutput> and
+          <computeroutput>deleted()</computeroutput></para>
+
+          <para>Indicates that this persistent object is about to be, or has
+          been deleted from the object store</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Note that these methods are not part of any interface; if they are
+      present then they will be called.</para>
+
+      <para>The container interface contains two further category of methods.
+      The first allows the domain object to raise messages back to the user;
+      how these are represented in the UI is dependent on the NOA
+      implementation. These methods are:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><computeroutput>informUser()</computeroutput></para>
+
+          <para>Displays the specified message to the user, in a non-intrusive
+          fashion.</para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>warnUser()</computeroutput></para>
+
+          <para>Display the specified message as a warning to the user, in a
+          more visible fashion, but without requiring explicit
+          acknowledgement.</para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>raiseError()</computeroutput></para>
+
+          <para>Display the specified message as an error to the user,
+          ensuring that it is acknowledged.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The last category of methods in the container relates to security.
+      Here the <computeroutput>DomainObjectContainer</computeroutput> provides
+      just a single method, <computeroutput>getUser()</computeroutput>. This
+      returns a <computeroutput>UserMemento</computeroutput>, part of the
+      <link linkend="NO-Applib">Naked Objects application library</link>. From
+      this the object can obtain a list of roles. Note however that it is
+      generally bad practice to encode role information within a domain
+      object. NOA-implementations are free to provide their own mechanisms for
+      applying authorization in a manner that is transparent to the domain
+      object; in particular the Naked Objects Framework does this.</para>
+    </section>
+
+    <section>
+      <title id="Services">Repositories, Factories and Services</title>
+
+      <para>Since NOA applications are ultimately <ulink
+      url="http://www.domaindrivendesign.org">domain-driven</ulink> in nature,
+      they benefit from using <ulink
+      url="http://patternshare.org/default.aspx/Home.DDD.Repositories">repositories</ulink>
+      (to load existing objects) and factories (to create new objects). For
+      example, one might have a
+      <computeroutput>CustomerRepository</computeroutput> to locate existing
+      <computeroutput>Customer</computeroutput>s, and a
+      <computeroutput>CustomerFactory</computeroutput> to create new
+      <computeroutput>Customer</computeroutput>s.</para>
+
+      <para>Under NOA these repositories and factories have a special
+      status:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>they are registered explicitly with the NOA implementation,
+          which instantiates them once (they are singletons)</para>
+
+          <para>Under the Naked Objects Framework these are registered in the
+          <computeroutput>nakedobjects.properties</computeroutput>
+          file.</para>
+        </listitem>
+
+        <listitem>
+          <para>they appear in the UI as "root" objects on the desktop</para>
+
+          <para>In the NOF's Drag-n-Drop viewer they are icons, under the web
+          viewer they are links. This can be suppressed using the
+          <computeroutput>@Hidden</computeroutput> annotation.</para>
+        </listitem>
+
+        <listitem>
+          <para>methods in the repositories and factories may in the UI be
+          rendered as belonging to relevant domain objects</para>
+
+          <para>This helps to decouples generic re-usable domain objects (eg
+          <computeroutput>Customer</computeroutput>) from a particular
+          application context. More on this point below.</para>
+        </listitem>
+
+        <listitem>
+          <para>the NOA's <link linkend="DomainObjectContainer">Domain Object
+          Container</link> injects them into any domain objects that provide
+          mutator (<computeroutput>setterXxx</computeroutput>) methods for
+          them.</para>
+
+          <para>In the NOF the 'xxx' in
+          <computeroutput>setXxx</computeroutput> is immaterial: what matters
+          is the type accepted by the setter.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>To amplify the 3rd point, in the example code generated by the
+      <link linkend="ProjectWizards">project wizards</link> the
+      <computeroutput>OrderRepository</computeroutput> has a method
+      <computeroutput>findRecentOrders(Customer, Integer)</computeroutput>.
+      Because one of the parameters is a
+      <computeroutput>Customer</computeroutput>, in the NOF it appears as a
+      submenu of <computeroutput>Customer</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/synthetic-methods.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>If this action is invoked then the NOF automatically populates
+      this parameter with the <computeroutput>Customer</computeroutput> object
+      (since it represents the context under which the action was performed).
+      These actions are sometimes called <emphasis>synthetic
+      actions</emphasis> (because they are synthesized by the UI)</para>
+
+      <para>Otherwise though these repository and factory objects are just
+      like other domain objects in that they are rendered in the UI and can
+      have actions and properties following the <link
+      linkend="NO-ProgrammingModel">Naked Objects programming model</link>. In
+      particular, repository and factory objects automatically have the <link
+      linkend="DomainObjectContainer">Domain Object Container</link> injected
+      into them.</para>
+
+      <para>Because repositories and factories appear directly in the UI, it
+      is more usual to combine them into a single class. The Naked Objects
+      application library provides a convenience superclass for this, but it
+      need not be used. Usually the factory functionality is combined into the
+      repository so that there is a
+      <computeroutput>CustomerRepository</computeroutput> which also can act
+      as a factory. The example project created by the <link
+      linkend="ApplicationProjectWizard">application project wizard</link>
+      follows this approach. The <computeroutput>@Named</computeroutput>
+      annotation is useful also so that a more meaningful name is rendered in
+      the UI (eg <computeroutput>@Named("Customers")</computeroutput>.)</para>
+
+      <para>When developing with NOA it is common to have more than one
+      implementation of the repositories. During early development/exploration
+      of the domain object model naive implementations can be used that
+      iterate over all objects in an in-memory object store set up by
+      fixtures. Again, the example code generated by the <link
+      linkend="ProjectWizards">project wizards</link> follows this approach.
+      Later on these can be replaced by "real" implementations that access an
+      RDBMS-based object store. Or, you can develop directly against real
+      implementations. This makes fixture management and tests more complex,
+      but reduces the overall amount of rework.</para>
+
+      <para>In fact, the NOA has a slightly more general term for repositories
+      and factories: <emphasis>services</emphasis>. Any object can be declared
+      to be a service, and as such it can provide a facade to any sort of
+      technical service. Examples include: sending email, generating PDFs,
+      publishing messages to a message box, representing a random number
+      generator. During unit testing mocks can be set up for this services,
+      replaced with "real" implementations later.</para>
+    </section>
+
+    <section>
+      <title id="Fixtures">Fixtures</title>
+
+      <para>The role of fixtures is to create example objects, either to run
+      up a client prototype for development or a demo, or to act as the
+      fixture for a unit test. The <link linkend="???">fixture project
+      wizard</link> can be used to create a project set up to create such
+      fixtures, with the fixture project itself referencing the application
+      project on its classpath (to define the objects to be instantiated) as
+      well as the NOA implementation to provide an implementation of an object
+      store to store the objects.</para>
+
+      <para>In the NOF the fixtures to install can be specified either using
+      the <computeroutput>--fixture</computeroutput> flag or as a backup
+      configured in <computeroutput>nakedobjects.properties</computeroutput>
+      in the client project. In tests the fixtures are specified in the
+      <computeroutput>AbstractXat2TestCase#setUpFixtures()</computeroutput>
+      method.</para>
+    </section>
+
+    <section>
+      <title id="OsgiProjects">OSGi (Plugin) Projects</title>
+
+      <para>The projects created by the <link linkend="ProjectWizards">project
+      wizards</link> are OSGi (plugin) projects rather than regular Java
+      projects. In most respects these function exactly the same as regular
+      Java projects that you might be familiar with, however some of the
+      project metadata (that would otherwise be accessed using
+      <computeroutput>Project&gt;Properties...&gt;Java Build
+      Path</computeroutput>) are instead moved into the OSGi manifest which
+      resides in <computeroutput>META-INF/MANIFEST.MF</computeroutput>. This
+      can be opened in the Eclipse PDE (Plugin Development Environment)
+      manifest editor:</para>
+
+      <para>The principle difference is the means by which the classpath is
+      setup. For more details on the practicalities of this, see the <link
+      linkend="TasksUpdateClasspath">Tasks</link> section.</para>
+
+      <para>Why are OSGi projects used rather than regular projects? For the
+      developer (you):</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>The NOF runtime itself and the NOF runtime's prerequisites are
+          developed internally as OSGi projects which means that they can be
+          packaged up as Eclipse features and made available using Eclipse's
+          update site feature. From your point of view, the NOF libraries are
+          just "there".</para>
+        </listitem>
+
+        <listitem>
+          <para>Since the NOF runtime source is also packaged as an Eclipse
+          feature, the developer can step into the NOF library source code
+          directly without any additional setup.</para>
+        </listitem>
+
+        <listitem>
+          <para>Using Eclipse update sites makes it easy to update to new
+          releases of the NOF runtime as they become available.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>For the NOF/NO IDE development team (us), the benefits are:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>It makes it substantially easier to implement new viewers
+          based on Eclipse RCP.</para>
+        </listitem>
+
+        <listitem>
+          <para>It provides a basis for other NOA implementations to follow.
+          These too can leverage Eclipse technologies, for example using
+          <ulink url="http://www.eclipse.org/proposals/rsp/">RSP</ulink> or
+          <ulink url="http://www.eclipse.org/aspectj/">AspectJ</ulink>.</para>
+        </listitem>
+
+        <listitem>
+          <para>Since the NO IDE is itself a combination of plugin projects,
+          it allows us to start sharing some of the code with the NOF itself,
+          reducing the maintenance overhead going forward.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The (minor) downsides to this approach are that:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Setting up the classpath for any third-party libraries becomes
+          trickier because the vast majority are shipped as JAR files and not
+          as OSGi bundles. You may therefore need to package them yourself -
+          see <link linkend="TasksUpdateClasspath">tasks</link> for further
+          details on how to do this. Alternatively, the JAR file may have
+          already been converted and live in a repository; again there are
+          more details in the <link
+          linkend="TasksUpdateClasspath">tasks</link> section.</para>
+        </listitem>
+
+        <listitem>
+          <para>NOF applications are <link linkend="Deploying">deployed</link>
+          using Maven rather than using Eclipse.</para>
+
+          <para>To deploy an NOF application to a web server (as opposed to
+          running locally as a web) requires the use of Maven. For details of
+          this consult the NOF documentation. However, this does mean that
+          project dependencies must be maintained in two locations: in the
+          project manifests, and in the Maven
+          <computeroutput>pom.xml</computeroutput> configuration files.</para>
+        </listitem>
+
+        <listitem>
+          <para>Whenever a class is created in a new package, then the package
+          must be explicitly exported to allow other OSGi projects to access
+          the file. This is done simply enough through the PDE manifest
+          editor, or by editing the
+          <computeroutput>Export-Package</computeroutput> entry directly in
+          the manifest. However, it can be easy to forget to do this.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title id="Deploying">Relationship between the NO IDE and the NOF
+      Runtime</title>
+
+      <para>The NO IDE is a development environment whose primary aim is to
+      make it easy to develop NOA-compliant applications. A secondary goal is
+      to make it easy to run those applications on the NOF, as a reference
+      implementation.</para>
+
+      <para>However, the NO IDE does not provide any functionality for
+      deploying NOA applications into a system test or production environment.
+      Under the NOF Maven is used to do this; consult the NOF documentation
+      for details.</para>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title id="Tasks">Tasks</title>
+
+    <para>This chapter describes some common tasks to assist you in developing
+    NOA domain applications.</para>
+
+    <section>
+      <title>Code Folding</title>
+
+      <para>The NO IDE bundles up a patched version of the Coffee Bytes code
+      folding plugin. The <link linkend="TutorialBrowsing">tutorial</link>
+      explains how to enable the code folding feature. With it enabled the
+      presentation of even quite large domain objects reduces quite
+      substantially:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/Customer-folded.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>The folded regions can be expanded/collapsed in the usual way,
+      namely <computeroutput>ctrl+NumPad_Add</computeroutput> and
+      <computeroutput>ctrl+NumPad_Subtract</computeroutput>. It is also
+      possible to nest regions. For example, in the
+      <computeroutput>Customer</computeroutput> class there are three members
+      relating to orders: the <computeroutput>Orders</computeroutput>
+      collection, the <computeroutput>LastOrder</computeroutput> property and
+      the <computeroutput>PlaceOrder</computeroutput> action. We could nest
+      these into a single region as follows:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/folding-nested-regions-1.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>When folded this collapses to the even more compact:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/folding-nested-regions-2.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>One word of warning, however: the Coffee Bytes plugin is (as its
+      author admits) a llittle buggy: sometimes the opening <computeroutput>//
+      {{</computeroutput> of a region is not recognised. The best advice we
+      can give is to open and close the editor and see if that works. (A fixed
+      and in-built code folder is on the IDE <link lang=""
+      linkend="Bac">backlog</link>).</para>
+    </section>
+
+    <section>
+      <title id="NewDomainObject">Create a new Domain Object</title>
+
+      <para>Since NOA domain objects are very little more than POJOs, to
+      create a new domain object simply use Eclipse's Java wizard:
+      <computeroutput>File&gt;New&gt;Class...</computeroutput>. When done,
+      though, use the following Domain Object templates:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>the <computeroutput>applib</computeroutput> template (before
+          the class definition) will quickly add the import statement for the
+          <link linkend="NO-Applib">Naked Objects application
+          library</link></para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>entity</computeroutput> template (again,
+          before the class definition) will set up an
+          <computeroutput>@Entity</computeroutput> declaration along with a
+          comment.</para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>ident</computeroutput> template can be
+          used to create a <computeroutput>title()</computeroutput>
+          method.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The screenshot below shows these templates having been
+      applied:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/new-class-using-ident-template.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>An icon is also required for the new class. The icon should be
+      32x32 pixels, can be a GIF, PNG or JPG, for example
+      <computeroutput>OrderItem.gif</computeroutput>. For the NOF this icon
+      file should reside in the application project under
+      <computeroutput>src/main/resources/images</computeroutput>:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>For the NOF DnD viewer this directory corresponds to a
+          subpackage <computeroutput>images</computeroutput> on the
+          classpath</para>
+        </listitem>
+
+        <listitem>
+          <para>For the NOF Web viewer this directory is referenced directly
+          in the <computeroutput>--resourceBase</computeroutput> command line
+          option (without the <computeroutput>images</computeroutput>
+          suffix).</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>In addition, if the class is in a new package, then it will also
+      be necessary to update the project manifest
+      (<computeroutput>META-INF/MANIFEST.MF</computeroutput>) to export this
+      package:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/export-packages.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Navigate to the <computeroutput>Runtime</computeroutput> tab and
+      click on the <computeroutput>Add</computeroutput> button under
+      <computeroutput>Exported Packages</computeroutput> section.
+      Alternatively, you can edit the
+      <computeroutput>Exported-Packages</computeroutput> entry in the
+      <computeroutput>MANIFEST.MF</computeroutput> itself:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/export-packages-2.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>This can sometimes be quicker than using the PDE manifest editor,
+      but make sure that there is a carriage return after the last line, and
+      the last line contains no characters.</para>
+    </section>
+
+    <section>
+      <title>Create a new Property, Collection or Action</title>
+
+      <para>The NO IDE provides a collection of <link
+      linkend="Templates">templates</link> to create properties, collections
+      and actions. Navigate within the class definition (but outside a method
+      definition) and press <computeroutput>ctrl+space</computeroutput>: this
+      will list all templates available. If you press
+      <computeroutput>ctrl+space</computeroutput> 2 times further you will see
+      just the templates applicable to Naked Objects Domain Objects (hence
+      it's easiest to hit ctrl+space 3 times and go straight to this
+      list):</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/templates-nopc.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>There are 3 variants of the templates for each of properties,
+      collections and actions, following the format
+      <computeroutput>noXY</computeroutput>, where:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><computeroutput>X</computeroutput> = a (action), c
+          (collection), p (property)</para>
+        </listitem>
+
+        <listitem>
+          <para><computeroutput>Y</computeroutput> = c (common), f (full), s
+          (supporting)</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Applying the common template (eg
+      <computeroutput>nopc</computeroutput>) followed by the supporting
+      template (eg <computeroutput>nops</computeroutput>) is equivalent to
+      applying the full template (eg <computeroutput>nopf</computeroutput>).
+      The templates are split this way because in practice most class members
+      don't need the whole gamut of supporting methods (or at least, they are
+      only required later on as additional business rules are uncovered; while
+      initially coming to grips with a domain object model they tend to get in
+      the way).</para>
+    </section>
+
+    <section>
+      <title>Apply Annotations</title>
+
+      <para>Many of the semantics for domain objects can be specified
+      declaratively using annotations from the <link linkend="NO-Applib">Naked
+      Objects application library</link>. The NO IDE allows these to be easily
+      applied using a set of views:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>the Naked Objects Properties, Collections and Actions view
+          allows annotations to be specified on properties, collections and
+          actions respectively</para>
+        </listitem>
+
+        <listitem>
+          <para>the Naked Objects String Properties view allows annotations
+          specific to Strings (eg <computeroutput>@MaxLength</computeroutput>)
+          to be specified for all properties whose type is
+          <computeroutput>java.lang.String</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para>the Naked Object view allows annotations to be specified to
+          the obejct itself.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>These are shown below:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/annotation-views.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>As you enter values into these tables, the code is changed in
+      real-time. Conversely, changing the code updates these views.</para>
+
+      <para>For all of these apart from the Naked Object view the table view
+      (with many rows) makes sense because there can (of course) be many
+      properties, collections or actions. The Naked Object view also uses a
+      table even though there always be only be a single row in it:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/annotations-object-view.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On balance it was decided to implement the view this way for
+      consistency with the other views.</para>
+
+      <para>The actions view is slightly more complex than the other views in
+      that it also allows annotations to be applied to the parameters of each
+      action:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/annotations-actions-view.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Selecting on the different actions (on the left hand side of the
+      view) brings up its parameters (if any) on the right hand side.</para>
+
+      <para>A few tips and tricks:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Each of the views has short-cut keys and are registered under
+          the <computeroutput>Window&gt;Show View</computeroutput> menu</para>
+        </listitem>
+
+        <listitem>
+          <para>Once a view has focus, use
+          <computeroutput>ctrl+M</computeroutput> to maximize a view, and
+          apply a set of annotations in one go.</para>
+        </listitem>
+
+        <listitem>
+          <para>Double clicking on a member name (property, collection or
+          action) will select it in the code. Thus the views can be used as a
+          simple way of navigating the domain object.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Please see the NOF documentation for further information on the
+      detailed semantics of each of the annotations.</para>
+    </section>
+
+    <section>
+      <title>Rename a Property, Collection or Action</title>
+
+      <para>The <link linkend="NO-Applib">Naked Objects programming
+      model</link> relies on a number of naming conventions to group together
+      methods as representing a single feature of a domain object. For
+      example, a property will always consist of an instance variable, an
+      accessor (<computeroutput>getXxx</computeroutput>) and a mutator
+      (<computeroutput>setXxx</computeroutput>), but may also consist of any
+      or all of <computeroutput>modifyXxx</computeroutput>,
+      <computeroutput>clearXxx</computeroutput>,
+      <computeroutput>validateXxx</computeroutput>,
+      <computeroutput>disableXxx</computeroutput>,
+      <computeroutput>hideXxx</computeroutput>,
+      <computeroutput>defaultXxx</computeroutput> and
+      <computeroutput>choicesXxx</computeroutput> methods.</para>
+
+      <para>Eclipse's refactoring support automatically renames getters and
+      setters when renaming an instance variable, but (obviously) does not
+      know to rename these other NOA-specific methods. However the NO IDE does
+      add this capability. Modifying any of these methods or indeed the
+      instance variable using
+      <computeroutput>Refactor&gt;Rename...</computeroutput> will
+      automatically cause the other methods to be renamed. For example, we can
+      rename the <computeroutput>Customer#placeOrder</computeroutput> action
+      to <computeroutput>Customer#createOrder</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/refactor-rename-placeOrder.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Occasionally you may have a requirement to override this
+      functionality. In general the NO IDE does not veto refactorings but
+      instead warns about them. For example, renaming
+      <computeroutput>Customer#getFirstName</computeroutput> to
+      <computeroutput>Customer#obtainFirstName</computeroutput> (changing the
+      prefix) results in this warning:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/refactoring-warnings.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>However, you can still continue with the refactoring if you
+      wish.</para>
+
+      <para>Alternatively (and more likely as a workaround if you have
+      discovered a bug in the NO IDE), then you can disable the Naked Objects
+      <link linkend="NO-Nature">nature</link>, perform the refactoring, and
+      the re-enable the nature afterwards.</para>
+    </section>
+
+    <section>
+      <title>Change an Action Signature</title>
+
+      <para>Occasionally it is necessary to change an action signature, either
+      to add or remove parameters, or perhaps change the order. For actions
+      the <link linkend="NO-ProgrammingModel">Naked Objects programming
+      model</link> requires that an action's supporting methods must have the
+      same parameter types as the action that they support.</para>
+
+      <para>Although the NO IDE can rename supporting methods, it does not
+      (<link linkend="Backlog-Refactorings">yet</link>) refactor the
+      parameters of supporting action methods. Therefore you must change each
+      individually. That said, if you make a mistake and forget to rename one
+      of them, the <link linkend="ProjectBuilder">project builder</link>
+      should spot this.</para>
+
+      <para>For example, suppose that
+      <computeroutput>Customer#placeOrder(p:Product,quantity:Integer)</computeroutput>
+      has been renamed to
+      <computeroutput>Customer#placeOrder(p:Product,quantity:Integer,express:Boolean)</computeroutput>,
+      but the supporting methods have not. This is detected by the <link
+      linkend="ProjectBuilder">project builder</link> shown in Eclipse's
+      <computeroutput>Problems</computeroutput> view:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/project-builder-orphaned-actions.gif" />
+        </imageobject>
+      </mediaobject>
+    </section>
+
+    <section>
+      <title>Add a new Repository, Factory or Service</title>
+
+      <para>As described in <link linkend="Services">concepts</link> section,
+      repositories and factories are used to retrieve and persist objects from
+      an object store (either in-memory or otherwise), while services can
+      provide more generalized (usually technical) services. The NO IDE does
+      not provide any specific functionality to create such classes, though
+      the <computeroutput>AbstractFactoryAndRepository</computeroutput> in the
+      <link linkend="NO-Applib">Naked Objects application library</link> is a
+      convenient superclass for repositories and factories (whether combined
+      into a single class or not):</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/new-repository-wizard.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>If the object should not appear as an icon in the UI desktop, use
+      the <computeroutput>@Hidden</computeroutput> annotation.</para>
+
+      <para>The NOF also requires that a 32x32 pixel icon, as for <link
+      linkend="NewDomainObject">domain objects</link>.</para>
+
+      <para>If writing a naive implementation (that is, one that accesses an
+      in-memory object store), then the <computeroutput>findm</computeroutput>
+      and <computeroutput>finds</computeroutput> <link
+      linkend="Templates">templates</link> are useful to return multiple
+      instances or a single instance respectively:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/templates-findm-finds.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>In addition, the Naked Objects Framework requires all services
+      must be specified in the
+      <computeroutput>nakedobjects.properties</computeroutput> file (in the
+      client project).</para>
+    </section>
+
+    <section>
+      <title>Add a new Fixture</title>
+
+      <para>As described in <link linkend="Fixtures">concepts</link> section,
+      fixtures are used to setup test data for demos and for tests. Typically
+      the easiest approach is way to write these fixtures is to re-use
+      functionality in already-defined <link linkend="Services">repositories
+      and factories</link> (or indeed use the fixtures as way for driving out
+      these requirements); these are injected in by the container in the usual
+      way.</para>
+
+      <para>The NO IDE does not provide any specific functionality to create
+      fixture classes. However, under the NOF all fixtures must subclass
+      <computeroutput>org.nakedobjects.nof.reflect.java.fixture.JavaFixture</computeroutput>.
+      This ensures that any declared repositories and factories etc are
+      injected:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/new-fixture-wizard.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>In addition, the Naked Objects Framework requires that all
+      fixtures must be specified in the
+      <computeroutput>nakedobjects.properties</computeroutput> file (in the
+      client project).</para>
+
+      <para>Some hints and tips:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Clock Fixtures.</para>
+
+          <para>A particular category of fixtures are those that set the time.
+          Any fixture class will inherit the
+          <computeroutput>setDate()</computeroutput> and
+          <computeroutput>setTime()</computeroutput> methods from
+          <computeroutput>JavaFixture</computeroutput>; these in turn delegate
+          to a singleton <computeroutput>Clock</computeroutput> instance that
+          is setup with a special
+          <computeroutput>FixtureClock</computeroutput> implementation. Thus,
+          any domain objects that use
+          <computeroutput>Clock.getTime()</computeroutput> will access the
+          time set in the fixtures.</para>
+        </listitem>
+
+        <listitem>
+          <para>Composite Fixtures</para>
+
+          <para><computeroutput>JavaFixture</computeroutput> is an
+          implementation of the <computeroutput>Fixture</computeroutput>
+          interface. It is relatively easy to create a
+          <computeroutput>CompositeFixture</computeroutput> implementation and
+          thus allow fixtures to be reused by combining them into different
+          scenarios.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title id="TasksUpdateClasspath">Update the Classpath</title>
+
+      <para>Because the projects created by the <link
+      linkend="ProjectWizards">project wizards</link> - and the Naked Objects
+      runtime itself - are OSGi projects, this means that updating the
+      classpath is performed by updating the project manifest
+      (<computeroutput>META-INF/MANIFEST.MF</computeroutput>) rather than
+      modifying the Java Build Path (from
+      <computeroutput>Project&gt;Properties</computeroutput>).</para>
+
+      <para>To make the changes, open up the Dependencies tab of the Manifest
+      editor:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/osgi-manifest-dependencies.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>This corresponds to the
+      <computeroutput>Require-Bundle</computeroutput>: entry in the
+      <computeroutput>MANIFEST.MF</computeroutput>; alternatively you can
+      modify this directly:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/osgi-manifest-dependencies-2.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>If you need to reference a 3rd party library - for example as part
+      of the implementation of technical <link
+      linkend="Services">service</link> - then you will need it as an OSGi
+      bundle first. This may have been done for you, put if not it is not
+      difficult to do.</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>There are a couple of OSGi bundle repositories to check.
+          First, under Eclipse the <ulink
+          url="http://www.eclipse.org/orbit/">orbit</ulink> subproject has a
+          small selection. Alternatively the <ulink
+          url="http://osgibundles.sourceforge.net">osgibundles</ulink> open
+          source project, hosted on sourceforge and managed by the NOF/NO IDE
+          developers (yours truly), has a reasonable collection. Contact us if
+          you would like any additional JAR files uploading.</para>
+        </listitem>
+
+        <listitem>
+          <para>Otherwise though you can convert the 3rd party library
+          yourself. Unless you want the capability to step into its source
+          code, the easiest approach is to use Eclipse's wizard:
+          <computeroutput>File&gt;New&gt;Project...&gt;Plug-in
+          Development&gt;Plug-in from existing JAR archives</computeroutput>.
+          All of the bundles in <ulink
+          url="http://osgibundles.sourceforge.net">osgibundles</ulink> have
+          been built this way.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Format Code</title>
+
+      <para>Most developers get quite religious about code formatting
+      standards - it suddenly seems to become very important where those curly
+      braces go! While not wishing to be too dogmatic about these things, you
+      will find that your domain objects can become quite heavy with
+      annotations. These usually aren't too much of a problem with the one
+      exception of parameters to actions. We therefore recommend that you
+      adopt the standard of placing each parameter on a new line. Eclipse's
+      own code formatter
+      (<computeroutput>Window&gt;Preferences&gt;Java&gt;Code
+      Style&gt;Formatter&gt;Edit</computeroutput>) handles this well
+      enough:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/formatting-parameters.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>You might also use a 3rd party plugins such as EJP's <ulink
+      url="http://sourceforge.net/project/showfiles.php?group_id=47272">format
+      on save</ulink>.</para>
+    </section>
+
+    <section>
+      <title>Running the Naked Objects Clients</title>
+
+      <para>The tutorial describes running the NOF <emphasis>Dnd
+      client</emphasis> launch configuration and the <emphasis>Web local
+      server</emphasis> launch configuration, but only against the in-memory
+      persistor. However, for demos it can sometimes be useful to run as a
+      <computeroutput>standalone</computeroutput> client and use the
+      <computeroutput>xml</computeroutput> persistor instead:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/launch-standalone-xml.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>This stores the objects in a series of XML files; the bottom line
+      is that the objects are persisted from one run to the next.</para>
+
+      <para>The Naked Objects Framework also supports a Hibernate-based
+      persistor for storing objects to RDBMS. This is not supported directly
+      by the NO IDE, but can be used in conjunction with the
+      <computeroutput>client</computeroutput> type (client/server mode) where
+      the server is set up to use Hibernate. Consult the NOF documentation for
+      further details.</para>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title id="Reference">Reference</title>
+
+    <para>This chapter provides a reference guide for all of the functionality
+    provided by the NO IDE.</para>
+
+    <section>
+      <title id="ProjectWizards">Project Wizards</title>
+
+      <section>
+        <title id="ApplicationProjectWizard" lang="">Application Project
+        Wizard</title>
+
+        <para>The application project wizard is used to create new application
+        projects containing domain objects and supporting <link
+        linkend="Services">repositories, factories and other
+        services</link>.</para>
+
+        <para>To invoke the wizard, use:
+        <computeroutput>File&gt;New...&gt;Project...&gt;Naked
+        Objects&gt;Application Project</computeroutput></para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/application-project-wizard-page-1.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The wizard is based in large part on Eclipse's own plug-in
+        project wizard; all projects created by the NO IDE are <link
+        linkend="OsgiProjects">OSGi projects</link>. A slight refinement is
+        that on the second page the Id field is greyed out, defaulting to the
+        project name. This ensures that the bundle Id in the manifest
+        (<computeroutput>META-INF/MANIFEST.MF</computeroutput>) is the same as
+        the project name in the <computeroutput>.project</computeroutput>
+        file.</para>
+
+        <para>When the wizard completes, the workbench is placed into the
+        <link linkend="NO-Perspective">Naked Objects perspective</link>. The
+        <link linkend="NO-Nature">Naked Objects nature</link> is also attached
+        on the project, which enables the <link
+        linkend="ProjectBuilder">project builder</link> and the <link
+        linkend="Refactorings">refactoring</link> support.</para>
+
+        <para>The classpath of the application project (as defined in the
+        manifest) is minimally dependent on the <link
+        linkend="NO-Applib">Naked Objects application library</link> and a
+        very small subset of 3rd party libraries (namely
+        <computeroutput>javax.persistence</computeroutput> for the
+        <computeroutput>@Entity</computeroutput> annotation, JUnit and Apache
+        log4j).</para>
+
+        <para>As well as setting up the skeleton of the project, the wizard
+        also creates some domain classes and services for an example project.
+        As the <link linkend="Tutorial">tutorial</link> shows, the 3 project
+        wizards work together to build up a complete (albeit very small) and
+        launchable domain application.</para>
+
+        <para>Finally, note that as well as the icons needed for the example
+        project, a set of additional icons are also copied (under
+        <computeroutput>src/main/resources/images</computeroutput>).
+        Developers are free to deploy these icons into production, but only
+        for when running on an NOA-compliant framework.</para>
+      </section>
+
+      <section>
+        <title id="FixtureProjectWizard">Fixture Project Wizard</title>
+
+        <para>The fixture project wizard is used to create a new fixture
+        project containing fixtures to set up demo and test data.</para>
+
+        <para>To invoke the wizard, use:
+        <computeroutput>File&gt;New...&gt;Project...&gt;Naked
+        Objects&gt;Fixture Project</computeroutput></para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/fixture-project-wizard-page-1.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>As for the application project wizard, this wizard is based in
+        large part on Eclipse's own plug-in project wizard. However the first
+        page (shown above) is new, requiring the developer to enter the
+        application project containing the domain objects that this project
+        will provide the fixtures for. This application project name is used
+        to derive the name of the fixture project itself, as well as setting
+        up the classpath of the project.</para>
+
+        <para>Whereas the classpath of the application project is minimal, the
+        classpath for the fixture project is somewhat larger. In particular it
+        depends upon a number of projects from the NOF runtime. The primary
+        reason for this is that the JavaFixture superclass is part of the NOF,
+        rather than in the <link linkend="NO-Applib">Naked Objects application
+        library</link>.</para>
+
+        <para>As well as setting up the skeleton of the project, the wizard
+        also creates fixtures for the domain classes of the example created by
+        the application project wizard.</para>
+      </section>
+
+      <section>
+        <title id="ClientProjectWizard">Client Project Wizard</title>
+
+        <para>The client project wizard is used to create a client project
+        that holds configuration data and launch configurations. These allow a
+        domain application to be launched using the Naked Objects
+        Framework.</para>
+
+        <para>To invoke the wizard, use:
+        <computeroutput>File&gt;New...&gt;Project...&gt;Naked
+        Objects&gt;Client Project</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/client-project-wizard-page-1.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>As for the application and fixture project wizards, this wizard
+        is based in large part on Eclipse's own plug-in project wizard.
+        However the first page (shown above) is new, requiring the developer
+        to enter the application project containing the domain objects and the
+        fixture project that has its fixtures. The application project name is
+        used to derive the name of the client project itself, and both
+        projects are used in the classpath of the project. The classpath of
+        the client project depends fully on the Naked Objects Framework
+        runtime.</para>
+
+        <para>In addition to setting up the skeleton of the project, the
+        wizard also creates 2 launch configurations to run up either the
+        Drag-n-Drop client or the Web local server client.</para>
+      </section>
+
+      <section>
+        <title>Icon Project Wizard</title>
+
+        <para>The icon project wizard is used to create an icon project that
+        holds a set of icons for use in Naked Objects applications. You are
+        free to use these icons in any application that runs on an
+        NOA-compliant framework, <emphasis>but in no other</emphasis>.</para>
+
+        <para>To invoke the wizard, use:
+        <computeroutput>File&gt;New...&gt;Project...&gt;Naked Objects&gt;Icon
+        Project</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/icons-project-wizard-page-1.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>Since this wizard always produces the same set of icons, the
+        project name is defaulted for you.</para>
+      </section>
+    </section>
+
+    <section>
+      <title id="NO-Perspective">Naked Objects Perspective</title>
+
+      <para>The Naked Object perspective organizes the Eclipse workbench to
+      bring together the most useful views to develop domain
+      applications:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/workbench-in-NO-perspective.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Creating an application project using the <link
+      linkend="ApplicationProjectWizard">application project wizard</link>
+      will automatically select the Naked Objects perspective; alternatively
+      it can be selected from the toolbar:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/perspective.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>or, it can be selected using short-cuts
+      (<computeroutput>ctrl+F8</computeroutput> or equivalent):</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/perspective-shortcut.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>The five <link linkend="AnnotationViews">annotation views</link>
+      (for defining annotations on properties, actions etc) and also the <link
+      linkend="OutlineView">outline view</link> are registered for easy
+      access; each also has a shortcut:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/window-show-view-shortcuts.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Note that it is possible to reassign these key bindings using
+      <computeroutput>Windows&gt;Preferences...&gt;General&gt;Keys</computeroutput>.</para>
+    </section>
+
+    <section>
+      <title id="OutlineView">Outline View</title>
+
+      <para>The outline view provides a summary of the properties, collections
+      and actions of the domain object in the active editor, additionally
+      summarising which supporting methods that each member has:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/outline-view.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>Double-clicking on any class member select that
+      property/collection's accessor, or the action method, in the
+      editor.</para>
+    </section>
+
+    <section>
+      <title id="Templates">Templates</title>
+
+      <para>The NO IDE has two sets of templates, usually invoked using
+      <computeroutput>ctrl+space</computeroutput>. These can be viewed using
+      <computeroutput>Windows&gt;Preferences...&gt;Java&gt;Code Style&gt;Code
+      Templates</computeroutput>:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/window-preferences-templates.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>As the screenshot indicates, it is also possible to associate
+      individual key bindings to these templates (though the NO IDE doesn't do
+      this by default).</para>
+
+      <para>The domain object templates fall into two categories:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>those that apply within a type definition (but not in a method
+          definition), and</para>
+        </listitem>
+
+        <listitem>
+          <para>those that apply before the type definition.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The service templates support the implementation of repositories
+      and factories.</para>
+
+      <para>In all cases the templates come with detailed tooltips making it
+      easy to understand what they will do before actually applying
+      them.</para>
+
+      <section>
+        <title id="DomainObjectTemplates">Domain Object Templates (within type
+        definition)</title>
+
+        <para>The domain object templates fall into two categories:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>those that apply within a type definition (but not in a
+            method definition), and</para>
+          </listitem>
+
+          <listitem>
+            <para>those that apply before the type definition.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>The former category consists of the following:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/templates-nopc.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <section>
+          <title>The ident Template</title>
+
+          <para>The <computeroutput>ident</computeroutput> template consists
+          of definitions of the <computeroutput>title()</computeroutput> and
+          <computeroutput>iconName()</computeroutput> methods.</para>
+        </section>
+
+        <section>
+          <title>The injc Templates</title>
+
+          <para>The <computeroutput>injc</computeroutput> template defines the
+          set of methods for interacting with the <link
+          linkend="DomainObjectContainer">DomainObjectContainer</link>.
+          Normally this template is not required because the methods can also
+          be inherited directly from the
+          <computeroutput>AbstractDomainObject</computeroutput> in the <link
+          linkend="NO-Applib">Naked Objects application library</link> (as
+          shown in the example code created by the <link
+          linkend="ProjectWizards">project wizards</link>). However, if there
+          are reasons why some other superclass is required, then use this
+          template.</para>
+        </section>
+
+        <section>
+          <title>The injs and injr Templates</title>
+
+          <para>The <computeroutput>injs</computeroutput> template defines a
+          simple template to define a mutator (and corresponding convenience
+          accessor) method for an injected <link
+          linkend="Services">service</link>. The <link
+          linkend="DomainObjectContainer">DomainObjectContainer</link> will
+          automatically call these methods with every service that has been
+          registered to it.</para>
+
+          <para>The <computeroutput>injr</computeroutput> template simply
+          defines some code comments to allow the <link linkend="Folding">code
+          folding</link> to group together such injected services into a
+          single region.</para>
+        </section>
+
+        <section>
+          <title>The lcaw Template</title>
+
+          <para>The <computeroutput>lcaw</computeroutput> template defines a
+          set of callback methods for domain objects that need to be aware of
+          changes in their lifecycle state. For example, if an object has
+          additional work to be performed once it knows it has been saved to
+          the database or updated, it can perform it in these methods.</para>
+        </section>
+
+        <section>
+          <title>The logger Template</title>
+
+          <para>The <computeroutput>logger</computeroutput> template sets up a
+          <ulink url="http://logging.apache.org/">log4j</ulink> Logger
+          definition. Note that log4j is always available (it is one of the
+          Naked Objects prerequisites).</para>
+        </section>
+
+        <section>
+          <title>The no?? Templates</title>
+
+          <para>There are 9 of these templates, providing 3 variants of the
+          templates for each of properties, collections and actions. They
+          follow the format <computeroutput>noXY</computeroutput>,
+          where:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para><computeroutput>X</computeroutput> = a (action), c
+              (collection), p (property)</para>
+            </listitem>
+
+            <listitem>
+              <para><computeroutput>Y</computeroutput> = c (common), f (full),
+              s (supporting)</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Applying the common template (eg
+          <computeroutput>nopc</computeroutput>) followed by the supporting
+          template (eg <computeroutput>nops</computeroutput>) is equivalent to
+          applying the full template (eg
+          <computeroutput>nopf</computeroutput>). The templates are split this
+          way because in practice most class members don't need the whole
+          gamut of supporting methods (or at least, they are only required
+          later on as additional business rules are uncovered; while initially
+          coming to grips with a domain object model they tend to get in the
+          way).</para>
+        </section>
+
+        <section>
+          <title>The val Template</title>
+
+          <para>The <computeroutput>val</computeroutput> template creates the
+          <computeroutput>validate()</computeroutput> method. Under the <link
+          linkend="NO-ProgrammingModel">Naked Objects programming model</link>
+          this method (if present) is invoked prior to saving or updating the
+          object; in effect it allows the object to veto changes to it if it
+          is in an invalid state.</para>
+        </section>
+      </section>
+
+      <section>
+        <title>Domain Object Templates (before type definition)</title>
+
+        <para>The domain object templates that fire when the cursor is placed
+        before the type definition are:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/templates-applib.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <section>
+          <title>The applib Template</title>
+
+          <para>The <computeroutput>applib</computeroutput> template sets up
+          <computeroutput>import</computeroutput> statements for the Naked
+          Objects application libraries along with
+          <computeroutput>java.util.*</computeroutput>,
+          <computeroutput>javax.persistence.Entity</computeroutput> and
+          <computeroutput>org.apache.Logger</computeroutput>. Other templates
+          assume that these imports exist, so applying this template should be
+          considered mandatory for any <link linkend="NewDomainObject">new
+          domain object</link>.</para>
+        </section>
+
+        <section>
+          <title id="EntityAnnotation">The entity Template</title>
+
+          <para>The <computeroutput>entity</computeroutput> template adds the
+          <computeroutput>@Entity</computeroutput> annotation and comment
+          block for a class. The majority of domain objects will be persisted
+          entities and so will require this annotation; the remainder will be
+          values and should have the <link
+          linkend="ValueAnnotation">@Value</link> annotation applied.</para>
+        </section>
+
+        <section>
+          <title id="ValueAnnotation">The value Template</title>
+
+          <para>The <computeroutput>value</computeroutput> template adds the
+          <computeroutput>@Value</computeroutput> annotation and comment block
+          for a class which has value-type semantics. Domain objects which are
+          not values should have the <link
+          linkend="EntityAnnotation">@Entity</link> annotation applied to them
+          instead.</para>
+        </section>
+      </section>
+
+      <section>
+        <title id="ServiceTemplates">Service Templates</title>
+
+        <para>The service templates consist of two templates both relevant to
+        repositories:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/templates-services.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The <computeroutput>findm</computeroutput> template is used to
+        return multiple instances from the object store, while the
+        <computeroutput>finds</computeroutput> template returns the first
+        instance. Each of these calls methods that exist in
+        <computeroutput>AbstractFactoryAndRepository</computeroutput>, and so
+        should only be used for repository implementations that subclass from
+        this superclass. Both the templates also define an in-line
+        implementation of the <computeroutput>Filter</computeroutput>
+        interface, part of the <link linkend="NO-Applib">Naked Objects
+        application library</link>. If the methods are performing the same
+        filtering then it makes sense to pull this filter class definition out
+        into a separate member (or even top-level) class.</para>
+      </section>
+    </section>
+
+    <section>
+      <title id="ProjectBuilder">Project Builder</title>
+
+      <para>The Naked Objects project builder runs against any projects
+      configured with the <link linkend="NO-Nature">Naked Objects
+      nature</link>. It validates the contents of the code looking for
+      possible violations of the <link linkend="NO-ProgrammingModel">Naked
+      Objects programming model</link>. For a small number of these it can
+      present quick fixes.</para>
+
+      <section>
+        <title>Problems Markers</title>
+
+        <para>Any problems located by the project builder are displayed in
+        Eclipse's <computeroutput>Problems</computeroutput> view. The severity
+        is always Warning (not Error):</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/project-builder-orphaned-actions.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The types of problems picked up by the project builder
+        are:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Ambiguous method (could represent both a property/collection
+            and an action</para>
+          </listitem>
+
+          <listitem>
+            <para>Incorrect parameter type for method (differs from accessor
+            method return type)</para>
+
+            <para>Applies to: mutator method,
+            <computeroutput>modify</computeroutput> method,
+            <computeroutput>validate</computeroutput> method,</para>
+          </listitem>
+
+          <listitem>
+            <para>Incorrect parameter type for collection method (should be
+            parameterized type of the accessor method's return type)</para>
+
+            <para>Applies to: <computeroutput>addTo</computeroutput> method,
+            <computeroutput>removeFrom</computeroutput> method,
+            <computeroutput>validate</computeroutput> method,
+            <computeroutput>validateAddTo</computeroutput> method,
+            <computeroutput>validateRemoveFrom</computeroutput> method,</para>
+          </listitem>
+
+          <listitem>
+            <para>Parameter types for actions are incorrect (should be same as
+            action method's)</para>
+
+            <para>Applies to: <computeroutput>disable</computeroutput> method,
+            <computeroutput>hide</computeroutput> method,
+            <computeroutput>default</computeroutput> method,
+            <computeroutput>choices</computeroutput> method</para>
+          </listitem>
+
+          <listitem>
+            <para>Method for property should have zero parameters</para>
+
+            <para>Applies to: <computeroutput>clear</computeroutput> method,
+            <computeroutput>disable</computeroutput> method,
+            <computeroutput>hide</computeroutput> method,
+            <computeroutput>default</computeroutput> method,
+            <computeroutput>choices</computeroutput> method,</para>
+          </listitem>
+
+          <listitem>
+            <para>Method for collection should have zero parameters</para>
+
+            <para>Applies to: <computeroutput>disable</computeroutput> method,
+            <computeroutput>hide</computeroutput> method,</para>
+          </listitem>
+
+          <listitem>
+            <para>Orphaned method (no corresponding accessor or action
+            method)</para>
+
+            <para>Applies to: mutator method,
+            <computeroutput>modify</computeroutput> method,
+            <computeroutput>clear</computeroutput> method,
+            <computeroutput>addTo</computeroutput> method,
+            <computeroutput>removeFrom</computeroutput> method,
+            <computeroutput>validate</computeroutput> method,
+            <computeroutput>validateAddTo</computeroutput> method,
+            <computeroutput>validateRemoveFrom</computeroutput> method,
+            <computeroutput>disable</computeroutput> method,
+            <computeroutput>hide</computeroutput> method,
+            <computeroutput>default</computeroutput> method,
+            <computeroutput>choices</computeroutput> method,</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>validate</computeroutput> prefix incorrect
+            for collections - use
+            <computeroutput>validateAddTo</computeroutput> or
+            <computeroutput>validateRemoveFrom</computeroutput></para>
+          </listitem>
+
+          <listitem>
+            <para>title method must return a String</para>
+          </listitem>
+
+          <listitem>
+            <para>No title or overridden toString</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+
+      <section>
+        <title id="QuickFixes">Quick Fixes</title>
+
+        <para>The NO IDE offers simple quick fixes to some of the problems
+        detected. To apply a quick fix, use
+        <computeroutput>ctrl+1</computeroutput> from the problem marker in the
+        gutter of the editor:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/project-builder-quick-fix-editor.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>Then select the quick fix:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/project-builder-quick-fix-3.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The quick fixes can also be triggered from the
+        <computeroutput>Problems</computeroutput> view:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/project-builder-quick-fix-1.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>In the <link linkend="BacklogQuickFixes">future</link> we hope
+        to add more sophisticated quick fixes.</para>
+      </section>
+    </section>
+
+    <section>
+      <title id="AnnotationViews">Annotation Views</title>
+
+      <para>The annotation views allow annotations from the <link
+      linkend="NO-Applib">Naked Objects application library</link> to be
+      applied to properties, collections, actions, action parameters and also
+      the object itself. They can also be used as a way of navigating through
+      the object. When the annotation is applied the code is automatically
+      updated. Conversely, if the code is updated directly then the annotation
+      view is updated.</para>
+
+      <para>Each view consists of a table, with the columns representing the
+      annotations (or sometimes, members of annotations) and the rows
+      representing the features (properties, collections etc.):</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Marker annotations that have no members - such as
+          <computeroutput>@Optional</computeroutput> - are shown using a
+          checkbox</para>
+        </listitem>
+
+        <listitem>
+          <para>Single-valued annotations where the member has the special
+          name of <computeroutput>value()</computeroutput> - such as
+          <computeroutput>@Named(value)</computeroutput> - are shown using a
+          single column.</para>
+
+          <para>For <computeroutput>value()</computeroutput> members that
+          specify enumerated types, such as @Disabled(When), these are shown
+          as drop-downs.</para>
+        </listitem>
+
+        <listitem>
+          <para>Complex annotations with multiple members - such as
+          @MemberOrder - are shown using multiple columns.</para>
+
+          <para>Updating any of the columns wil cause that annotation to be
+          present; the annotation is only removed if all of the member values
+          are cleared.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The standard shortcut key bindings for views is the a combination
+      <computeroutput>alt+shift+Q, ?</computeroutput>. If you pause after
+      <computeroutput>alt+shift+Q</computeroutput>, then Eclipse will list all
+      the commands available. The annotation views follow this convention, and
+      are bound to <computeroutput>alt+shift+Q, n</computeroutput> where
+      n=1..5. However if you wish you can change these using
+      <computeroutput>Windows&gt;Preferences...&gt;General&gt;Keys</computeroutput>.</para>
+
+      <para>The views display a lot of useful information about the object. A
+      good tip is to maximise the views (using
+      <computeroutput>ctrl+M</computeroutput>) while working on them. This is
+      particularly helpful for the <link linkend="ActionsView">actions
+      view</link>.</para>
+
+      <section>
+        <title id="PropertiesView">Properties View</title>
+
+        <para>The properties view allow annotations to be specified against
+        properties.</para>
+
+        <para>The default shortcut for the view is
+        <computeroutput>alt+shift+Q,2</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/annotations-properties-view.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The annotations that can be created by the view are:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para><computeroutput>@Named(value:String)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Named</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@MemberOrder(sequence:String,
+            name:String)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>MO#sequence</computeroutput> and
+            <computeroutput>MO#name</computeroutput> columns. The format of
+            the <computeroutput>sequence</computeroutput> is a Dewey-decimal
+            string <computeroutput>"x.x.x"</computeroutput>.</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@TypicalLength(value:int)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>TypicalLength</computeroutput> column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Disabled(value:When)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Disabled</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Optional</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Optional</computeroutput>
+            column.</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@NotPersisted</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>NotPersisted</computeroutput> column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Hidden(value:When)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Hidden</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@DescribedAs(value:String)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>DescribedAs</computeroutput> column</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+
+      <section>
+        <title id="StringPropertiesView">String Properties View</title>
+
+        <para>The string properties view allow annotations specific to strings
+        to be specified against properties with a return type of
+        <computeroutput>java.lang.String</computeroutput>. All properties are
+        shown (so that switching between this view and the <link
+        linkend="PropertiesView">properties view</link> doesn't jar) but those
+        properties that are not string properties are disabled.</para>
+
+        <para>The default shortcut for the view is
+        <computeroutput>alt+shift+Q,2</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/annotations-strprops-view.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The annotations that can be created by the view are:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para><computeroutput>@MaxLength(value:int)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>MaxLength</computeroutput> column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@MultiLine(numberOfLines:int,preventWrapping:boolean)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>ML#numberOfLines</computeroutput> and
+            <computeroutput>ML#preventWrapping</computeroutput> columns</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@RegEx(validation:String,format:String,caseSensitive:boolean)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>RE#validation</computeroutput>,
+            <computeroutput>RE#format</computeroutput> and
+            <computeroutput>RE#caseSensitive</computeroutput> columns</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+
+      <section>
+        <title id="CollectionsView">Collections View</title>
+
+        <para>The properties view allow annotations to be specified against
+        collections.</para>
+
+        <para>The default shortcut for the view is
+        <computeroutput>alt+shift+Q,4</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/annotations-collections-view.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The annotations that can be created by the view are:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para><computeroutput>@Named(value:String)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Named</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@MemberOrder(sequence:String,
+            name:String)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>MO#sequence</computeroutput> and
+            <computeroutput>MO#name</computeroutput> columns. The format of
+            <computeroutput>sequence</computeroutput> is a Dewey-decimal
+            string <computeroutput>"x.x.x"</computeroutput>.</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@TypeOf(value:String)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>TypeOf</computeroutput>
+            column. The value of</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Disabled(value:When)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Disabled</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@NotPersisted</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>NotPersisted</computeroutput> column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Hidden(value:When)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Hidden</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@DescribedAs(value:String)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>DescribedAs</computeroutput> column</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+
+      <section>
+        <title id="ActionsView" lang="">Actions View</title>
+
+        <para>The properties view allow annotations to be specified against
+        actions and their parameters.</para>
+
+        <para>The default shortcut for the view is
+        <computeroutput>alt+shift+Q,5</computeroutput>. On the left-hand slide
+        of the slider the annotations for the action itself can be
+        maintained:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/annotations-actions-view.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The annotations that can be created by the view on actions
+        are:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para><computeroutput>@Named(value:String)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Named</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@MemberOrder(sequence:String,
+            name:String)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>MO#sequence</computeroutput> and
+            <computeroutput>MO#name</computeroutput> columns. The format of
+            the <computeroutput>sequence</computeroutput> is a Dewey-decimal
+            string <computeroutput>"x.x.x"</computeroutput>.</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Disabled(value:When)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Disabled</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Executed(value:Executed.Where)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Executed</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Hidden(value:When)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Hidden</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Debug</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Debug</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Exploration</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>Exploration</computeroutput> column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@DescribedAs(value:String)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>DescribedAs</computeroutput> column</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>On the right-hand side of the slider the annotations for the
+        action <emphasis>parameters</emphasis> can be maintained:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/annotations-actionparams-view.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The annotations that can be created by the view on actions
+        parameter are broadly those applicable for <link
+        linkend="PropertiesView">properties</link> and <link
+        linkend="StringPropertiesView">string properties</link>. In the same
+        way that the string properties view disables rows for non-string
+        properties, so are individual cells disabled when they do not apply to
+        specific action parameters:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para><computeroutput>@Named(value:String)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Named</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Optional</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Optional</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@TypicalLength(value:int)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>TypicalLength</computeroutput> column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@MaxLength(value:int)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>MaxLength</computeroutput> column. Only applicable
+            for string parameters.</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@MultiLine(numberOfLines:int,preventWrapping:boolean)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>ML#numberOfLines</computeroutput> and
+            <computeroutput>ML#preventWrapping</computeroutput> columns. Only
+            applicable for string parameters.</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@RegEx(validation:String,format:String,caseSensitive:boolean)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>RE#validation</computeroutput>,
+            <computeroutput>RE#format</computeroutput> and
+            <computeroutput>RE#caseSensitive</computeroutput> columns. Only
+            applicable for string parameters.</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@DescribedAs(value:String)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>DescribedAs</computeroutput> column.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+
+      <section>
+        <title id="NakedObjectView">Naked Object View</title>
+
+        <para>The properties view allow annotations to be specified against
+        the domain object itself.</para>
+
+        <para>This view takes the same form as the rest of the annotation
+        views even though there will only ever be a single row in it. This is
+        by design; we feel it more clearly suggests to the casual user that
+        the type of information presented in this view (ie annotations) is the
+        same as that of the other views.</para>
+
+        <para>The default shortcut for the view is
+        <computeroutput>alt+shift+Q,1</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/annotations-object-view.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The annotations that can be created by the view are:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para><computeroutput>@Named(value:String)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Named</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Plural(value:String)</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Plural</computeroutput>
+            column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Immutable(value:When)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>Immutable</computeroutput> column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@Bounded</computeroutput></para>
+
+            <para>Corresponds to the <computeroutput>Bounded</computeroutput>
+            column.</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@NotPersisted</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>NotPersisted</computeroutput> column</para>
+          </listitem>
+
+          <listitem>
+            <para><computeroutput>@DescribedAs(value:String)</computeroutput></para>
+
+            <para>Corresponds to the
+            <computeroutput>DescribedAs</computeroutput> column</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
+
+    <section>
+      <title id="Refactorings">Refactorings</title>
+
+      <para>The conventions of the <link lang=""
+      linkend="NO-ProgrammingModel">Naked Objects Programming Model</link> are
+      such that each property, collection and action may have a number of
+      supporting methods. The NO IDE enhances a number of Eclipse's own
+      refactorings such that these conventions are respected as refactorings
+      are performed.</para>
+
+      <para>At present two refactorings are supported; in time we expect the
+      number of refactorings supported to increase. See the <link
+      linkend="Backlog-Refactorings">Backlog</link> for details.</para>
+
+      <section>
+        <title id="RenameField">Rename Field</title>
+
+        <para>The rename field refactoring renames an instance variable
+        representing a property or collection and its supporting
+        methods.</para>
+
+        <para>Select the instance variable, and use
+        <computeroutput>Refactor&gt;Rename...</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/refactor-rename-field.gif" />
+          </imageobject>
+        </mediaobject>
+      </section>
+
+      <section>
+        <title id="RenameMethod">Rename Method</title>
+
+        <para>The rename method refactoring renames all methods for an
+        property, collection or action, plus the instance variable if
+        appropriate (for property or collection).</para>
+
+        <para>Select the method, and use
+        <computeroutput>Refactor&gt;Rename...</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/refactor-rename-method-property.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>Any of the methods - supporting or otherwise - can be renamed;
+        the prefix should remain the same. For example, here the
+        <computeroutput>Customer#validateCustomerNumber</computeroutput> is
+        being renamed to
+        <computeroutput>validateCustomerId</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/refactor-rename-supporting-method.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>This will have the effect or renaming the
+        <computeroutput>customerNumber</computeroutput> property.</para>
+
+        <para>The refactoring works equally on actions (though here there is
+        no underlying instance variable to rename):</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/refactor-rename-placeOrder.gif" />
+          </imageobject>
+        </mediaobject>
+      </section>
+    </section>
+
+    <section>
+      <title id="LaunchConfigurations">Launch Configurations</title>
+
+      <para>The majority of the functionality in the NO IDE is generic for
+      NOA-style applications, in particular against the <link
+      linkend="NO-Applib">Naked Objects application library</link>. The launch
+      configurations functionality however is specific to the Naked Objects
+      Framework.</para>
+
+      <para>Use Run&gt;Run...&gt; or Debug&gt;Debug... to bring up the launch
+      configuration dialog:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/launch-configurations.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>The <link linkend="ClientProjectWizard">client project
+      wizard</link> automatically creates two launch configurations for the
+      example project, one for DnD client and one for the Web Local Server (to
+      access via a web browser). Either modify these or create new
+      configurations as required.</para>
+
+      <para>On the <computeroutput>Main</computeroutput> tab, the main class
+      is automatically specified (and cannot be modified). Since this class is
+      in the NOF itself, the <computeroutput>Include libraries when searching
+      for a main class</computeroutput> button is selected (and cannot be
+      modified):</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/launch-configuration-main-tab-new_config.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>The most important tab however for Naked Objects Framework
+      applications is the <computeroutput>Arguments</computeroutput>
+      tab:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resource/launch-configuration-args-tab-new_config.gif" />
+        </imageobject>
+      </mediaobject>
+
+      <para>On this dialog:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>the <computeroutput>Viewer</computeroutput> block corresponds
+          to <computeroutput>--viewer</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>Type</computeroutput> block corresponds to
+          --type</para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>Authentication</computeroutput> block
+          corresponds to <computeroutput>--user</computeroutput> and
+          <computeroutput>--password</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>Persistor</computeroutput> block
+          corresponds to <computeroutput>--persistor</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>Fixture</computeroutput> block corresponds
+          to <computeroutput>--fixture</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>Resource base</computeroutput> block
+          corresponds to
+          <computeroutput>--resourceBase</computeroutput>.</para>
+        </listitem>
+
+        <listitem>
+          <para>the <computeroutput>Program arguments</computeroutput> block
+          allows additional arguments to be specified</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The options here enable and disable as required by the NOF
+      runtime:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>authentication details can be entered only for the
+          <computeroutput>dnd</computeroutput> viewer, provided type is not
+          <computeroutput>exploration</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para>the persistor cannot be entered for
+          <computeroutput>exploration</computeroutput> or
+          <computeroutput>prototype</computeroutput> (NOF uses an in-memory
+          object store for these types)</para>
+        </listitem>
+
+        <listitem>
+          <para>the persistor is restricted to
+          <computeroutput>in-memory</computeroutput> and
+          <computeroutput>xml</computeroutput> when the type is
+          <computeroutput>standalone</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para>the persistor is restricted to
+          <computeroutput>serialize</computeroutput> and
+          <computeroutput>xstream</computeroutput> when the type is
+          <computeroutput>client</computeroutput></para>
+        </listitem>
+
+        <listitem>
+          <para>the resource base can only be entered if the viewer is
+          <computeroutput>web</computeroutput>.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>One additional note about the resource base block (for the
+      <computeroutput>web</computeroutput> viewer); this must refer to the
+      base location for the images, usually held in the application project.
+      The dialog attempts to guess this location based on the assumption that
+      the launch configuration is being created in a client project whose name
+      has a <computeroutput>.client</computeroutput> suffix.</para>
+    </section>
+
+    <section>
+      <title>Other Functionality</title>
+
+      <section>
+        <title id="Folding">Folding</title>
+
+        <para>The NO IDE bundles a patched version of the <ulink
+        url="http://www.realjenius.com/platform_support">Coffee Bytes code
+        folding</ulink> plugin. This can be enabled using
+        <computeroutput>Windows&gt;Preferences...&gt;Java&gt;Editor&gt;Folding</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/coffee-bytes-folding.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>Enable user-defined regions, and specific
+        <computeroutput>{{</computeroutput> and
+        <computeroutput>}}</computeroutput> as the start and end
+        blocks:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/coffee-bytes-folding-2.gif" />
+          </imageobject>
+        </mediaobject>
+      </section>
+
+      <section>
+        <title id="NO-Nature">Naked Objects Nature</title>
+
+        <para>The Naked Objects nature should be applied to application
+        projects (containing the domain objects and supporting services). The
+        NO IDE <link linkend="Refactorings">refactorings</link> &amp; <link
+        linkend="ProjectBuilder">project builder</link> only run when this
+        nature is enabled:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/project-nature.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>The <link linkend="ApplicationProjectWizard">application project
+        wizard</link> will automatically install the nature, but it can also
+        be added or removed manually:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/project-nature-remove.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>One time when this is useful if you want to refactor some code
+        which doesn't strictly conform to the <link
+        linkend="NO-ProgrammingModel">Naked Objects programming model</link>,
+        and need to temporarily disable refactoring. Alternatively you might
+        do this if you have uncovered a bug with the NO IDE's refactorings or
+        builder which is preventing you from working (in which case, please
+        <link linkend="???">log the defect</link>).</para>
+      </section>
+
+      <section>
+        <title id="Logging">Logging</title>
+
+        <para>The NO IDE uses <ulink
+        url="http://logging.apache.org">log4j</ulink> for logging purposes,
+        routed to a custom console:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/logging-console.gif" />
+          </imageobject>
+        </mediaobject>
+
+        <para>This can be controlled using the preference page,
+        <computeroutput>Windows&gt;Preferences...&gt;Naked Objects
+        IDE</computeroutput>:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resource/window-preferences-logging.gif" />
+          </imageobject>
+        </mediaobject>
+      </section>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title id="Backlog">Backlog</title>
+
+    <section>
+      <title>Known Problems</title>
+
+      <para>There are a number of known minor problems with this
+      release:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Missing Project Wizard Icons</para>
+        </listitem>
+
+        <listitem>
+          <para>Naked Objects DnD login doesn't render correctly.</para>
+        </listitem>
+
+        <listitem>
+          <para>Closed Editors not handled gracefully by annotation
+          views</para>
+        </listitem>
+
+        <listitem>
+          <para>Annotation views "flicker"</para>
+        </listitem>
+
+        <listitem>
+          <para>Selected Project not used in Project Wizards</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Other known problems are on the <ulink
+      url="http://bugs.nakedobjects.org">Naked Objects bugzilla</ulink>.
+      Please raise bugs if you uncover any.</para>
+    </section>
+
+    <section>
+      <title>Project Wizard Enhancements</title>
+
+      <para>Programmatically install code formatting templates
+      (<computeroutput>no-code-template.xml</computeroutput>).</para>
+    </section>
+
+    <section>
+      <title id="Backlog-Refactorings">Refactorings</title>
+
+      <para>Add more refactorings:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Add/remove parameters for actions.</para>
+        </listitem>
+
+        <listitem>
+          <para>Change type of parameter.</para>
+        </listitem>
+
+        <listitem>
+          <para>Change method signature</para>
+        </listitem>
+
+        <listitem>
+          <para>Introduce parameter</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Templates</title>
+
+      <para>Add more templates:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>fixtures</para>
+        </listitem>
+
+        <listitem>
+          <para>test</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title id="BacklogWizards">Wizards</title>
+
+      <para>Add more general wizards:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>domain object</para>
+        </listitem>
+
+        <listitem>
+          <para>repository, factory, service</para>
+        </listitem>
+
+        <listitem>
+          <para>fixture</para>
+        </listitem>
+
+        <listitem>
+          <para>test</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title id="BacklogQuickFixes">Quick Fixes</title>
+
+      <para>Add more quick fixes:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>add a title() method</para>
+        </listitem>
+
+        <listitem>
+          <para>remove surplus parameters (for zero parameter methods)</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Folding</title>
+
+      <para>Implement own code folding (probably based on Eclipse's own
+      folding rather than then Coffee Bytes plugin). Add support for
+      user-defined regions.</para>
+    </section>
+
+    <section>
+      <title>Extending the NO IDE</title>
+
+      <para>Currently the NO IDE offers only a very limited number of
+      extension points. The intention is to increase these over time so that
+      the NO IDE can be leveraged by any framework that implements the <link
+      linkend="NO-ArchitecturalPattern">Naked Objects Architectural
+      Pattern</link>.</para>
+
+      <para>As well as other frameworks being able to contribute, it should
+      also be possible to allow filtering/sorting of the default NO IDE
+      functionality so that frameworks that offer a subset of the features
+      supported by the NOF can remove stuff (such as annotations) that doesn't
+      apply.</para>
+    </section>
+
+    <section>
+      <title>Annotation View Enhancements</title>
+
+      <para>Improve tabbing, browse for types</para>
+    </section>
+
+    <section>
+      <title>Follow Eclipse Best Practice</title>
+
+      <para>Use standard approach to i18n.</para>
+
+      <para>Remove/minimize usage of internal APIs.</para>
+    </section>
+  </chapter>
+</book>

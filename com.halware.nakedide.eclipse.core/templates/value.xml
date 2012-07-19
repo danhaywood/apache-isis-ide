@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<!-- Note that reference to this template is hard-coded in the source (DocTemplContext) -->
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%value.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.value" 
+	name="%value.name">
+/**
+ * ${describeClassHere}
+ *
+ */
+@Value(adapterTypeName="${fullyQualifiedClassName}")
+	</template>
+</templates>

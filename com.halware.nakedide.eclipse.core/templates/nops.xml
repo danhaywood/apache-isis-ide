@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%nops.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.nops" 
+	name="%nops.name">
+    public String validate${PropertyName}(final ${PropertyType} ${propertyName}) {
+        ${cursor}return null;
+    }
+    public String disable${PropertyName}() {
+        return null;
+    }
+    public boolean hide${PropertyName}() {
+        return false;
+    }
+    public ${PropertyType} default${PropertyName}() {
+        return null;
+    }
+    public ${PropertyType}[] choices${PropertyName}() {
+        return new ${PropertyType}[] {
+        };
+    }
+	</template>
+
+</templates>

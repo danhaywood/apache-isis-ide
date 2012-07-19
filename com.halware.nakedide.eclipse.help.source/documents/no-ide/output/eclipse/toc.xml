@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<toc label="Naked Objects IDE" topic="contents/index.html">
+   <topic label="Getting Started" href="contents/ch01.html">
+      <topic label="Create a new Application Project" href="contents/ch01s01.html"/>
+      <topic label="Create a new Fixture Project" href="contents/ch01s02.html"/>
+      <topic label="Create a new Client Project" href="contents/ch01s03.html"/>
+      <topic label="Launch the Application" href="contents/ch01s04.html">
+         <topic label="Launch the Drag-n-Drop Client" href="contents/ch01s04s01.html"/>
+         <topic label="Launch the Web Client" href="contents/ch01s04s02.html"/>
+         <topic label="Run the tests" href="contents/ch01s04s03.html"/>
+      </topic>
+      <topic label="Browsing the Code" href="contents/ch01s05.html"/>
+      <topic label="Add a New Property" href="contents/ch01s06.html"/>
+      <topic label="Next Steps" href="contents/ch01s07.html"/>
+   </topic>
+   <topic label="Concepts" href="contents/ch02.html">
+      <topic label="Naked Objects Architectural&#xA;      Pattern" href="contents/ch02s01.html"/>
+      <topic label="Naked Objects Programming Model" href="contents/ch02s02.html"/>
+      <topic label="Naked Objects Application Library" href="contents/ch02s03.html"/>
+      <topic label="Project Types" href="contents/ch02s04.html"/>
+      <topic label="Domain Object Container" href="contents/ch02s05.html"/>
+      <topic label="Repositories, Factories and Services" href="contents/ch02s06.html"/>
+      <topic label="Fixtures" href="contents/ch02s07.html"/>
+      <topic label="OSGi (Plugin) Projects" href="contents/ch02s08.html"/>
+      <topic label="Relationship between the NO IDE and the NOF&#xA;      Runtime" href="contents/ch02s09.html"/>
+   </topic>
+   <topic label="Tasks" href="contents/ch03.html">
+      <topic label="Code Folding" href="contents/ch03s01.html"/>
+      <topic label="Create a new Domain Object" href="contents/ch03s02.html"/>
+      <topic label="Create a new Property, Collection or Action" href="contents/ch03s03.html"/>
+      <topic label="Apply Annotations" href="contents/ch03s04.html"/>
+      <topic label="Rename a Property, Collection or Action" href="contents/ch03s05.html"/>
+      <topic label="Change an Action Signature" href="contents/ch03s06.html"/>
+      <topic label="Add a new Repository, Factory or Service" href="contents/ch03s07.html"/>
+      <topic label="Add a new Fixture" href="contents/ch03s08.html"/>
+      <topic label="Update the Classpath" href="contents/ch03s09.html"/>
+      <topic label="Format Code" href="contents/ch03s10.html"/>
+      <topic label="Running the Naked Objects Clients" href="contents/ch03s11.html"/>
+   </topic>
+   <topic label="Reference" href="contents/ch04.html">
+      <topic label="Project Wizards" href="contents/ch04s01.html">
+         <topic label="Application Project&#xA;        Wizard" href="contents/ch04s01s01.html"/>
+         <topic label="Fixture Project Wizard" href="contents/ch04s01s02.html"/>
+         <topic label="Client Project Wizard" href="contents/ch04s01s03.html"/>
+         <topic label="Icon Project Wizard" href="contents/ch04s01s04.html"/>
+      </topic>
+      <topic label="Naked Objects Perspective" href="contents/ch04s02.html"/>
+      <topic label="Outline View" href="contents/ch04s03.html"/>
+      <topic label="Templates" href="contents/ch04s04.html">
+         <topic label="Domain Object Templates (within type&#xA;        definition)" href="contents/ch04s04s01.html">
+            <topic label="The ident Template" href="contents/ch04s04s01s01.html"/>
+            <topic label="The injc Templates" href="contents/ch04s04s01s02.html"/>
+            <topic label="The injs and injr Templates" href="contents/ch04s04s01s03.html"/>
+            <topic label="The lcaw Template" href="contents/ch04s04s01s04.html"/>
+            <topic label="The logger Template" href="contents/ch04s04s01s05.html"/>
+            <topic label="The no?? Templates" href="contents/ch04s04s01s06.html"/>
+            <topic label="The val Template" href="contents/ch04s04s01s07.html"/>
+         </topic>
+         <topic label="Domain Object Templates (before type definition)" href="contents/ch04s04s02.html">
+            <topic label="The applib Template" href="contents/ch04s04s02s01.html"/>
+            <topic label="The entity Template" href="contents/ch04s04s02s02.html"/>
+            <topic label="The value Template" href="contents/ch04s04s02s03.html"/>
+         </topic>
+         <topic label="Service Templates" href="contents/ch04s04s03.html"/>
+      </topic>
+      <topic label="Project Builder" href="contents/ch04s05.html">
+         <topic label="Problems Markers" href="contents/ch04s05s01.html"/>
+         <topic label="Quick Fixes" href="contents/ch04s05s02.html"/>
+      </topic>
+      <topic label="Annotation Views" href="contents/ch04s06.html">
+         <topic label="Properties View" href="contents/ch04s06s01.html"/>
+         <topic label="String Properties View" href="contents/ch04s06s02.html"/>
+         <topic label="Collections View" href="contents/ch04s06s03.html"/>
+         <topic label="Actions View" href="contents/ch04s06s04.html"/>
+         <topic label="Naked Object View" href="contents/ch04s06s05.html"/>
+      </topic>
+      <topic label="Refactorings" href="contents/ch04s07.html">
+         <topic label="Rename Field" href="contents/ch04s07s01.html"/>
+         <topic label="Rename Method" href="contents/ch04s07s02.html"/>
+      </topic>
+      <topic label="Launch Configurations" href="contents/ch04s08.html"/>
+      <topic label="Other Functionality" href="contents/ch04s09.html">
+         <topic label="Folding" href="contents/ch04s09s01.html"/>
+         <topic label="Naked Objects Nature" href="contents/ch04s09s02.html"/>
+         <topic label="Logging" href="contents/ch04s09s03.html"/>
+      </topic>
+   </topic>
+   <topic label="Backlog" href="contents/ch05.html">
+      <topic label="Known Problems" href="contents/ch05s01.html"/>
+      <topic label="Project Wizard Enhancements" href="contents/ch05s02.html"/>
+      <topic label="Refactorings" href="contents/ch05s03.html"/>
+      <topic label="Templates" href="contents/ch05s04.html"/>
+      <topic label="Wizards" href="contents/ch05s05.html"/>
+      <topic label="Quick Fixes" href="contents/ch05s06.html"/>
+      <topic label="Folding" href="contents/ch05s07.html"/>
+      <topic label="Extending the NO IDE" href="contents/ch05s08.html"/>
+      <topic label="Annotation View Enhancements" href="contents/ch05s09.html"/>
+      <topic label="Follow Eclipse Best Practice" href="contents/ch05s10.html"/>
+   </topic>
+</toc>

@@ -1,0 +1,67 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Dopus Release Notes</title><link rel="stylesheet" href="style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="d0e1"></a>
+         <span class="emphasis"><em>Dopus</em></span> Release Notes</h1></div><div><p class="releaseinfo">Version 1.2 </p></div><div><p class="copyright">Copyright &copy; 2006 AGYNAMIX</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#d0e20">1. Release Notes</a></span></dt></dl></div><p></p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e20"></a>1.&nbsp;Release Notes</h2></div></div></div><p></p><div class="itemizedlist"><ul type="disc"><li><p>
+               <span class="bold"><strong>Version 0.9.9</strong></span>
+            </p><div class="itemizedlist"><ul type="circle"><li><p>
+          Support for <span class="bold"><strong>Docbook Slides</strong></span>. Requested by some faithful users
+          I finally got around to implement them. You can create a Slides document by issueing:
+          </p><pre class="programlisting">
+   ./generator.bat fluffyslides create slides          
+          </pre><p>
+          You can use the usual targets to generate the output. Additional to <span class="emphasis"><em>pdf, html, xhtml</em></span>
+          you can use <span class="emphasis"><em>tablehtml, framehtml, tablexhtml, framexhtml</em></span>.
+        </p><p>
+          You should see the Slides support als beta release. The customization layer is virtually not existent at
+          the moment. I'd ask those working with slides to make suggestions as to what needs to be included.
+          The targets <span class="emphasis"><em>svg</em></span> and <span class="emphasis"><em>htmlhelp</em></span> do not work yet. You are free 
+          and very, very welcome to give your feedback and help in making slides support better.
+        </p></li><li><p>
+          Now build on a Mac. That means the generator.sh script is packaged with the right
+          permissions (755) so you can execute it right away.
+        </p></li></ul></div></li><li><p>
+               <span class="bold"><strong>Version 0.9.8</strong></span>
+            </p><div class="itemizedlist"><ul type="circle"><li><p>
+          Changed property substitution to use <span class="emphasis"><em>VPP</em></span>. The
+          former mechanism could not access properties that did not come from
+          a property file but where generated inside Ant (a timestamp for example).
+          Variables are now expressed by \$ant.get("<span class="emphasis"><em>PropertyName</em></span>").
+        </p></li></ul></div></li><li><p>
+               <span class="bold"><strong>Version 0.9.7</strong></span>
+            </p><div class="itemizedlist"><ul type="circle"><li><p>Property substitution in Docbook documents: The separator can be adjusted in 
+        build.properties (or overwritten in localbuild.properties if you want to have different 
+        separators in your files). This mechanism is disabled by default, to enable, set 
+        'substitute.properties=yes' in your build.properties file (or localbuild.properties)</p></li><li><p>Linebreak support in html based and fo customization layers:<br>
+        Just type &lt;?lb ?&gt; which will result in a line<br> at the resulting position.</p></li><li><p>Added target "manpages"</p></li><li><p>Added target "wordml"</p></li><li><p>You can now have multiple documents within a document directory. 
+        To process documents other then the master document (same name as the doc dir):
+        <code class="computeroutput">generator.bat fluff pdf subfluff</code>
+                  </p><p>
+        If the 3rd parameter is omitted the document is assumed to be of the same name as the documents
+        directory (e.g. fluff.xml for a document directory named "fluff" (as usual).
+        </p></li></ul></div></li><li><p>
+               <span class="bold"><strong>Version 0.9.6</strong></span>
+            </p><div class="itemizedlist"><ul type="circle"><li><p>Support for HTTP Proxy for Fop and Saxon. To use the proxy,
+        please open the file "build.properties" in a file editor and edit the
+        lines with the entries "http.proxyHost=" and "http.proxyPort="</p><p>
+          Please add your proxy host and port here like so:
+          </p><pre class="programlisting">
+   http.proxyHost=host.example.com
+   http.proxyPort=8080       
+          </pre><p>
+          You administrator should know these values.
+        </p></li><li><p>
+          Moved some properties into the global build.properties file. These values can be adapted
+          if the need arises. You can also overwrite those values in the document local file
+          localbuild.properties.
+        </p></li><li><p>
+        Javahelp now indexes it's help sets.
+        </p></li><li><p>
+        I split the <span class="emphasis"><em>Dopus</em></span> distributions into one with JRE (the big one) and one without. If you already have
+        your Windows&reg; JRE installed or you are using <span class="emphasis"><em>Dopus</em></span> on a Unix&#8482; or Mac OS X&reg; machine,
+        you should download the version without the JRE. It looks for the environment variable "JAVA_HOME".
+        If this is found <span class="emphasis"><em>Dopus</em></span> will use the Java version pointed to by the variable. If it is not found <span class="emphasis"><em>Dopus</em></span> will
+        try and search "java" in the PATH variable. If it finds it it will be used, otherwise <span class="emphasis"><em>Dopus</em></span>
+        will give up with an error message.
+        </p></li></ul></div></li><li><p>
+               <span class="bold"><strong>Older versions:</strong></span>
+            </p><div class="itemizedlist"><ul type="circle"><li><p>Added the GPL note to the files sources</p></li><li><p>create License directory</p></li><li><p>remove unneeded stuff</p></li><li><p>Switch to UTF-8</p></li><li><p>distribute target for documents</p></li><li><p>version number per document (document.version) in localbuild.properties</p></li><li><p>support for multiple Docbook versions</p></li></ul></div></li></ul></div></div></div></body></html>

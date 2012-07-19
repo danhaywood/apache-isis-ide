@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%ident.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.ident" 
+	name="%ident.name">
+    // {{ Identification
+    /**
+     * Defines the title that will be displayed on the user
+     * interface in order to identity this object.
+     */
+    public String title() {
+        TitleBuffer t = new TitleBuffer();
+        t.append(${cursor}this.toString());
+        return t.toString();
+    }
+    
+    /**
+     * For debugging purposes.
+     */
+    public String toString() {
+        return super.toString();
+    }
+    
+    /**
+     * Overrides the class-level icon with an icon specific
+     * to this object.
+     */
+    public String iconName() {
+        return null;
+    }
+    // }}
+	</template>
+</templates>

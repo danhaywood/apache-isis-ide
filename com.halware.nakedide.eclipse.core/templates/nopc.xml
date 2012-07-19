@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%nopc.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.nopc" 
+	name="%nopc.name">
+    // {{ ${PropertyName}
+    private ${PropertyType} ${propertyName};
+    public ${PropertyType} get${PropertyName}() {
+        resolve(${propertyName});
+        return this.${propertyName};
+    }
+    public void set${PropertyName}(final ${PropertyType} ${propertyName}) {
+        this.${propertyName} = ${propertyName};
+        objectChanged();
+    }
+    public void modify${PropertyName}(final ${PropertyType} ${propertyName}) {
+        set${PropertyName}(${propertyName});${cursor}
+    }
+    public void clear${PropertyName}() {
+        if (get${PropertyName}() == null) {
+            return;
+        }    
+        set${PropertyName}(null);
+    }
+    // }}
+	</template>
+
+</templates>

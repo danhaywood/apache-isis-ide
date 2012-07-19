@@ -1,0 +1,17 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>6.&nbsp;Change an Action Signature</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s05.html" title="5.&nbsp;Rename a Property, Collection or Action"><link rel="next" href="ch03s07.html" title="7.&nbsp;Add a new Repository, Factory or Service"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1683"></a>6.&nbsp;Change an Action Signature</h2></div></div></div><p>Occasionally it is necessary to change an action signature, either
+      to add or remove parameters, or perhaps change the order. For actions
+      the <a href="ch02s02.html#NO-ProgrammingModel">Naked Objects programming
+      model</a> requires that an action's supporting methods must have the
+      same parameter types as the action that they support.</p><p>Although the NO IDE can rename supporting methods, it does not
+      (<a href="ch05s03.html#Backlog-Refactorings">yet</a>) refactor the
+      parameters of supporting action methods. Therefore you must change each
+      individually. That said, if you make a mistake and forget to rename one
+      of them, the <a href="ch04s05.html#ProjectBuilder">project builder</a>
+      should spot this.</p><p>For example, suppose that
+      <code class="computeroutput">Customer#placeOrder(p:Product,quantity:Integer)</code>
+      has been renamed to
+      <code class="computeroutput">Customer#placeOrder(p:Product,quantity:Integer,express:Boolean)</code>,
+      but the supporting methods have not. This is detected by the <a href="ch04s05.html#ProjectBuilder">project builder</a> shown in Eclipse's
+      <code class="computeroutput">Problems</code> view:</p><div class="mediaobject"><img src="resource/project-builder-orphaned-actions.gif"></div></div></body></html>

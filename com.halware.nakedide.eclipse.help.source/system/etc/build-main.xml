@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This file is part of Dopus                                              -->
+
+<!-- Dopus is free software; you can redistribute it and/or modify           -->
+<!-- it under the terms of the GNU General Public License as published by    -->
+<!-- the Free Software Foundation; either version 2 of the License, or       -->
+<!-- (at your option) any later version.                                     -->
+
+<!-- Dopus is distributed in the hope that it will be useful,                -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!-- GNU General Public License for more details.                            -->
+
+<!-- You should have received a copy of the GNU General Public License       -->
+<!-- along with Dopus; if not, write to the Free Software                    -->
+<!-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+
+<!-- (c) 2006 by AGYNAMIX                                                    -->
+<!-- You can download the latest version of this software at                 -->
+<!-- http://www.agynamix.de                                                  -->
+
+<project name="Docbook Publishing System" basedir="../.." >
+  
+  <!-- This is the main build file for the Docbook Publishing System -->
+
+  <property file="${basedir}/documents/${project.input.document}/custom-cfg/localbuild.properties" />
+  <property file="${basedir}/build.properties" />
+
+  <property name="dopus.dir"                   location="${basedir}" />
+  <property name="system.dir"                  location="${dopus.dir}/system"/>
+  <property name="system.saxon.dir"            location="${system.dir}/saxon"/>
+  <property name="system.catalog-resolver.dir" location="${system.dir}/catalog-resolver"/>
+  <property name="system.docbook-xsl.dir"      location="${system.dir}/docbook-xsl"/>
+  <property name="system.docbook-dtd.dir"      location="${system.dir}/docbook-dtd/${docbook-dtd.version}"/>
+  <property name="system.custom-xsl.dir"       location="${system.dir}/custom-xsl"/>
+  <property name="system.template.dir"         location="${system.dir}/templates"/>
+  <property name="system.fop.dir"              location="${system.dir}/fop"/>
+  <property name="system.xfc.dir"              location="${system.dir}/xfc"/>
+  <property name="system.javahelp.dir"         location="${system.dir}/javahelp"/>
+  <property name="system.titlespec.dir"        location="${system.custom-xsl.dir}/titlepage-spec"/>
+
+  <property name="project.dir"                 location="${basedir}/documents/${project.input.document}"/>
+  <property name="project.dir.input"           location="${project.dir}/input"/>
+  <property name="project.custom-cfg.dir"      location="${project.dir}/custom-cfg"/>
+  <property name="project.output.mode"         value="html" /> <!--  fallback value, normally set be generator script -->
+  <property name="ENV_PARAM_3"                 value="" />
+
+  <tstamp>
+    <format property="TODAY" pattern="${tstamp.format.pattern}" locale="${tstamp.format.locale}"/>
+  </tstamp>
+  
+  <!--
+     In every document directoy (its custom-cfg) can be a build file
+     'localbuild.xml' which can be used to adapt the build process to specific
+     needs of the document.
+  -->
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+  
+  <if>
+   <equals arg1="${ENV_PARAM_3}" arg2="" />
+   <then>
+     <property name="project.input.file"      value="${project.input.document}" />
+     <property name="project.dir.output.name" value="output" />
+   </then>
+   <else>
+     <property name="project.input.file"      value="${ENV_PARAM_3}" />
+     <property name="project.dir.output.name" value="output" /> <!-- you could differentiate output dirs here
+                                              -${ENV_PARAM_3} -->
+   </else>
+  </if>
+
+  <property name="project.dir.output"          location="${project.dir}/${project.dir.output.name}"/>
+  
+  <!-- Import the local build file. Users can augment the build process here with local targets -->
+  <import file="${project.custom-cfg.dir}/localbuild.xml" optional="true" />
+  
+  <!-- Common definitions for the build process -->
+  <import file="build-common.xml" optional="no" />
+
+  <!-- Common definitions for the build process -->
+  <import file="build-output-formats.xml" optional="no" />
+
+  <!-- Targets to produce distributions of Dopus itself and documents -->
+  <import file="build-additional.xml" optional="no" />
+
+  <!-- Targets to produce distributions of Dopus itself and documents -->
+  <import file="build-distribute.xml" optional="no" />
+
+</project>

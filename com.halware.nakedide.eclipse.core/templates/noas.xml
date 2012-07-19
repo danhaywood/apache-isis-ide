@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%noas.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.noas" 
+	name="%noas.name">
+    public String validate${ActionName}( ${ParameterList}) {
+        ${cursor}return null;
+    }
+    public String disable${ActionName}() {
+        return null;
+    }
+    public boolean hide${ActionName}() {
+        return false;
+    }
+    public Object[] default${ActionName}() {
+        return new Object[] {
+        };
+    }
+    public Object[] choices${ActionName}() {
+        return new Object[] {
+            new Object[]{ },
+            new Object[]{ },
+        };
+    }
+	</template>
+
+</templates>

@@ -1,0 +1,30 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>6.&nbsp;Annotation Views</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04.html" title="Reference"><link rel="prev" href="ch04s05s02.html" title="5.2.&nbsp;Quick Fixes"><link rel="next" href="ch04s06s01.html" title="6.1.&nbsp;Properties View"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e2543"></a>6.&nbsp;Annotation Views</h2></div></div></div><p>The annotation views allow annotations from the <a href="ch02s03.html#NO-Applib">Naked Objects application library</a> to be
+      applied to properties, collections, actions, action parameters and also
+      the object itself. They can also be used as a way of navigating through
+      the object. When the annotation is applied the code is automatically
+      updated. Conversely, if the code is updated directly then the annotation
+      view is updated.</p><p>Each view consists of a table, with the columns representing the
+      annotations (or sometimes, members of annotations) and the rows
+      representing the features (properties, collections etc.):</p><div class="itemizedlist"><ul type="disc"><li><p>Marker annotations that have no members - such as
+          <code class="computeroutput">@Optional</code> - are shown using a
+          checkbox</p></li><li><p>Single-valued annotations where the member has the special
+          name of <code class="computeroutput">value()</code> - such as
+          <code class="computeroutput">@Named(value)</code> - are shown using a
+          single column.</p><p>For <code class="computeroutput">value()</code> members that
+          specify enumerated types, such as @Disabled(When), these are shown
+          as drop-downs.</p></li><li><p>Complex annotations with multiple members - such as
+          @MemberOrder - are shown using multiple columns.</p><p>Updating any of the columns wil cause that annotation to be
+          present; the annotation is only removed if all of the member values
+          are cleared.</p></li></ul></div><p>The standard shortcut key bindings for views is the a combination
+      <code class="computeroutput">alt+shift+Q, ?</code>. If you pause after
+      <code class="computeroutput">alt+shift+Q</code>, then Eclipse will list all
+      the commands available. The annotation views follow this convention, and
+      are bound to <code class="computeroutput">alt+shift+Q, n</code> where
+      n=1..5. However if you wish you can change these using
+      <code class="computeroutput">Windows&gt;Preferences...&gt;General&gt;Keys</code>.</p><p>The views display a lot of useful information about the object. A
+      good tip is to maximise the views (using
+      <code class="computeroutput">ctrl+M</code>) while working on them. This is
+      particularly helpful for the <a href="ch04s06s04.html#ActionsView">actions
+      view</a>.</p></div></body></html>

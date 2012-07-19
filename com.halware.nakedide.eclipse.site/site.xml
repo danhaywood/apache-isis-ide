@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.cb.eclipse.folding_1.0.6.a.jar" id="com.cb.eclipse.folding" version="1.0.6.a">
+      <category name="Apache Isis IDE 3rd Party Features"/>
+   </feature>
+   <feature url="features/org.nakedobjects.common.feature_1.0.0.eclipseutil-20070924-1600.jar" id="com.halware.eclipseutil.feature" version="1.0.0.eclipseutil-20070924-1600">
+      <category name="Eclipse Utilities"/>
+   </feature>
+   <feature url="features/org.nakedobjects.ide.eclipse.feature_1.0.0.ide-20070928-0055.jar" id="com.halware.nakedide.eclipse.feature" version="1.0.0.ide-20070928-0055">
+      <category name="Apache Isis IDE"/>
+   </feature>
+   <category-def name="Eclipse Utilities" label="Eclipse Utilities">
+      <description>
+         Utility functions for building Eclipse plugins
+      </description>
+   </category-def>
+   <category-def name="Apache Isis IDE" label="Apache Isis IDE">
+      <description>
+         IDE support for developing Apache Isis applications.
+      </description>
+   </category-def>
+   <category-def name="Apache Isis IDE 3rd Party Features" label="Apache Isis IDE 3rd Party Features">
+      <description>
+         Complementary IDE support developed by 3rd parties.
+      </description>
+   </category-def>
+</site>

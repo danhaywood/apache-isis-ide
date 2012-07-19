@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%noac.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.noac" 
+	name="%noac.name">
+    // {{ ${ActionName}
+    public ${ReturnType} ${actionName}( ${ParameterList} ) {
+        ${cursor}return null;
+    }
+    // }}
+	</template>
+
+</templates>

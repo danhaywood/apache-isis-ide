@@ -1,0 +1,27 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>4.&nbsp;Apply Annotations</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch03.html" title="Tasks"><link rel="prev" href="ch03s03.html" title="3.&nbsp;Create a new Property, Collection or Action"><link rel="next" href="ch03s05.html" title="5.&nbsp;Rename a Property, Collection or Action"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1551"></a>4.&nbsp;Apply Annotations</h2></div></div></div><p>Many of the semantics for domain objects can be specified
+      declaratively using annotations from the <a href="ch02s03.html#NO-Applib">Naked
+      Objects application library</a>. The NO IDE allows these to be easily
+      applied using a set of views:</p><div class="itemizedlist"><ul type="disc"><li><p>the Naked Objects Properties, Collections and Actions view
+          allows annotations to be specified on properties, collections and
+          actions respectively</p></li><li><p>the Naked Objects String Properties view allows annotations
+          specific to Strings (eg <code class="computeroutput">@MaxLength</code>)
+          to be specified for all properties whose type is
+          <code class="computeroutput">java.lang.String</code>
+               </p></li><li><p>the Naked Object view allows annotations to be specified to
+          the obejct itself.</p></li></ul></div><p>These are shown below:</p><div class="mediaobject"><img src="resource/annotation-views.gif"></div><p>As you enter values into these tables, the code is changed in
+      real-time. Conversely, changing the code updates these views.</p><p>For all of these apart from the Naked Object view the table view
+      (with many rows) makes sense because there can (of course) be many
+      properties, collections or actions. The Naked Object view also uses a
+      table even though there always be only be a single row in it:</p><div class="mediaobject"><img src="resource/annotations-object-view.gif"></div><p>On balance it was decided to implement the view this way for
+      consistency with the other views.</p><p>The actions view is slightly more complex than the other views in
+      that it also allows annotations to be applied to the parameters of each
+      action:</p><div class="mediaobject"><img src="resource/annotations-actions-view.gif"></div><p>Selecting on the different actions (on the left hand side of the
+      view) brings up its parameters (if any) on the right hand side.</p><p>A few tips and tricks:</p><div class="itemizedlist"><ul type="disc"><li><p>Each of the views has short-cut keys and are registered under
+          the <code class="computeroutput">Window&gt;Show View</code> menu</p></li><li><p>Once a view has focus, use
+          <code class="computeroutput">ctrl+M</code> to maximize a view, and
+          apply a set of annotations in one go.</p></li><li><p>Double clicking on a member name (property, collection or
+          action) will select it in the code. Thus the views can be used as a
+          simple way of navigating the domain object.</p></li></ul></div><p>Please see the NOF documentation for further information on the
+      detailed semantics of each of the annotations.</p></div></body></html>

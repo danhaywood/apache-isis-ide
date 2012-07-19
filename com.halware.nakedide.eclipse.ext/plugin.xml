@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension-point 
+   	id="objectSpecMetadataDescriptorsProviders" 
+   	name="Providers of Object Spec Metadata Descriptors" 
+   	schema="schema/objectSpecMetadataDescriptorsProviders.exsd"/>
+
+   <extension-point 
+   	id="propertiesMetadataDescriptorsProviders" 
+   	name="Providers of Properties Metadata Descriptors" 
+   	schema="schema/propertiesMetadataDescriptorsProviders.exsd"/>
+
+   <extension-point 
+   	id="stringPropertiesMetadataDescriptorsProviders" 
+   	name="Providers of String Properties Metadata Descriptors" 
+   	schema="schema/stringPropertiesMetadataDescriptorsProviders.exsd"/>
+
+   <extension-point 
+   	id="collectionsMetadataDescriptorsProviders" 
+   	name="Providers of Collections Metadata Descriptors" 
+   	schema="schema/collectionsMetadataDescriptorsProviders.exsd"/>
+
+   <extension-point 
+   	id="actionsMetadataDescriptorsProviders" 
+   	name="Providers of Actions Metadata Descriptors" 
+   	schema="schema/actionsMetadataDescriptorsProviders.exsd"/>
+   
+   <extension-point 
+   	id="actionParametersMetadataDescriptorsProviders" 
+   	name="Providers of Action Parameters Metadata Descriptors" 
+   	schema="schema/actionParametersMetadataDescriptorsProviders.exsd"/>
+   
+   <extension-point 
+   	id="outlineMetadataDescriptorsProviders" 
+   	name="Providers of Outline View Metadata Descriptors" 
+   	schema="schema/outlineMetadataDescriptorsProviders.exsd"/>
+   
+   <extension-point
+   	id="editorContentListeners" 
+   	name="Editor Content Listeners" 
+   	schema="schema/editorContentListeners.exsd"/>
+
+ <!--
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution
+			objectClass="org.eclipse.core.resources.IProject" adaptable="true"
+			id="org.nakedobjects.ide.eclipse.projects.actions.nonNakedObjectsProject">
+			<visibility>
+				<not>
+					<objectState name="nature"
+						value="org.nakedobjects.ide.eclipse.core.nature">
+					</objectState>
+				</not>
+			</visibility>
+			<action
+		         class="com.halware.nakedide.eclipse.ext.nature.AddRemoveNatureAction"
+		         enablesFor="+"
+		         icon="icons/hal_logo.gif"
+		         id="org.nakedobjects.ide.eclipse.core.projects.actions.addNature"
+		         label="%popupMenus.addNature.label">
+			</action>
+		</objectContribution>
+
+		<objectContribution
+			objectClass="org.eclipse.core.resources.IProject" adaptable="true"
+			id="org.nakedobjects.ide.eclipse.projects.actions.nakedObjectsProject">
+			<visibility>
+				<objectState name="nature"
+					value="org.nakedobjects.ide.eclipse.core.nature">
+				</objectState>
+			</visibility>
+			<action
+         class="com.halware.nakedide.eclipse.ext.nature.AddRemoveNatureAction"
+         enablesFor="+"
+         icon="icons/hal_logo.gif"
+         id="org.nakedobjects.ide.eclipse.core.projects.actions.removeNature"
+         label="%popupMenus.removeNature.label">
+			</action>
+		</objectContribution>
+	</extension>
+ -->
+
+
+<!--
+	<extension id="com.halware.nakedobjects.ide.core.problemmarker" name="%beansProblemMarker"
+		point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.core.resources.problemmarker" />
+		<super type="org.eclipse.core.resources.textmarker" />
+		<persistent value="true" />
+		<attribute name="errorCode" />
+		<attribute name="beanID" />
+		<attribute name="errorData" />
+	</extension>
+-->
+
+	<extension
+		point="org.eclipse.ltk.core.refactoring.renameParticipants">
+		<renameParticipant
+			class="com.halware.nakedide.eclipse.ext.refact.renameField.RenameFieldRefactoringParticipant"
+			id="com.halware.nakedobjects.ide.refactorings.renameField.RenameFieldRefactoringParticipant"
+			name="com.halware.nakedobjects.ide.refactorings.renameField.RenameFieldRefactoringParticipant">
+			<enablement>
+				<!--
+				<with variable="affectedNatures">
+					<iterate operator="or">
+						<equals
+							value="org.nakedobjects.ide.eclipse.core.nature" />
+					</iterate>
+				</with>
+				-->
+				<with variable="element">
+					<instanceof value="org.eclipse.jdt.core.IField" />
+				</with>
+			</enablement>
+		</renameParticipant>
+	</extension>
+
+	<extension
+		point="org.eclipse.ltk.core.refactoring.renameParticipants">
+		<renameParticipant
+			class="com.halware.nakedide.eclipse.ext.refact.renameMethod.RenameMethodRefactoringParticipant"
+			id="com.halware.nakedobjects.ide.refactorings.renameMethod.RenameMethodRefactoringParticipant"
+			name="com.halware.nakedobjects.ide.refactorings.renameMethod.RenameMethodRefactoringParticipant">
+			<enablement>
+			<!--
+				<with variable="affectedNatures">
+					<iterate operator="or">
+						<equals
+							value="org.nakedobjects.ide.eclipse.core.nature" />
+					</iterate>
+				</with>
+			-->
+				<with variable="element">
+					<instanceof value="org.eclipse.jdt.core.IMethod" />
+				</with>
+			</enablement>
+		</renameParticipant>
+	</extension>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="%nakedobjects.viewCategory.name"
+            id="com.halware.nakedobjects.ide.viewCategory">
+      </category>
+      
+      <!--
+      <view
+            name="%views.annotations.objectspec.name"
+            icon="icons/hal_logo.gif"
+            category="com.halware.nakedobjects.ide.viewCategory"
+            class="com.halware.nakedide.eclipse.ext.annot.objectspec.NakedObjectSpecView"
+            id="com.halware.nakedobjects.ide.annot.objectspec.NakedObjectSpecView">
+      </view>
+      -->
+      <view
+            name="%views.annotations.properties.name"
+            icon="icons/hal_logo.gif"
+            category="com.halware.nakedobjects.ide.viewCategory"
+            class="com.halware.nakedide.eclipse.ext.annot.prop.NakedObjectPropertiesView"
+            id="com.halware.nakedobjects.ide.annot.prop.NakedObjectPropertiesView">
+      </view>
+      <view
+            name="%views.annotations.strprops.name"
+            icon="icons/hal_logo.gif"
+            category="com.halware.nakedobjects.ide.viewCategory"
+            class="com.halware.nakedide.eclipse.ext.annot.strprop.NakedObjectStringPropertiesView"
+            id="com.halware.nakedobjects.ide.annot.strprop.NakedObjectStringPropertiesView">
+      </view>
+      <view
+            name="%views.annotations.collections.name"
+            icon="icons/hal_logo.gif"
+            category="com.halware.nakedobjects.ide.viewCategory"
+            class="com.halware.nakedide.eclipse.ext.annot.coll.NakedObjectCollectionsView"
+            id="com.halware.nakedobjects.ide.annot.coll.NakedObjectCollectionsView">
+      </view>
+      <view
+            name="%views.annotations.actions.name"
+            icon="icons/hal_logo.gif"
+            category="com.halware.nakedobjects.ide.viewCategory"
+            class="com.halware.nakedide.eclipse.ext.annot.action.NakedObjectActionsView"
+            id="com.halware.nakedobjects.ide.annot.action.NakedObjectActionsView">
+      </view>
+      <view
+            category="com.halware.nakedobjects.ide.viewCategory"
+            class="com.halware.nakedide.eclipse.ext.outline.NakedObjectOutlineView"
+            icon="icons/hal_logo.gif"
+            id="com.halware.nakedobjects.ide.outline.NakedObjectOutlineView"
+            name="%views.outline.name"/>
+   </extension>
+   
+
+<!--
+   <extension
+         point="com.halware.nakedide.eclipse.ext.objectSpecMetadataDescriptorsProviders">
+      <descriptorsProvider 
+      	class="com.halware.nakedide.eclipse.ext.annot.objectspec.NakedObjectSpecViewStandardDescriptorsProvider"
+      />
+   </extension>
+-->
+   <extension
+         point="com.halware.nakedide.eclipse.ext.propertiesMetadataDescriptorsProviders">
+      <descriptorsProvider 
+      	class="com.halware.nakedide.eclipse.ext.annot.prop.NakedObjectPropertiesViewStandardDescriptorsProvider"
+      />
+   </extension>
+   <extension
+         point="com.halware.nakedide.eclipse.ext.stringPropertiesMetadataDescriptorsProviders">
+      <descriptorsProvider 
+      	class="com.halware.nakedide.eclipse.ext.annot.strprop.NakedObjectStringPropertiesViewStandardDescriptorsProvider"
+      />
+   </extension>
+   <extension
+         point="com.halware.nakedide.eclipse.ext.collectionsMetadataDescriptorsProviders">
+      <descriptorsProvider 
+      	class="com.halware.nakedide.eclipse.ext.annot.coll.NakedObjectCollectionsViewStandardDescriptorsProvider"
+      />
+   </extension>
+   <extension
+         point="com.halware.nakedide.eclipse.ext.actionsMetadataDescriptorsProviders">
+      <descriptorsProvider 
+      	class="com.halware.nakedide.eclipse.ext.annot.action.NakedObjectActionsViewStandardDescriptorsProvider"
+      />
+   </extension>
+   <extension
+         point="com.halware.nakedide.eclipse.ext.actionParametersMetadataDescriptorsProviders">
+      <descriptorsProvider 
+      	class="com.halware.nakedide.eclipse.ext.annot.action.params.NakedObjectActionParametersViewStandardDescriptorsProvider"
+      />
+   </extension>
+   <extension
+         point="com.halware.nakedide.eclipse.ext.outlineMetadataDescriptorsProviders">
+      <descriptorsProvider 
+      	class="com.halware.nakedide.eclipse.ext.outline.NakedObjectsOutlineViewStandardDescriptorsProvider"
+      />
+   </extension>
+
+<!--
+   <extension
+         point="com.halware.nakedide.eclipse.ext.editorContentListeners">
+      <editorContentListener class="com.halware.nakedide.eclipse.ext.annot.objectspec.NakedObjectSpecViewEditorContentListener"/>
+   </extension>
+-->
+
+   <extension
+         point="com.halware.nakedide.eclipse.ext.editorContentListeners">
+      <editorContentListener class="com.halware.nakedide.eclipse.ext.annot.prop.NakedObjectPropertiesViewEditorContentListener"/>
+   </extension>
+
+   <extension
+         point="com.halware.nakedide.eclipse.ext.editorContentListeners">
+      <editorContentListener class="com.halware.nakedide.eclipse.ext.annot.strprop.NakedObjectStringPropertiesViewEditorContentListener"/>
+   </extension>
+
+   <extension
+         point="com.halware.nakedide.eclipse.ext.editorContentListeners">
+      <editorContentListener class="com.halware.nakedide.eclipse.ext.annot.coll.NakedObjectCollectionsViewEditorContentListener"/>
+   </extension>
+
+   <extension
+         point="com.halware.nakedide.eclipse.ext.editorContentListeners">
+      <editorContentListener class="com.halware.nakedide.eclipse.ext.annot.action.NakedObjectActionsViewEditorContentListener"/>
+   </extension>
+
+   <extension
+         point="com.halware.nakedide.eclipse.ext.editorContentListeners">
+      <editorContentListener class="com.halware.nakedide.eclipse.ext.outline.NakedObjectsOutlineViewEditorContentListener"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.commands">
+         <!--
+      <command
+            id="com.halware.nakedobjects.ide.annot.objectspec.NakedObjectSpecView"
+            name="%views.annotations.objectspec.name"
+            description="%views.annotations.objectspec.desc"
+            categoryId="org.eclipse.ui.category.views"
+            />
+            -->
+      <command
+            id="com.halware.nakedobjects.ide.annot.prop.NakedObjectPropertiesView"
+            name="%views.annotations.properties.name"
+            description="%views.annotations.properties.desc"
+            categoryId="org.eclipse.ui.category.views"
+            />
+      <command
+            id="com.halware.nakedobjects.ide.annot.strprop.NakedObjectStringPropertiesView"
+            name="%views.annotations.strprops.name"
+            description="%views.annotations.strprops.desc"
+            categoryId="org.eclipse.ui.category.views"
+            />
+      <command
+            id="com.halware.nakedobjects.ide.annot.coll.NakedObjectCollectionsView"
+            name="%views.annotations.collections.name"
+            description="%views.annotations.collections.desc"
+            categoryId="org.eclipse.ui.category.views"
+            />
+      <command
+            id="com.halware.nakedobjects.ide.annot.action.NakedObjectActionsView"
+            name="%views.annotations.actions.name"
+            description="%views.annotations.actions.desc"
+            categoryId="org.eclipse.ui.category.views"
+            />
+      <command
+            id="com.halware.nakedobjects.ide.outline.NakedObjectOutlineView"
+            name="%views.outline.name"
+            description="%views.outline.desc"
+            categoryId="org.eclipse.ui.category.views"
+            />
+   </extension>
+
+   
+ 	<!--  win32:  M1=CTRL,    M2=SHIFT, M3=ALT, M4=-
+     	  carbon: M1=COMMAND, M2=SHIFT, M3=ALT, M4=CTRL -->
+<!--
+	<extension
+         point="org.eclipse.ui.bindings">
+     		   
+	  <key
+	        sequence="M2+M3+Q 1"
+	        commandId="com.halware.nakedobjects.ide.annot.objectspec.NakedObjectSpecView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M2+M3+Q 1"
+	        commandId=""
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M1+M3+Q 1"
+	        commandId="com.halware.nakedobjects.ide.annot.objectspec.NakedObjectSpecView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+
+	  <key
+	        sequence="M2+M3+Q 2"
+	        commandId="com.halware.nakedobjects.ide.annot.prop.NakedObjectPropertiesView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M2+M3+Q 2"
+	        commandId=""
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M1+M3+Q 2"
+	        commandId="com.halware.nakedobjects.ide.annot.prop.NakedObjectPropertiesView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+
+	  <key
+	        sequence="M2+M3+Q 3"
+	        commandId="com.halware.nakedobjects.ide.annot.strprop.NakedObjectStringPropertiesView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M2+M3+Q 3"
+	        commandId=""
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M1+M3+Q 3"
+	        commandId="com.halware.nakedobjects.ide.annot.strprop.NakedObjectStringPropertiesView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+
+	  <key
+	        sequence="M2+M3+Q 4"
+	        commandId="com.halware.nakedobjects.ide.annot.coll.NakedObjectCollectionsView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M2+M3+Q 4"
+	        commandId=""
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M1+M3+Q 4"
+	        commandId="com.halware.nakedobjects.ide.annot.coll.NakedObjectCollectionsView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+
+	  <key
+	        sequence="M2+M3+Q 5"
+	        commandId="com.halware.nakedobjects.ide.annot.action.NakedObjectActionsView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M2+M3+Q 5"
+	        commandId=""
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M1+M3+Q 5"
+	        commandId="com.halware.nakedobjects.ide.annot.action.NakedObjectActionsView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  
+	  <key
+	        sequence="M2+M3+Q 6"
+	        commandId="com.halware.nakedobjects.ide.outline.NakedObjectOutlineView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M2+M3+Q 6"
+	        commandId=""
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  <key
+	        platform="carbon"
+	        sequence="M1+M3+Q 6"
+	        commandId="com.halware.nakedobjects.ide.outline.NakedObjectOutlineView"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+	  </key>
+	  
+   </extension>
+
+
+   <extension
+         id="com.halware.nakedobjects.ide.quickFixProcessors"
+         name="Naked Objects Quick Fix Processors"
+         point="org.eclipse.jdt.ui.quickFixProcessors">
+      <quickFixProcessor
+            class="com.halware.nakedide.eclipse.ext.builders.fixes.QuickFixProcessor"
+            id="com.halware.nakedobjects.ide.quickFixProcessor"
+            name="Naked Objects Quick Fix Processor">
+         <handledMarkerTypes>
+            <markerType id="com.halware.nakedobjects.ide.core.problemmarker"/>
+         </handledMarkerTypes>
+      </quickFixProcessor>
+   </extension>
+   <extension
+         id="com.halware.nakedobjects.ide.quickAssistProcessors"
+         name="Naked Objects Quick Assist Processors"
+         point="org.eclipse.jdt.ui.quickAssistProcessors">
+      <quickAssistProcessor
+            class="com.halware.nakedide.eclipse.ext.builders.fixes.QuickAssistProcessor"
+            id="com.halware.nakedobjects.ide.quickAssistProcessor"
+            name="Naked Objects Quick Assist Processor"/>
+   </extension>
+
+   <extension
+         id="com.halware.nakedobjects.ide.markerResolution"
+         name="Naked Objects Marker Resolution"
+         point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+            class="com.halware.nakedide.eclipse.ext.builders.markres.MarkerResolutionGenerator"
+            markerType="com.halware.nakedobjects.ide.core.problemmarker"/>
+   </extension>
+
+
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.halware.nakedide.eclipse.ext.perspectives.NakedObjectsPerspectiveFactory"
+            id="org.nakedobjects.ide.eclipse.ui.perspectives.NakedObjectsPerspective"
+            icon="icons/hal_logo.gif"
+            name="Naked Objects"/>
+   </extension>
+   
+   
+     <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.ui.resourcePerspective">
+         <perspectiveShortcut
+               id="org.nakedobjects.ide.eclipse.ui.perspectives.NakedObjectsPerspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaBrowsingPerspective">
+         <perspectiveShortcut
+               id="org.nakedobjects.ide.eclipse.ui.perspectives.NakedObjectsPerspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <perspectiveShortcut
+				id="org.nakedobjects.ide.eclipse.ui.perspectives.NakedObjectsPerspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.debug.ui.DebugPerspective">
+         <perspectiveShortcut
+               id="org.nakedobjects.ide.eclipse.ui.perspectives.NakedObjectsPerspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+   </extension>
+   
+   	<extension point="org.eclipse.core.resources.natures"
+		id="org.nakedobjects.ide.eclipse.core.nature"
+		name="org.nakedobjects.ide.eclipse.core.nature">
+		<runtime>
+			<run
+				class="com.halware.nakedide.eclipse.ext.nature.NakedObjectNature" />
+		</runtime>
+		<builder
+			id="com.halware.nakedobjects.ide.core.NakedObjectsBuilder" />
+	</extension>
+
+	<extension id="com.halware.nakedobjects.ide.core.NakedObjectsBuilder" name="%builder.name"
+		point="org.eclipse.core.resources.builders">
+		<builder hasNature="true">
+			<run
+				class="com.halware.nakedide.eclipse.ext.builders.NakedObjectsIncrementalProjectBuilder" />
+		</builder>
+	</extension>
+
+  <extension
+        id="org.nakedobjects.ide.eclipse.nature"
+        name="Naked Objects Nature Icon Overlay"
+        point="org.eclipse.ui.ide.projectNatureImages">
+     <image
+           icon="icons/hal_logo_overlay.gif"
+           id="org.nakedobjects.ide.eclipse.core.nature"
+           natureId="org.nakedobjects.ide.eclipse.core.nature"/>
+  </extension>
+  
+   <extension
+         point="com.halware.nakedide.eclipse.core.applicationProjectListener">
+      <applicationProjectListener class="com.halware.nakedide.eclipse.ext.builders.ApplicationProjectListener"/>
+   </extension>
+-->
+		
+   
+	 
+</plugin>

@@ -1,0 +1,32 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>5.&nbsp;Browsing the Code</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch01.html" title="Getting Started"><link rel="prev" href="ch01s04s03.html" title="4.3.&nbsp;Run the tests"><link rel="next" href="ch01s06.html" title="6.&nbsp;Add a New Property"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e469"></a>5.&nbsp;Browsing the Code</h2></div></div></div><p>Most coding conventions tend to specify that either instance
+      variables should (lexically) appear before methods in the class
+      definition. Or maybe they state that methods come first, and then
+      methods. For domain objects written against the <a href="ch02s02.html#NO-ProgrammingModel">Naked Objects programming model</a>,
+      however, we've found that it makes more sense to group class members by
+      responsibility. For example, each of the various methods and the
+      instance variable that represent a
+      <code class="computeroutput">Customer</code>'s
+      <code class="computeroutput">orders</code> collection reside
+      together:</p><div class="mediaobject"><img src="resource/Customer-orders.gif"></div><p>The <code class="computeroutput">// {{ Orders</code> and
+      <code class="computeroutput">// }}</code> comments delimit this feature.
+      The <a href="ch04s09s01.html#Folding">Coffee Bytes code folding</a> feature
+      bundled with the NO IDE can use these comments to fold the features. To
+      install this, open up
+      <code class="computeroutput">Windows&gt;Preferences&gt;Java&gt;Editor&gt;Folding</code>
+      and select <code class="computeroutput">Coffee Bytes Java
+      Folding</code>:</p><div class="mediaobject"><img src="resource/coffee-bytes-folding.gif"></div><p>In the table on the <code class="computeroutput">General</code> tab,
+      also enable <code class="computeroutput">User Defined Regions</code> (last
+      row).</p><p>Then, on the <code class="computeroutput">User Defined Regions</code>
+      tab, specify <code class="computeroutput">{{</code> and
+      <code class="computeroutput">}}</code> and the <code class="computeroutput">Start
+      Identifier</code> and <code class="computeroutput">End
+      Identifier</code> respectively:</p><div class="mediaobject"><img src="resource/coffee-bytes-folding-2.gif"></div><p>You should now be able to browse all of the features of the
+      <code class="computeroutput">Customer</code> class in very little
+      space:</p><div class="mediaobject"><img src="resource/Customer-folded.gif"></div><p>Dependent on whether the class responsibility is a property, a
+      collection or an action, each will consist of a number of methods
+      following well-defined conventions. These are summarised in the
+      <code class="computeroutput">Outline View</code>:</p><div class="mediaobject"><img src="resource/outline-view.gif"></div><p>Have a look at the other domain classes and services in the
+      application code, and get a feel for the functionality that they expose.
+      When you are done, let's move on and have a go at <a href="ch01s06.html#TutorialAddNewProperty">modifying the code</a>.</p></div></body></html>

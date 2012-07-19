@@ -1,0 +1,99 @@
+++++++++++ HIGH PRIORITY ++++++++++++++
+
+---++ Help Pages
+project builder:
+- less strict on addTo/removeFrom when List rather than List<T>
+- checks for just 1 arg in set/modify/clear/addTo/removeFrom/validate/validateAddTo/validateRemoveFrom
+
+
+---++ Preference Pages
+control strictness of checking.
+
+---++ NOF
+
+@Immutable should NOT be implemented for properties, since we have @Disabled.
+
+domain aspects
+- @Signed
+- @Workflow/@Task
+
+@Icon ??? to return .jpg file?
+
+++++ LOWER PRIORITY +++++++++++++++++++++++++++++++
+
+
+---++ New Project
+Install code formatter.
+Client, fixture and test should support selection attribute to automatically default the app project.
+
+should validate application has NO nature.
+
+---++ Folding
+
+Should fold each method also
+- doesn't seem to work consistently
+
+Should fold the annotations
+
+
+---++ Annotations
+When edit action parameter, doesn't reselect.
+
+Use Nebula grid view (for collapsible columns)?
+
+Provide facility to filter out columns, and to compare them (using extension points).
+
+class handles (eg @TypeOf) should provide a browse... cell modifier)
+
+Annotation views for @Disabled, @Immutable and @Hidden should cope with case when just specify @Immutable() - ie using the default value().
+
+When typing in collections using a template, get empty name/void
+- contentprovider is not filtering out.
+
+Use ASTParser.setFocalPosition() to reduce AST resources when manipulating??
+
+Keyboard traversal
+
+Stop the flicker, somehow.
+
+---++ Project Builder
+Should provide checks via extension points.
+
+Undoing an action change signature refactoring that had introduced orphaned methods does not result in the markers being cleared.
+
+---++ Refactorings
+
+Add/remove parameters for actions.
+Change type of parameter.
+Change method signature
+Introduce parameter
+
+
+---++ Perspectives
+
+Provide more quick fixes.
+- add a title() method
+
+
+---++ Custom launch config type
+
+LaunchConfigurationTabGroup
+- apply button accelerator doesn't work ? (or might do now...)
+- should validate resource button
+
+---++ New Wizard
+For:
+   * domain object
+   * repository, service
+   * fixture
+   * test
+   * aspect
+
+---++ Templates
+
+Add fixtures/tests template category
+Write a simple fixture template.
+
+---++ Project Wizard
+Programmatically install no-code-template.xml
+

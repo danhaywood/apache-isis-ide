@@ -1,0 +1,86 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>5.&nbsp;Domain Object Container</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch02.html" title="Concepts"><link rel="prev" href="ch02s04.html" title="4.&nbsp;Project Types"><link rel="next" href="ch02s06.html" title="6.&nbsp;Repositories, Factories and Services"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e961"></a>5.&nbsp;Domain Object Container</h2></div></div></div><p>The <a href="">Naked Objects application library</a>
+      defines a <code class="computeroutput">DomainObjectContainer</code>
+      interface that allows domain objects to interact with their environment.
+      Every NOA-compliant implementation is required to provide an
+      implementation of this interface; from the point of view of the domain
+      objects the container <span class="emphasis"><em>is</em></span> the NOA framework.</p><p>In an ideal world there would be no requirement for domain objects
+      to know about their container. While this is not enforced
+      programmatically (there is no mandatory superclass to inherit from, for
+      example), it <span class="emphasis"><em>is</em></span> required for domain objects
+      to:</p><div class="itemizedlist"><ul type="disc"><li><p>notify the container when traversing a reference to another
+          object (either property or collection)</p><p>This enables the container to lazily fetch the next object if
+          required</p></li><li><p>notify the container whenever the object has been
+          modified</p><p>This enables the container to persist any changes in the
+          object back to its persistent object store.</p></li></ul></div><p>The <code class="computeroutput">DomainObjectContainer</code>'s
+      <code class="computeroutput">resolve()</code> and
+      <code class="computeroutput">objectChanged()</code> methods allow the
+      domain object to do this. Under the Naked Objects Framework these do
+      need to be called, and are incorporated into the <a href="ch04s04.html#Templates">templates</a> shipped with the NO IDE. However,
+      other NOA implementations might implement this requirement another way,
+      for example by using CG-Lib to proxy references (similar to Hibernate),
+      or precompiling using AspectJ.</p><p>One of the key responsibilities of the container is to perform
+      <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://en.wikipedia.org/wiki/Dependency_injection" target="_top">dependency
+      injection</a> on all domain objects. That is, a domain object can
+      declare - via a setter method - that it requires a certain service (be
+      it <a href="">a factory, a repository or some other
+      service</a>). The container will then inject this service into the
+      domain object.</p><p>In order to do this the container needs to be involved in the
+      creation of all objects. For objects which were previously persisted and
+      are being resolved the container gets this opportunity through the
+      <code class="computeroutput">resolve()</code> method call. For
+      newly-created objects though the creating object should invoke
+      <code class="computeroutput">newTransientInstance()</code> (or more rarely
+      <code class="computeroutput">newPersistentInstance()</code>) on the
+      container, indicating the class of object to be instantiated. Again,
+      other NOA implementations might use CG-Lib or AspectJ to meet this
+      requirement.</p><p>Another method that many domain objects will need to invoke on the
+      container is <code class="computeroutput">makePersistent()</code>. This is
+      used to persist the object for the first time. An object can also
+      determine if it has been persisted using
+      <code class="computeroutput">isPersistent()</code>.</p><p>A small subset of domain objects are interested in tracking their
+      lifecycle. For these the domain object may provide any or all of the
+      following:</p><div class="itemizedlist"><ul type="disc"><li><p>
+                  <code class="computeroutput">created()</code>
+               </p><p>Indicates that the (still-transient) object has just been
+          created.</p></li><li><p>
+                  <code class="computeroutput">loading()</code> and
+          <code class="computeroutput">loaded()</code>
+               </p><p>Indicates that this persistent object is about to be, or has
+          been loaded from the object store.</p></li><li><p>
+                  <code class="computeroutput">saving()</code> and
+          <code class="computeroutput">saved()</code>
+               </p><p>Indicates that this still-transient object is about to be, or
+          has been persisted for the first time into the object store</p></li><li><p>
+                  <code class="computeroutput">updating()</code> and
+          <code class="computeroutput">updated()</code>
+               </p><p>Indicates that this persistent object is about to be, or has
+          been updated in the object store.</p></li><li><p>
+                  <code class="computeroutput">deleting()</code> and
+          <code class="computeroutput">deleted()</code>
+               </p><p>Indicates that this persistent object is about to be, or has
+          been deleted from the object store</p></li></ul></div><p>Note that these methods are not part of any interface; if they are
+      present then they will be called.</p><p>The container interface contains two further category of methods.
+      The first allows the domain object to raise messages back to the user;
+      how these are represented in the UI is dependent on the NOA
+      implementation. These methods are:</p><div class="itemizedlist"><ul type="disc"><li><p>
+                  <code class="computeroutput">informUser()</code>
+               </p><p>Displays the specified message to the user, in a non-intrusive
+          fashion.</p></li><li><p>
+                  <code class="computeroutput">warnUser()</code>
+               </p><p>Display the specified message as a warning to the user, in a
+          more visible fashion, but without requiring explicit
+          acknowledgement.</p></li><li><p>
+                  <code class="computeroutput">raiseError()</code>
+               </p><p>Display the specified message as an error to the user,
+          ensuring that it is acknowledged.</p></li></ul></div><p>The last category of methods in the container relates to security.
+      Here the <code class="computeroutput">DomainObjectContainer</code> provides
+      just a single method, <code class="computeroutput">getUser()</code>. This
+      returns a <code class="computeroutput">UserMemento</code>, part of the
+      <a href="ch02s03.html#NO-Applib">Naked Objects application library</a>. From
+      this the object can obtain a list of roles. Note however that it is
+      generally bad practice to encode role information within a domain
+      object. NOA-implementations are free to provide their own mechanisms for
+      applying authorization in a manner that is transparent to the domain
+      object; in particular the Naked Objects Framework does this.</p></div></body></html>

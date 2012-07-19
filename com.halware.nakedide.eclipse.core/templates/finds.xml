@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.service" 
+	description="%finds.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.finds" 
+	name="%finds.name">
+	// {{ ${findMethodName}
+    /**
+     * Returns a single ${Type} with ${describeConditionHere}.
+     */
+    public ${Type} ${findMethodName}( ${matchRequirementsUseFinalModifier} ) {
+        return firstMatch(
+            ${Type}.class,
+            new Filter() {
+                public boolean accept(final Object obj) {
+                    ${Type} pojo = (${Type})obj;
+                    return ${comparePojoAgainstMatchRequirements};
+                }
+            }, false);
+    }
+    // }}
+	</template>
+</templates>

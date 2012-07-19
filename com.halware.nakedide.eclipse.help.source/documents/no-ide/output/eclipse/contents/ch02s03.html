@@ -1,0 +1,34 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.&nbsp;Naked Objects Application Library</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch02.html" title="Concepts"><link rel="prev" href="ch02s02.html" title="2.&nbsp;Naked Objects Programming Model"><link rel="next" href="ch02s04.html" title="4.&nbsp;Project Types"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e861"></a>3.&nbsp;Naked Objects Application Library</h2></div></div></div><p>As described in the <a href="ch02s02.html#NO-ProgrammingModel">programming model</a>, the application
+      library primarily consists of a number of annotations that refine the
+      semantics of the domain object model. These reside in the
+      <code class="computeroutput">org.nakedobjects.applib.annotation</code>
+      package. These are supplemented by
+      <code class="computeroutput">javax.persistence.Entity</code> to represent a
+      domain (entity) object.</p><p>The application library has a number of other packages:</p><div class="itemizedlist"><ul type="disc"><li><p>The <code class="computeroutput">org.nakedobjects.applib</code>
+          package consists primarily of two abstract classes
+          <code class="computeroutput">AbstractDomainObject</code> and
+          <code class="computeroutput">AbstractFactoryAndRepository</code>. These
+          are convenience (non-mandatory!) superclasses for domain classes and
+          services respectively. In addition it defines the
+          DomainObjectContainer interface, discussed <a href="ch02s05.html#DomainObjectContainer">later</a>.</p></li><li><p>The
+          <code class="computeroutput">org.nakedobjects.applib.security</code>
+          package contains classes that represent the logged-on user's
+          identity. These can be returned by the <a href="ch02s05.html#DomainObjectContainer">Domain Object
+          Container</a>.</p></li><li><p>The
+          <code class="computeroutput">org.nakedobjects.applib.util</code>
+          package has a couple of helper classes useful for constructing
+          return values for the <code class="computeroutput">title()</code>
+          method or the <code class="computeroutput">validateXxx</code> and
+          <code class="computeroutput">disableXxx</code> methods.</p></li><li><p>The
+          <code class="computeroutput">org.nakedobjects.applib.value</code>
+          package contains a number of classes that can be used instead of
+          Java's own primitives and wrapper classes for properties. The prime
+          benefit for using these value classes is (in some cases) more
+          sophisticated rendering in the NOF UI, at the cost of arguably
+          greater coupling to the NOA.</p></li></ul></div><p>Over time we expect the application library to be extended as more
+      sophisticated semantics are defined and supported by NOA
+      implementations. At the same time some annotations may be deprecated if
+      they can be replaced by JEE or other de-facto annotations if they
+      represent the same semantics as required by NOA.</p></div></body></html>

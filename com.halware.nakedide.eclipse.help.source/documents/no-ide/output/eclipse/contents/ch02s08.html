@@ -1,0 +1,44 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>8.&nbsp;OSGi (Plugin) Projects</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch02.html" title="Concepts"><link rel="prev" href="ch02s07.html" title="7.&nbsp;Fixtures"><link rel="next" href="ch02s09.html" title="9.&nbsp;Relationship between the NO IDE and the NOF Runtime"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1273"></a>8.&nbsp;OSGi (Plugin) Projects</h2></div></div></div><p>The projects created by the <a href="ch04s01.html#ProjectWizards">project
+      wizards</a> are OSGi (plugin) projects rather than regular Java
+      projects. In most respects these function exactly the same as regular
+      Java projects that you might be familiar with, however some of the
+      project metadata (that would otherwise be accessed using
+      <code class="computeroutput">Project&gt;Properties...&gt;Java Build
+      Path</code>) are instead moved into the OSGi manifest which
+      resides in <code class="computeroutput">META-INF/MANIFEST.MF</code>. This
+      can be opened in the Eclipse PDE (Plugin Development Environment)
+      manifest editor:</p><p>The principle difference is the means by which the classpath is
+      setup. For more details on the practicalities of this, see the <a href="ch03s09.html#TasksUpdateClasspath">Tasks</a> section.</p><p>Why are OSGi projects used rather than regular projects? For the
+      developer (you):</p><div class="itemizedlist"><ul type="disc"><li><p>The NOF runtime itself and the NOF runtime's prerequisites are
+          developed internally as OSGi projects which means that they can be
+          packaged up as Eclipse features and made available using Eclipse's
+          update site feature. From your point of view, the NOF libraries are
+          just "there".</p></li><li><p>Since the NOF runtime source is also packaged as an Eclipse
+          feature, the developer can step into the NOF library source code
+          directly without any additional setup.</p></li><li><p>Using Eclipse update sites makes it easy to update to new
+          releases of the NOF runtime as they become available.</p></li></ul></div><p>For the NOF/NO IDE development team (us), the benefits are:</p><div class="itemizedlist"><ul type="disc"><li><p>It makes it substantially easier to implement new viewers
+          based on Eclipse RCP.</p></li><li><p>It provides a basis for other NOA implementations to follow.
+          These too can leverage Eclipse technologies, for example using
+          <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://www.eclipse.org/proposals/rsp/" target="_top">RSP</a> or
+          <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://www.eclipse.org/aspectj/" target="_top">AspectJ</a>.</p></li><li><p>Since the NO IDE is itself a combination of plugin projects,
+          it allows us to start sharing some of the code with the NOF itself,
+          reducing the maintenance overhead going forward.</p></li></ul></div><p>The (minor) downsides to this approach are that:</p><div class="itemizedlist"><ul type="disc"><li><p>Setting up the classpath for any third-party libraries becomes
+          trickier because the vast majority are shipped as JAR files and not
+          as OSGi bundles. You may therefore need to package them yourself -
+          see <a href="ch03s09.html#TasksUpdateClasspath">tasks</a> for further
+          details on how to do this. Alternatively, the JAR file may have
+          already been converted and live in a repository; again there are
+          more details in the <a href="ch03s09.html#TasksUpdateClasspath">tasks</a> section.</p></li><li><p>NOF applications are <a href="ch02s09.html#Deploying">deployed</a>
+          using Maven rather than using Eclipse.</p><p>To deploy an NOF application to a web server (as opposed to
+          running locally as a web) requires the use of Maven. For details of
+          this consult the NOF documentation. However, this does mean that
+          project dependencies must be maintained in two locations: in the
+          project manifests, and in the Maven
+          <code class="computeroutput">pom.xml</code> configuration files.</p></li><li><p>Whenever a class is created in a new package, then the package
+          must be explicitly exported to allow other OSGi projects to access
+          the file. This is done simply enough through the PDE manifest
+          editor, or by editing the
+          <code class="computeroutput">Export-Package</code> entry directly in
+          the manifest. However, it can be easy to forget to do this.</p></li></ul></div></div></body></html>

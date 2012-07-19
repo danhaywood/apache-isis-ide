@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.newWizards"
+         id="org.nakedobjects.ide.eclipse.ui.wizards.newProjects"
+         name="New Naked Objects Projects">
+      <wizard
+            category="org.nakedobjects.ide.eclipse.ui.wizards.category"
+            class="com.halware.nakedide.eclipse.icons.wizards.iconproj.IconProjectWizard"
+            finalPerspective="org.nakedobjects.ide.eclipse.ui.perspectives.NakedObjectsPerspective"
+            icon="icons/hal_logo.gif"
+            id="org.nakedobjects.ide.icons.wizards.iconproj.newIconProject"
+            name="%wizards.newIconProject.name"
+            preferredPerspectives="org.nakedobjects.ide.eclipse.ui.perspectives.NakedObjectsPerspective"
+            project="true">
+         <description>
+            %wizards.newIconProject.description
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IProject">
+         </selection>
+      </wizard>
+    </extension>
+
+	 
+</plugin>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+<!-- Note that reference to this template is hard-coded in the source (DocTemplContext) -->
+<template 
+	context="org.nakedobjects.ide.eclipse.templates.context.domain-object" 
+	description="%applib.desc" 
+	id="org.nakedobjects.ide.eclipse.templates.applib" 
+	name="%applib.name">
+import java.util.*;
+import org.apache.log4j.Logger;
+import javax.persistence.Entity;
+import org.nakedobjects.applib.*;
+import org.nakedobjects.applib.annotation.*;
+import org.nakedobjects.applib.security.*;
+import org.nakedobjects.applib.util.*;
+import org.nakedobjects.applib.value.*;
+	</template>
+</templates>

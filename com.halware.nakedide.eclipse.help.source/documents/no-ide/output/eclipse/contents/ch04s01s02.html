@@ -1,0 +1,20 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>1.2.&nbsp;Fixture Project Wizard</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Naked Objects IDE"><link rel="up" href="ch04s01.html" title="1.&nbsp;Project Wizards"><link rel="prev" href="ch04s01s01.html" title="1.1.&nbsp;Application Project Wizard"><link rel="next" href="ch04s01s03.html" title="1.3.&nbsp;Client Project Wizard"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1993"></a>1.2.&nbsp;Fixture Project Wizard</h3></div></div></div><p>The fixture project wizard is used to create a new fixture
+        project containing fixtures to set up demo and test data.</p><p>To invoke the wizard, use:
+        <code class="computeroutput">File&gt;New...&gt;Project...&gt;Naked
+        Objects&gt;Fixture Project</code>
+            </p><div class="mediaobject"><img src="resource/fixture-project-wizard-page-1.gif"></div><p>As for the application project wizard, this wizard is based in
+        large part on Eclipse's own plug-in project wizard. However the first
+        page (shown above) is new, requiring the developer to enter the
+        application project containing the domain objects that this project
+        will provide the fixtures for. This application project name is used
+        to derive the name of the fixture project itself, as well as setting
+        up the classpath of the project.</p><p>Whereas the classpath of the application project is minimal, the
+        classpath for the fixture project is somewhat larger. In particular it
+        depends upon a number of projects from the NOF runtime. The primary
+        reason for this is that the JavaFixture superclass is part of the NOF,
+        rather than in the <a href="ch02s03.html#NO-Applib">Naked Objects application
+        library</a>.</p><p>As well as setting up the skeleton of the project, the wizard
+        also creates fixtures for the domain classes of the example created by
+        the application project wizard.</p></div></body></html>
