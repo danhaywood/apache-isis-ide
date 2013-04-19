@@ -1,5 +1,7 @@
-apacheisis-ide
-==============
+apache-isis-ide
+===============
+
+**This project is alpha quality**
 
 This project provides a set of plugins for Eclipse to help write domain-driven applications using [Apache Isis](http://incubator.apache.org/isis "Apache Isis").
 
@@ -9,7 +11,7 @@ There are three main components:
 - views
 - code folding
 
-The plugin archive site can be downloaded [here](https://raw.github.com/danhaywood/apacheisis-ide/master/downloads/com.halware.nakedide.eclipse.site.zip "here").
+The plugin archive site can be downloaded [here](https://raw.github.com/danhaywood/apache-isis-ide/master/downloads/com.halware.nakedide.eclipse.site.zip "here").
 
 Enhanced Refactoring
 ====================
@@ -31,7 +33,7 @@ Outline View
 
 The outline is a read-only view of all of the class members of the current domain object, indicating whether each member has supporting methods or not.  Double clicking on any row moves the cursor to that member in the editor.
 
-![Outline View](https://raw.github.com/danhaywood/apacheisis-ide/master/website/view-outline.png)
+![Outline View](https://raw.github.com/danhaywood/apache-isis-ide/master/website/view-outline.png)
 
 where:
 
@@ -55,7 +57,7 @@ Properties View
 
 The properties view is a read/write view on the annotations relevant to properties of any type.  Double clicking on any row moves the cursor to that member in the editor.
 
-![Properties View](https://raw.github.com/danhaywood/apacheisis-ide/master/website/view-properties.png)
+![Properties View](https://raw.github.com/danhaywood/apache-isis-ide/master/website/view-properties.png)
 
 where:
 
@@ -81,7 +83,7 @@ String Properties View
 
 The string properties view is a read/write view on the annotations relevant to only properties of type java.lang.String.  Double clicking on any row moves the cursor to that member in the editor.
 
-![String Properties View](https://raw.github.com/danhaywood/apacheisis-ide/master/website/view-string-properties.png)
+![String Properties View](https://raw.github.com/danhaywood/apache-isis-ide/master/website/view-string-properties.png)
 
 where:
 
@@ -102,7 +104,7 @@ Collections View
 
 The collections view is a read/write view on the annotations relevant to collections.  Double clicking on any row moves the cursor to that collection in the editor.
 
-![Collections View](https://raw.github.com/danhaywood/apacheisis-ide/master/website/view-collections.png)
+![Collections View](https://raw.github.com/danhaywood/apache-isis-ide/master/website/view-collections.png)
 
 where:
 
@@ -124,7 +126,7 @@ Actions View
 
 The actions view is a read/write view on the annotations relevant to actions, also showing annotations for the actions' parameters (if any).  Double clicking on any row moves the cursor to that action in the editor.
 
-![Actions View](https://raw.github.com/danhaywood/apacheisis-ide/master/website/view-actions.png)
+![Actions View](https://raw.github.com/danhaywood/apache-isis-ide/master/website/view-actions.png)
 
 where, for the action:
 
@@ -168,7 +170,7 @@ The code folding is derived from the Coffee Bytes folding plugin, fixed to run w
 
 Configure using the Preferences menu.
 
-![Outline View](https://raw.github.com/danhaywood/apacheisis-ide/master/website/codefolding-1.png)
+![Outline View](https://raw.github.com/danhaywood/apache-isis-ide/master/website/codefolding-1.png)
 
-![Outline View](https://raw.github.com/danhaywood/apacheisis-ide/master/website/codefolding-2.png)
+![Outline View](https://raw.github.com/danhaywood/apache-isis-ide/master/website/codefolding-2.png)
 
